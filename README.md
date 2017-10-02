@@ -1,2 +1,2 @@
 # TextLinkyTool
-A Mozilla Firefox extension.A useful tool for web links.
+A Mozilla Firefox extension. A useful tool for web links.

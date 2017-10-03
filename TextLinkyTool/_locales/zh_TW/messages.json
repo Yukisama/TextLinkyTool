@@ -1,0 +1,45 @@
+{
+    "copy_link_name": {
+        "message": "複製連結名稱"
+    },
+
+    "copy_link_url": {
+        "message": "複製連結網址"
+    },
+
+    "copy_selected_puretext": {
+        "message": "複製選取範圍純文字"
+    },
+
+    "copy_selected_htmltext": {
+        "message": "複製選取範圍HTML文字"
+    },
+
+    "copy_selected_urls": {
+        "message": "複製選取範圍連結"
+    },
+
+    "open_selected_urls": {
+        "message": "開啟選取範圍連結"
+    },
+
+    "copy_page_puretext": {
+        "message": "複製頁面範圍純文字"
+    },
+
+    "copy_page_htmltext": {
+        "message": "複製頁面範圍HTML文字"
+    },
+
+    "copy_page_urls": {
+        "message": "複製頁面範圍連結"
+    },
+
+    "open_page_urls": {
+        "message": "開啟頁面範圍連結"
+    },
+
+    "tabs_limit_alert": {
+        "message": "過多連結,只開啟前10頁"
+    }
+}

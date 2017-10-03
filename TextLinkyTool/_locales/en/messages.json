@@ -1,0 +1,45 @@
+{
+    "copy_link_name": {
+        "message": "Copy Link Name"
+    },
+
+    "copy_link_url": {
+        "message": "Copy Link URL"
+    },
+
+    "copy_selected_puretext": {
+        "message": "Copy selected pure text"
+    },
+
+    "copy_selected_htmltext": {
+        "message": "Copy selected HTML text"
+    },
+
+    "copy_selected_urls": {
+        "message": "Copy selected urls"
+    },
+
+    "open_selected_urls": {
+        "message": "Opeb selected Urls"
+    },
+
+    "copy_page_puretext": {
+        "message": "Copy page pure text"
+    },
+
+    "copy_page_htmltext": {
+        "message": "Copy page HTML text"
+    },
+
+    "copy_page_urls": {
+        "message": "Copy page urls"
+    },
+
+    "open_page_urls": {
+        "message": "Open page urls"
+    },
+
+    "tabs_limit_alert": {
+        "message": "Too many urls,only open the top 10 tabs."
+    }
+}

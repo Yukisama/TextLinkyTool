@@ -16,11 +16,11 @@
     },
 
     "copy_selected_urls": {
-        "message": "Copy selected urls"
+        "message": "Copy selected URLs"
     },
 
     "open_selected_urls": {
-        "message": "Opeb selected Urls"
+        "message": "Open selected URLs"
     },
 
     "copy_page_puretext": {
@@ -32,14 +32,14 @@
     },
 
     "copy_page_urls": {
-        "message": "Copy page urls"
+        "message": "Copy page URLs"
     },
 
     "open_page_urls": {
-        "message": "Open page urls"
+        "message": "Open page URLs"
     },
 
     "tabs_limit_alert": {
-        "message": "Too many urls,only open the top 10 tabs."
+        "message": "Too many URLs,only open the top 10 tabs."
     }
 }

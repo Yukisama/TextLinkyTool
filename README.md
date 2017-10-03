@@ -11,6 +11,6 @@ Copy selected context to pure text.
 
 Copy selected context to HTML text.
 
-Analyze selected context link urls.
+Analyze selected context link URLs.
 
-Open page link urls to browser tabs.
+Open page link URLs to browser tabs.

@@ -32,17 +32,30 @@ function copySelectedHtmlText(){
 
 //analyze selected context link urls
 function getSelectedUrls() {
-    let regex = new RegExp(/((ftp|https?):\/\/(www\.)?)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/=]*)/gi);
     let body = getSelectedObject().innerHTML;
-    let matches = body.match(regex);
-    if (matches===null) { matches=[]; }
+    console.log(body);
+    let regex1 = new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])(.*?)\1/gi);
+    let imglist = body.match(regex1);
+    if (imglist===null) { imglist=[]; } else {
+        imglist=imglist.map((s)=>{return s.replace(/<img\s+(?:[^>]*?\s+)?src=(["'])/i,'').replace(/["']$/,'');}); 
+        body=body.replace(regex1,'');
+    }    
     let regex2 = new RegExp(/<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/gi);
-    let alist = body.match(regex2).map((s)=>{return s.replace(/<a\s+(?:[^>]*?\s+)?href=(["'])/,'').replace('"','');});
-    if (alist===null) { alist=[]; }
-    let urls = matches.concat(alist).map((h)=>{
-        var link = document.createElement("a");
-        link.href = h;
-        return (link.protocol+"//"+link.host+link.pathname+link.search+link.hash);
+    let alist = body.match(regex2);
+    if (alist===null) { alist=[]; } else { 
+        alist=alist.map((s)=>{return s.replace(/<a\s+(?:[^>]*?\s+)?href=(["'])/i,'').replace(/["']$/,'');});
+        body=body.replace(regex2,''); 
+    }
+    let regex3 = new RegExp(/((ftp|https?):\/\/(www\.)?)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/=]*)/gi);    
+    let matches = body.match(regex3);
+    if (matches===null) { matches=[]; }
+    let urls = imglist.concat(alist).concat(matches).map((h)=>{
+        let a = document.createElement("a");
+        a.href = h;
+        let l = (a.protocol+"//"+a.host+a.pathname+a.search+a.hash);
+        let area = document.createElement('textarea');
+        area.innerHTML = l;
+        return area.value;
     }).filter((value, index, self) => { return self.indexOf(value) === index; });
     return urls;
 }

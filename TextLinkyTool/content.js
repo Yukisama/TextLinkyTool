@@ -33,7 +33,6 @@ function copySelectedHtmlText(){
 //analyze selected context link urls
 function getSelectedUrls() {
     let body = getSelectedObject().innerHTML;
-    console.log(body);
     let regex1 = new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])(.*?)\1/gi);
     let imglist = body.match(regex1);
     if (imglist===null) { imglist=[]; } else {
@@ -49,12 +48,11 @@ function getSelectedUrls() {
     let regex3 = new RegExp(/((ftp|https?):\/\/(www\.)?)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/=]*)/gi);    
     let matches = body.match(regex3);
     if (matches===null) { matches=[]; }
+    let a = document.createElement("a");
+    let area = document.createElement('textarea');
     let urls = imglist.concat(alist).concat(matches).map((h)=>{
-        let a = document.createElement("a");
         a.href = h;
-        let l = (a.protocol+"//"+a.host+a.pathname+a.search+a.hash);
-        let area = document.createElement('textarea');
-        area.innerHTML = l;
+        area.innerHTML = (a.protocol+"//"+a.host+a.pathname+a.search+a.hash);
         return area.value;
     }).filter((value, index, self) => { return self.indexOf(value) === index; });
     return urls;

@@ -1,0 +1,33 @@
+1.0.3_2017-10-05
+Add zh_CN locale. [Thanks to YFdyh000]
+Modify zh_TW locale.
+
+1.0.2_2017-10-03
+relative URLs can be correctly analyzed.
+
+1.0.1_2017-10-03
+Modify en locale.
+
+1.0.0_2017-10-02
+------
+fix a few bugs.
+disable "Open page URLs" feature.
+Release to AMO.
+
+1.0beta_2017-10-01
+------
+Langurages complated:
+1.en
+2.zh_TW
+
+Features complated:
+1.Copy Link Name
+2.Copy Link URL
+3.Copy selected pure text
+4.Copy selected HTML text
+5.Copy selected URLs
+6.Open selected URLs
+7.Copy page pure text
+8.Copy page HTML text
+9.Copy page URLs
+10.Open page URLs

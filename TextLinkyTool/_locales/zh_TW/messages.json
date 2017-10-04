@@ -12,7 +12,7 @@
     },
 
     "copy_selected_htmltext": {
-        "message": "複製選取範圍HTML文字"
+        "message": "複製選取範圍 HTML 文字"
     },
 
     "copy_selected_urls": {
@@ -28,7 +28,7 @@
     },
 
     "copy_page_htmltext": {
-        "message": "複製頁面範圍HTML文字"
+        "message": "複製頁面範圍 HTML 文字"
     },
 
     "copy_page_urls": {

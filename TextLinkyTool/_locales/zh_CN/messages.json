@@ -1,0 +1,45 @@
+{
+    "copy_link_name": {
+        "message": "复制链接名称"
+    },
+
+    "copy_link_url": {
+        "message": "复制链接网址"
+    },
+
+    "copy_selected_puretext": {
+        "message": "复制选定纯文本"
+    },
+
+    "copy_selected_htmltext": {
+        "message": "复制选定 HTML 文本"
+    },
+
+    "copy_selected_urls": {
+        "message": "复制选定网址"
+    },
+
+    "open_selected_urls": {
+        "message": "打开选定网址"
+    },
+
+    "copy_page_puretext": {
+        "message": "复制页面纯文本"
+    },
+
+    "copy_page_htmltext": {
+        "message": "复制页面 HTML 文本"
+    },
+
+    "copy_page_urls": {
+        "message": "复制页面网址"
+    },
+
+    "open_page_urls": {
+        "message": "打开页面网址"
+    },
+
+    "tabs_limit_alert": {
+        "message": "网址太多，最多打开10个标签页。"
+    }
+}

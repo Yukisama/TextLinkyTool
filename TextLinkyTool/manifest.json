@@ -4,12 +4,10 @@
   "version": "1.0.4",
   "author": "Yuki GUO",
   "homepage_url": "https://github.com/Yukisama/TextLinkyTool",
-
   "applications": {
     "gecko": {
-      "id": "TextLinkyTool@yukisama", 
-      "strict_min_version": "56.0"
-    }
+      "id": "{3efee51a-7d3b-4412-a889-addc6ff6276b}", 
+      "strict_min_version": "56.0"    }
   },
   "description": "A useful tool for web links.",
   "default_locale": "en",

@@ -40,6 +40,46 @@
     },
 
     "tabs_limit_alert": {
-        "message": "网址太多，最多打开10个标签页。"
+        "message": "网址太多，最多打开{0}个标签页。"
+    },
+
+    "max_tabs_limit": {
+        "message": "最多打开标签页: "
+    },
+
+    "save_settings": {
+        "message": "存档"
+    },
+    
+    "save_ok":{
+        "message": "数据已保存"
+    },
+
+    "copy_selected_image_urls": {
+        "message": "复制选定图片网址"
+    },
+
+    "show_selected_images": {
+        "message": "打开选定图片网址"
+    },
+
+    "copy_page_image_urls": {
+        "message": "复制页面图片网址"
+    },
+
+    "show_page_images": {
+        "message": "打开页面图片网址"
+    },
+
+    "copy_tab_name": {
+        "message": "复制标签页名称"
+    },
+
+    "copy_tab_url": {
+        "message": "复制标签页网址"
+    },
+    
+    "copy_image_url":{
+        "message": "复制图片网址"
     }
 }

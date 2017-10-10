@@ -8,38 +8,78 @@
     },
 
     "copy_selected_puretext": {
-        "message": "複製選取範圍純文字"
+        "message": "複製選取範圍為純文字"
     },
 
     "copy_selected_htmltext": {
-        "message": "複製選取範圍 HTML 文字"
+        "message": "複製選取範圍為 HTML 文字"
     },
 
     "copy_selected_urls": {
-        "message": "複製選取範圍連結"
+        "message": "複製選取範圍出現的網址"
     },
 
     "open_selected_urls": {
-        "message": "開啟選取範圍連結"
+        "message": "開啟選取範圍出現的網址"
     },
 
     "copy_page_puretext": {
-        "message": "複製頁面範圍純文字"
+        "message": "複製全頁面為純文字"
     },
 
     "copy_page_htmltext": {
-        "message": "複製頁面範圍 HTML 文字"
+        "message": "複製全頁面為 HTML 文字"
     },
 
     "copy_page_urls": {
-        "message": "複製頁面範圍連結"
+        "message": "複製全頁面出現的網址"
     },
 
     "open_page_urls": {
-        "message": "開啟頁面範圍連結"
+        "message": "開啟全頁面出現的網址"
     },
 
     "tabs_limit_alert": {
-        "message": "過多連結,只開啟前10頁"
+        "message": "開啟過多分頁,只開啟前{0}頁"
+    },
+
+    "max_tabs_limit": {
+        "message": "開啟分頁最大數量："
+    },
+
+    "save_settings": {
+        "message": "存檔"
+    },
+    
+    "save_ok":{
+        "message": "存檔完成"
+    },
+
+    "copy_selected_image_urls": {
+        "message": "複製選取範圍出現的圖片網址"
+    },
+
+    "show_selected_images": {
+        "message": "開啟選取範圍出現的圖片網址"
+    },
+
+    "copy_page_image_urls": {
+        "message": "複製全頁面出現的圖片網址"
+    },
+
+    "show_page_images": {
+        "message": "開啟全頁面出現的圖片網址"
+    },
+
+    "copy_tab_name": {
+        "message": "複製頁籤名稱"
+    },
+
+    "copy_tab_url": {
+        "message": "複製頁籤網址"
+    },
+    
+    "copy_image_url":{
+        "message": "複製圖片網址"
     }
 }

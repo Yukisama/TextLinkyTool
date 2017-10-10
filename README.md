@@ -1,5 +1,7 @@
-# TextLinkyTool
-A Browser extension. A useful tool for web links.
+Text Linky Tool
+A useful tool for web links.
+Firefox Extension：https://addons.mozilla.org/addon/text-linky-tool/
+Chrome Extension：not yet. but soon.
 
 Features:
 
@@ -13,4 +15,4 @@ Copy selected context to HTML text.
 
 Analyze selected context link URLs.
 
-Open page link URLs to browser tabs.
+Open ( image / page ) URLs to new tabs.

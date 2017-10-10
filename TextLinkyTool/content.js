@@ -1,10 +1,27 @@
-//copy text to clipboard. This function is modified from "https://github.com/mdn/webextensions-examples/tree/master/context-menu-copy-link-with-types"
+//define area
+let defaultTltSetting = { "openPagesLimit":10 };
+
+//string.format
+String.prototype.format = function () {
+    let formatted = this;
+    for (let i = 0; i < arguments.length; i++) {
+        let regexp = new RegExp('\\{'+i+'\\}', 'gi');
+        formatted = formatted.replace(regexp, arguments[i]);
+    }
+    return formatted;
+};
+
+//copy text to clipboard
 function copyToClipboard(text) {
+    console.log('copyToClipboard');
+    console.log(text);
     function oncopy(event) {
+        console.log('oncopy');
         document.removeEventListener("copy", oncopy, true);
         event.stopImmediatePropagation();
-        event.preventDefault();
+        event.preventDefault();  
         event.clipboardData.setData("text/plain", text);
+        console.log(text);
     }
     document.addEventListener("copy", oncopy, true);
     document.execCommand("copy");
@@ -25,12 +42,12 @@ function copySelectedPureText(){
     copyToClipboard(getSelectedObject().innerText);
 }
 
-//Copy selected context to HTML text
+//copy selected context to HTML text
 function copySelectedHtmlText(){
     copyToClipboard(getSelectedObject().innerHTML);
 }
 
-//analyze selected context link urls
+//analyze selected context link URLs
 function getSelectedUrls() {
     let body = getSelectedObject().innerHTML;
     let regex1 = new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])(.*?)\1/gi);
@@ -58,14 +75,42 @@ function getSelectedUrls() {
     return urls;
 }
 
-//copy link urls
+//copy link URLs
 function copySelectedUrls(){
-    copyToClipboard(getSelectedUrls().toString().replace(/\,/ig,'\n'));
+    copyToClipboard(getSelectedUrls().toString().replace(/\,/gi,'\n'));
 }
 
-//open link urls to browser tabs
-function openSelectedUrls(){
+//open link URLs to browser tabs
+function openSelectedUrls(){    
 	let urls=getSelectedUrls();
-    if (urls.length>10) { urls=urls.slice(0,10); alert(browser.i18n.getMessage("tabs_limit_alert")); }
-    browser.runtime.sendMessage(urls);
+    browser.storage.local.get("userTltSetting").then((tlt)=>{
+        if ((typeof tlt === 'undefined') || (tlt === null)) { tlt={}; }
+        if ((typeof tlt["userTltSetting"] === 'undefined') || (tlt["userTltSetting"] === null)){ tlt["userTltSetting"]=defaultTltSetting; }
+        
+        let limit = Number(tlt.userTltSetting.openPagesLimit);
+        if (urls.length>limit) { urls=urls.slice(0,limit); alert(browser.i18n.getMessage("tabs_limit_alert").format(tlt.userTltSetting.openPagesLimit));}
+        browser.runtime.sendMessage(urls);
+    });
+}
+
+//filter images URLs
+function getSelectedImageUrls(){
+    let regex = new RegExp(/\.(bmp|gif|jpe?g|png|tif?f|svg|webp)$/gi);
+    let urls = getSelectedUrls().filter((value, index, self) => { return regex.test(value); });
+    return urls;
+}
+
+//copy images link URLs
+function copySelectedImageUrls(){
+    copyToClipboard(getSelectedImageUrls().toString().replace(/\,/ig,'\n'));
+}
+
+//show images
+function showSelectedImages(){
+    let urls = getSelectedImageUrls();
+    let html = '';
+    urls.forEach(function(value) { 
+        html += '<a href="{0}"><img alt="{0}" src="{0}" /></a><br />'.format(value);
+    });
+    document.querySelector('body').innerHTML = html;
 }

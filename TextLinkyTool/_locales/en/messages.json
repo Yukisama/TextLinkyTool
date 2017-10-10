@@ -40,6 +40,46 @@
     },
 
     "tabs_limit_alert": {
-        "message": "Too many URLs,only open the top 10 tabs."
+        "message": "Too many URLs,only open the top {0} tabs."
+    },
+    
+    "max_tabs_limit": {
+        "message": "Max tabs limit at once open: "
+    },
+
+    "save_settings":{
+        "message": "Save settings"
+    },
+    
+    "save_ok":{
+        "message": "Data saved."
+    },
+
+    "copy_selected_image_urls":{
+        "message": "Copy selected image urls"
+    },
+
+    "show_selected_images":{
+        "message": "Show selected images"
+    },
+
+    "copy_page_image_urls":{
+        "message": "Copy page image urls"
+    },
+
+    "show_page_images":{
+        "message": "Show page images"
+    },
+    
+    "copy_tab_name":{
+        "message": "Copy Tab Name"
+    },
+    
+    "copy_tab_url":{
+        "message": "Copy Tab URL"
+    },
+    
+    "copy_image_url":{
+        "message": "Copy Image URL"
     }
 }

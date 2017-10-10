@@ -1,13 +1,14 @@
 {
   "manifest_version": 2,
   "name": "Text Linky Tool",
-  "version": "1.0.3",  
+  "version": "1.0.4",
   "author": "Yuki GUO",
   "homepage_url": "https://github.com/Yukisama/TextLinkyTool",
- 
+
   "applications": {
     "gecko": {
-	  "strict_min_version": "56.0"
+      "id": "TextLinkyTool@yukisama", 
+      "strict_min_version": "56.0"
     }
   },
   "description": "A useful tool for web links.",
@@ -15,20 +16,34 @@
 
   "icons": {
     "48": "icons/icon48.png",
-	"96": "icons/icon96.png"
+    "96": "icons/icon96.png"
   },
-  
+
   "permissions": [
-	"<all_urls>",
-	"menus",  
-	"contextMenus",
-	"tabs",
-	"activeTab",
-	"clipboardWrite"
+    "<all_urls>",
+    "menus",
+    "contextMenus",
+    "tabs",
+    "activeTab",
+    "clipboardWrite",
+    "storage"
   ],
-  
+
   "background": {
-	"scripts": ["background.js"]
+    "scripts": ["background.js"]
+  },
+
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["<all_urls>"],
+      "all_frames": true
+    }
+  ],
+
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
   }
 
 }

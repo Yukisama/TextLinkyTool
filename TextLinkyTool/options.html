@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    #inpOpenPagesLimit { width: 4em; }
+    #lblSaved { color:red; visibility: hidden; }
+  </style>
+</head>
+
+<body>
+  <form>
+    <label data-i18n-msg="max_tabs_limit">max tabs limit at once open</label>
+    <input type="number" id="inpOpenPagesLimit" min="1" max="999" value="10" /><br /><br />
+    <button type="submit" data-i18n-msg="save_settings">save</button>
+  </form>
+  <label id="lblSaved" data-i18n-msg="save_ok">Data saved.</label>
+  <script src="options.js"></script>
+</body>
+
+</html>

@@ -42,6 +42,14 @@
     "tabs_limit_alert": {
         "message": "网址太多，最多打开{0}个标签页。"
     },
+    
+    "link_custom_format": {
+        "message": "链接格式化: "
+    },
+    
+    "tab_custom_format": {
+        "message": "标签页格式化: "
+    },
 
     "max_tabs_limit": {
         "message": "最多打开标签页: "
@@ -81,5 +89,13 @@
     
     "copy_image_url":{
         "message": "复制图片网址"
+    },
+    
+    "copy_link_format_text": {
+        "message": "复制链接格式化文本"
+    },
+    
+    "copy_tab_format_text": {
+        "message": "复制标签页格式化文本"
     }
 }

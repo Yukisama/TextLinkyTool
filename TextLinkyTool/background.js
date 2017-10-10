@@ -16,7 +16,9 @@ const menuids = {
     show_page_images: "14",
     copy_tab_name: "15",
     copy_tab_url: "16",
-    copy_image_url: "17"
+    copy_image_url: "17",
+    copy_link_format_text: "18",
+    copy_tab_format_text: "19"
 }
 
 //Menus Combine
@@ -42,6 +44,11 @@ browser.contextMenus.create({
 browser.contextMenus.create({
     id: menuids.copy_link_url,
     title: browser.i18n.getMessage("copy_link_url"),
+    contexts: ["link"]
+});
+browser.contextMenus.create({
+    id: menuids.copy_link_format_text,
+    title: browser.i18n.getMessage("copy_link_format_text"),
     contexts: ["link"]
 });
 browser.contextMenus.create({
@@ -129,15 +136,20 @@ browser.contextMenus.create({
     title: browser.i18n.getMessage("copy_tab_url"),
     contexts: ["tab"]
 });
+browser.contextMenus.create({
+    id: menuids.copy_tab_format_text,
+    title: browser.i18n.getMessage("copy_tab_format_text"),
+    contexts: ["tab"]
+});
 
 //Main Methods
 browser.contextMenus.onClicked.addListener((info, tab) => {
     switch (info.menuItemId) {
         case menuids.copy_link_name:
-            executeCode(`copyToClipboard('${info.linkText}')`, tab);
+            executeCode(`copyToClipboard(${JSON.stringify(info.linkText)})`, tab);
             break;
         case menuids.copy_link_url:
-            executeCode(`copyToClipboard('${info.linkUrl}')`, tab);
+            executeCode(`copyToClipboard(${JSON.stringify(info.linkUrl)})`, tab);
             break;
         case menuids.copy_selected_puretext:
         case menuids.copy_page_puretext:
@@ -164,17 +176,22 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
             executeCode("showSelectedImages()", tab);
             break;
         case menuids.copy_tab_name:
-            executeCode(`copyToClipboard('${tab.title}')`, tab);
+            executeCode(`copyToClipboard(${JSON.stringify(tab.title)})`, tab);
             break;
         case menuids.copy_tab_url:
-            executeCode(`copyToClipboard('${tab.url}')`, tab);
-            break;
+            executeCode(`copyToClipboard(${JSON.stringify(tab.url)})`, tab);
+            break;           
         case menuids.copy_image_url:
-            executeCode(`copyToClipboard('${info.srcUrl}')`, tab);
+            executeCode(`copyToClipboard(${JSON.stringify(info.srcUrl)})`, tab);
+            break;
+        case menuids.copy_link_format_text:
+            executeCode(`copyLinkFormatText(${JSON.stringify(info.linkText)},${JSON.stringify(info.linkUrl)})`, tab);
+            break;
+        case menuids.copy_tab_format_text:
+            executeCode(`copyTabFormatText(${JSON.stringify(tab.title)},${JSON.stringify(tab.url)})`, tab);
             break;
         default:
             console.log('no use');
-            break;
     }
 });
 
@@ -183,14 +200,24 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
 function executeCode(execode, tab) {
     browser.tabs.executeScript(tab.id, {
         code: execode
-    }).then(() => { console.log("Code executed."); }, (msg) => { console.error("Failed to executeCode: " + msg); });
+    }).then(() => { console.log("Code executed."); }, (errmsg) => { console.error("Failed to executeCode: " + errmsg); });
 }
 
-//open tabs.
-browser.runtime.onMessage.addListener(function (urls) {
-    urls.forEach(function (url) {
-        browser.tabs.create({
-            url: url
-        });
-    });
+//get content message
+browser.runtime.onMessage.addListener((msg) => {
+    switch (msg.cmd)
+    {
+        case 'openTabs':
+            msg.data.forEach((u) => { 
+                browser.tabs.create({ url: u });
+            });
+            break;
+        case 'showImgs':
+            browser.tabs.create({url:"/imglist.html"}).then((tab) => {
+                browser.tabs.sendMessage(tab.id,msg).then(() => { console.log("showImgs executed."); }, (errmsg) => { console.error("Failed to showImgs: " + errmsg); }); 
+            });
+            break;
+        default:
+            console.log('no use');
+    }
 });

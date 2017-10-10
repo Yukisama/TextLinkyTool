@@ -42,6 +42,14 @@
     "tabs_limit_alert": {
         "message": "開啟過多分頁,只開啟前{0}頁"
     },
+    
+    "link_custom_format": {
+        "message": "連結自訂格式："
+    },
+    
+    "tab_custom_format": {
+        "message": "頁籤自訂格式："
+    },
 
     "max_tabs_limit": {
         "message": "開啟分頁最大數量："
@@ -81,5 +89,13 @@
     
     "copy_image_url":{
         "message": "複製圖片網址"
+    },
+    
+    "copy_link_format_text": {
+        "message": "複製連結格式化文字"
+    },
+    
+    "copy_tab_format_text": {
+        "message": "複製頁籤格式化文字"
     }
 }

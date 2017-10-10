@@ -1,5 +1,5 @@
-//define area
-let defaultTltSetting = { "openPagesLimit":10 };
+//Declarations
+let defaultTltSetting = { "openPagesLimit":10, "linkCustomFormat":"Name:[[name]][[n]]Url:[[url]]", "tabCustomFormat":"Name:[[name]][[n]]Url:[[url]]" };
 
 //string.format
 String.prototype.format = function () {
@@ -13,15 +13,11 @@ String.prototype.format = function () {
 
 //copy text to clipboard
 function copyToClipboard(text) {
-    console.log('copyToClipboard');
-    console.log(text);
     function oncopy(event) {
-        console.log('oncopy');
         document.removeEventListener("copy", oncopy, true);
         event.stopImmediatePropagation();
         event.preventDefault();  
         event.clipboardData.setData("text/plain", text);
-        console.log(text);
     }
     document.addEventListener("copy", oncopy, true);
     document.execCommand("copy");
@@ -81,7 +77,7 @@ function copySelectedUrls(){
 }
 
 //open link URLs to browser tabs
-function openSelectedUrls(){    
+function openSelectedUrls(){
 	let urls=getSelectedUrls();
     browser.storage.local.get("userTltSetting").then((tlt)=>{
         if ((typeof tlt === 'undefined') || (tlt === null)) { tlt={}; }
@@ -89,7 +85,7 @@ function openSelectedUrls(){
         
         let limit = Number(tlt.userTltSetting.openPagesLimit);
         if (urls.length>limit) { urls=urls.slice(0,limit); alert(browser.i18n.getMessage("tabs_limit_alert").format(tlt.userTltSetting.openPagesLimit));}
-        browser.runtime.sendMessage(urls);
+        browser.runtime.sendMessage({cmd:'openTabs',data:urls});
     });
 }
 
@@ -108,9 +104,29 @@ function copySelectedImageUrls(){
 //show images
 function showSelectedImages(){
     let urls = getSelectedImageUrls();
-    let html = '';
-    urls.forEach(function(value) { 
-        html += '<a href="{0}"><img alt="{0}" src="{0}" /></a><br />'.format(value);
+    browser.runtime.sendMessage({cmd:'showImgs',data:urls});
+}
+
+//copy link format text
+function copyLinkFormatText(name,url){
+    browser.storage.local.get("userTltSetting").then((tlt)=>{
+        if ((typeof tlt === 'undefined') || (tlt === null)) { tlt={}; }
+        if ((typeof tlt["userTltSetting"] === 'undefined') || (tlt["userTltSetting"] === null)){ tlt["userTltSetting"]=defaultTltSetting; }
+        
+        let formatRule = tlt.userTltSetting.linkCustomFormat.replace(/\[\[name\]\]/ig,'{0}').replace(/\[\[url\]\]/ig,'{1}').replace(/\[\[n\]\]/ig,'{2}');
+        let formatText = formatRule.format(name,url,'\n');
+        copyToClipboard(formatText);
     });
-    document.querySelector('body').innerHTML = html;
+}
+
+//copy tab format text
+function copyTabFormatText(name,url){
+    browser.storage.local.get("userTltSetting").then((tlt)=>{
+        if ((typeof tlt === 'undefined') || (tlt === null)) { tlt={}; }
+        if ((typeof tlt["userTltSetting"] === 'undefined') || (tlt["userTltSetting"] === null)){ tlt["userTltSetting"]=defaultTltSetting; }
+        
+        let formatRule = tlt.userTltSetting.tabCustomFormat.replace(/\[\[name\]\]/ig,'{0}').replace(/\[\[url\]\]/ig,'{1}').replace(/\[\[n\]\]/ig,'{2}');
+        let formatText = formatRule.format(name,url,'\n');
+        copyToClipboard(formatText);
+    });
 }

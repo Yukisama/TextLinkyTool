@@ -43,6 +43,14 @@
         "message": "Too many URLs,only open the top {0} tabs."
     },
     
+    "link_custom_format": {
+        "message": "Link custom format: "
+    },
+    
+    "tab_custom_format": {
+        "message": "Tab custom format: "
+    },
+    
     "max_tabs_limit": {
         "message": "Max tabs limit at once open: "
     },
@@ -81,5 +89,13 @@
     
     "copy_image_url":{
         "message": "Copy Image URL"
+    },
+    
+    "copy_link_format_text": {
+        "message": "Copy Link format text"
+    },
+    
+    "copy_tab_format_text": {
+        "message": "Copy Tab format text"
     }
 }

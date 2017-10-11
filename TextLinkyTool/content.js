@@ -1,5 +1,8 @@
 //Declarations
-let defaultTltSetting = { "openPagesLimit":10, "linkCustomFormat":"Name:[[name]][[n]]Url:[[url]]", "tabCustomFormat":"Name:[[name]][[n]]Url:[[url]]" };
+let defaultTltSetting = { "openPagesLimit":10
+,"linkCustomFormat":"Name:[[name]][[n]]Url:[[url]]"
+,"tabCustomFormat":"Name:[[name]][[n]]Url:[[url]]"
+,"toolbarButtonAction":"14" };
 
 //string.format
 String.prototype.format = function () {
@@ -128,5 +131,24 @@ function copyTabFormatText(name,url){
         let formatRule = tlt.userTltSetting.tabCustomFormat.replace(/\[\[name\]\]/ig,'{0}').replace(/\[\[url\]\]/ig,'{1}').replace(/\[\[n\]\]/ig,'{2}');
         let formatText = formatRule.format(name,url,'\n');
         copyToClipboard(formatText);
+    });
+}
+
+//toolbar button action
+function toolbarButtonAction(){
+    browser.storage.local.get("userTltSetting").then((tlt)=>{
+        if ((typeof tlt === 'undefined') || (tlt === null)) { tlt={}; }
+        if ((typeof tlt["userTltSetting"] === 'undefined') || (tlt["userTltSetting"] === null)){ tlt["userTltSetting"]=defaultTltSetting; }
+       
+        switch (tlt.userTltSetting.toolbarButtonAction)
+        {
+            case "7": copySelectedPureText(); break;
+            case "8": copySelectedHtmlText(); break;
+            case "9": copySelectedUrls(); break;
+            case "10": openSelectedUrls(); break;
+            case "13": copySelectedImageUrls(); break;
+            case "14": showSelectedImages(); break;
+            default: console.log('no use');
+        }
     });
 }

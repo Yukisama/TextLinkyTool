@@ -43,6 +43,10 @@
         "message": "网址太多，最多打开{0}个标签页。"
     },
     
+    "toolbar_button_action": {
+        "message": "按钮动作: "
+    },
+    
     "link_custom_format": {
         "message": "链接格式化: "
     },

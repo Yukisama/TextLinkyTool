@@ -194,6 +194,9 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
             console.log('no use');
     }
 });
+browser.browserAction.onClicked.addListener((tab) => {
+    executeCode("toolbarButtonAction()", tab);
+});
 
 //Common Method
 //execute script on page

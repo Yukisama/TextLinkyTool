@@ -1,5 +1,8 @@
 //Declarations
-let defaultTltSetting = { "openPagesLimit":10, "linkCustomFormat":"Name:[[name]][[n]]Url:[[url]]", "tabCustomFormat":"Name:[[name]][[n]]Url:[[url]]" };
+let defaultTltSetting = { "openPagesLimit":10
+    ,"linkCustomFormat":"Name:[[name]][[n]]Url:[[url]]"
+    ,"tabCustomFormat":"Name:[[name]][[n]]Url:[[url]]"
+    ,"toolbarButtonAction":"14" };
 
 //i18n message support for page elements
 let eles = Array.from(document.querySelectorAll('[data-i18n-msg]'));
@@ -14,6 +17,7 @@ function getOptionSettings() {
         document.querySelector("#inpOpenPagesLimit").value = tlt.userTltSetting.openPagesLimit;
         document.querySelector("#inpLinkCustomFormat").value = tlt.userTltSetting.linkCustomFormat;
         document.querySelector("#inpTabCustomFormat").value = tlt.userTltSetting.tabCustomFormat;
+        document.querySelector("#selToolbarButtonAction").value = tlt.userTltSetting.toolbarButtonAction;
     });
 }
 
@@ -21,7 +25,8 @@ function getOptionSettings() {
 function setOptionSettings(e) {
     let tlt={"openPagesLimit":document.querySelector("#inpOpenPagesLimit").value
             ,"linkCustomFormat":document.querySelector("#inpLinkCustomFormat").value
-            ,"tabCustomFormat":document.querySelector("#inpTabCustomFormat").value};
+            ,"tabCustomFormat":document.querySelector("#inpTabCustomFormat").value
+            ,"toolbarButtonAction":document.querySelector("#selToolbarButtonAction").value};
     browser.storage.local.set({"userTltSetting":tlt});
     document.querySelector("#lblSaved").style.visibility="visible";
     e.preventDefault();
@@ -37,3 +42,4 @@ document.addEventListener('DOMContentLoaded', getOptionSettings);
 document.querySelector("form").addEventListener("submit", setOptionSettings);
 document.querySelectorAll("form input").forEach((e) => e.addEventListener("change",clearSavedMessage));
 document.querySelectorAll("form input").forEach((e) => e.addEventListener("keypress",clearSavedMessage));
+document.querySelectorAll("select").forEach((e) => e.addEventListener("change",clearSavedMessage));

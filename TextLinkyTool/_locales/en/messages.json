@@ -43,6 +43,10 @@
         "message": "Too many URLs,only open the top {0} tabs."
     },
     
+    "toolbar_button_action": {
+        "message": "Toolbar button action: "
+    },
+    
     "link_custom_format": {
         "message": "Link custom format: "
     },

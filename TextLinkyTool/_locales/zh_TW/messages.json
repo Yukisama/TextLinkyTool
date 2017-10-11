@@ -43,6 +43,10 @@
         "message": "開啟過多分頁,只開啟前{0}頁"
     },
     
+    "toolbar_button_action": {
+        "message": "工具列按鈕動作: "
+    },
+    
     "link_custom_format": {
         "message": "連結自訂格式："
     },

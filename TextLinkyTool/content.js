@@ -1,19 +1,3 @@
-//Declarations
-let defaultTltSetting = { "openPagesLimit":10
-,"linkCustomFormat":"Name:[[name]][[n]]Url:[[url]]"
-,"tabCustomFormat":"Name:[[name]][[n]]Url:[[url]]"
-,"toolbarButtonAction":"14" };
-
-//string.format
-String.prototype.format = function () {
-    let formatted = this;
-    for (let i = 0; i < arguments.length; i++) {
-        let regexp = new RegExp('\\{'+i+'\\}', 'gi');
-        formatted = formatted.replace(regexp, arguments[i]);
-    }
-    return formatted;
-};
-
 //copy text to clipboard
 function copyToClipboard(text) {
     function oncopy(event) {
@@ -81,11 +65,8 @@ function copySelectedUrls(){
 
 //open link URLs to browser tabs
 function openSelectedUrls(){
-	let urls=getSelectedUrls();
-    browser.storage.local.get("userTltSetting").then((tlt)=>{
-        if ((typeof tlt === 'undefined') || (tlt === null)) { tlt={}; }
-        if ((typeof tlt["userTltSetting"] === 'undefined') || (tlt["userTltSetting"] === null)){ tlt["userTltSetting"]=defaultTltSetting; }
-        
+    commonLookup.getUserTltSetting().then((tlt)=>{
+	    let urls=getSelectedUrls();
         let limit = Number(tlt.userTltSetting.openPagesLimit);
         if (urls.length>limit) { urls=urls.slice(0,limit); alert(browser.i18n.getMessage("tabs_limit_alert").format(tlt.userTltSetting.openPagesLimit));}
         browser.runtime.sendMessage({cmd:'openTabs',data:urls});
@@ -112,10 +93,7 @@ function showSelectedImages(){
 
 //copy link format text
 function copyLinkFormatText(name,url){
-    browser.storage.local.get("userTltSetting").then((tlt)=>{
-        if ((typeof tlt === 'undefined') || (tlt === null)) { tlt={}; }
-        if ((typeof tlt["userTltSetting"] === 'undefined') || (tlt["userTltSetting"] === null)){ tlt["userTltSetting"]=defaultTltSetting; }
-        
+    commonLookup.getUserTltSetting().then((tlt)=>{
         let formatRule = tlt.userTltSetting.linkCustomFormat.replace(/\[\[name\]\]/ig,'{0}').replace(/\[\[url\]\]/ig,'{1}').replace(/\[\[n\]\]/ig,'{2}');
         let formatText = formatRule.format(name,url,'\n');
         copyToClipboard(formatText);
@@ -124,10 +102,7 @@ function copyLinkFormatText(name,url){
 
 //copy tab format text
 function copyTabFormatText(name,url){
-    browser.storage.local.get("userTltSetting").then((tlt)=>{
-        if ((typeof tlt === 'undefined') || (tlt === null)) { tlt={}; }
-        if ((typeof tlt["userTltSetting"] === 'undefined') || (tlt["userTltSetting"] === null)){ tlt["userTltSetting"]=defaultTltSetting; }
-        
+    commonLookup.getUserTltSetting().then((tlt)=>{
         let formatRule = tlt.userTltSetting.tabCustomFormat.replace(/\[\[name\]\]/ig,'{0}').replace(/\[\[url\]\]/ig,'{1}').replace(/\[\[n\]\]/ig,'{2}');
         let formatText = formatRule.format(name,url,'\n');
         copyToClipboard(formatText);
@@ -136,18 +111,15 @@ function copyTabFormatText(name,url){
 
 //toolbar button action
 function toolbarButtonAction(){
-    browser.storage.local.get("userTltSetting").then((tlt)=>{
-        if ((typeof tlt === 'undefined') || (tlt === null)) { tlt={}; }
-        if ((typeof tlt["userTltSetting"] === 'undefined') || (tlt["userTltSetting"] === null)){ tlt["userTltSetting"]=defaultTltSetting; }
-       
+    commonLookup.getUserTltSetting().then((tlt)=>{
         switch (tlt.userTltSetting.toolbarButtonAction)
         {
-            case "7": copySelectedPureText(); break;
-            case "8": copySelectedHtmlText(); break;
-            case "9": copySelectedUrls(); break;
-            case "10": openSelectedUrls(); break;
-            case "13": copySelectedImageUrls(); break;
-            case "14": showSelectedImages(); break;
+            case commonLookup.menuids.copy_page_puretext: copySelectedPureText(); break;
+            case commonLookup.menuids.copy_page_htmltext: copySelectedHtmlText(); break;
+            case commonLookup.menuids.copy_page_urls: copySelectedUrls(); break;
+            case commonLookup.menuids.open_page_urls: openSelectedUrls(); break;
+            case commonLookup.menuids.copy_page_image_urls: copySelectedImageUrls(); break;
+            case commonLookup.menuids.show_page_images: showSelectedImages(); break;
             default: console.log('no use');
         }
     });

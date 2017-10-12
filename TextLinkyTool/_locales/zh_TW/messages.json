@@ -95,6 +95,10 @@
         "message": "複製圖片網址"
     },
     
+    "show_image":{
+        "message": "開啟圖片網址"
+    },
+    
     "copy_link_format_text": {
         "message": "複製連結格式化文字"
     },

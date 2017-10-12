@@ -95,6 +95,10 @@
         "message": "复制图片网址"
     },
     
+    "show_image":{
+        "message": "打开图片网址"
+    },
+    
     "copy_link_format_text": {
         "message": "复制链接格式化文本"
     },

@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Text Linky Tool",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Yuki GUO",
   "homepage_url": "https://github.com/Yukisama/TextLinkyTool",
   "applications": {
@@ -30,12 +30,12 @@
   ],
 
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["common.js","background.js"]
   },
 
   "content_scripts": [
     {
-      "js": ["content.js"],
+      "js": ["common.js","content.js"],
       "matches": ["<all_urls>"],
       "all_frames": true
     }
@@ -51,7 +51,7 @@
       "16": "icons/icon48.png",
       "32": "icons/icon96.png"
     },
-    "default_title": "__MSG_show_page_images__"
+    "default_title": "Text Linky Tool"
   }
 
 }

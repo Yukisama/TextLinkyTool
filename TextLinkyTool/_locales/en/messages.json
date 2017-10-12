@@ -95,6 +95,10 @@
         "message": "Copy Image URL"
     },
     
+    "show_image":{
+        "message": "Show Image"
+    },
+    
     "copy_link_format_text": {
         "message": "Copy Link format text"
     },

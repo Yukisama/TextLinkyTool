@@ -105,5 +105,9 @@
     
     "copy_tab_format_text": {
         "message": "Copy Tab format text"
+    },
+    
+    "keyboard_shortcut_action": {
+        "message": "keyboard shortcut action: "
     }
 }

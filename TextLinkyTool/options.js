@@ -18,7 +18,8 @@ function setOptionSettings(e) {
     let tlt={"openPagesLimit":document.querySelector("#inpOpenPagesLimit").value
             ,"linkCustomFormat":document.querySelector("#inpLinkCustomFormat").value
             ,"tabCustomFormat":document.querySelector("#inpTabCustomFormat").value
-            ,"toolbarButtonAction":document.querySelector("#selToolbarButtonAction").value};
+            ,"toolbarButtonAction":document.querySelector("#selToolbarButtonAction").value
+            ,"keyboardShortcutAction":document.querySelector("#selKeyboardShortcutAction").value};
     browser.storage.local.set({"userTltSetting":tlt});
     document.querySelector("#lblSaved").style.visibility="visible";
     e.preventDefault();

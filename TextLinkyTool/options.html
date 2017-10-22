@@ -5,31 +5,46 @@
 <head>
     <meta charset="utf-8">
     <style>
+        hr { border-color: #CCCCCC; }
         #inpLinkCustomFormat,#inpTabCustomFormat { width: 80%; font-size: small; }
         #inpOpenPagesLimit { width: 4em; }
-        #selToolbarButtonAction { font-size: small; }
-        #lblSaved { color:red; visibility: hidden; }        
+        #selToolbarButtonAction,#selKeyboardShortcutAction { font-size: small; }
+        #lblSaved { color:red; visibility: hidden; }   
     </style>
 </head>
 
 <body>
-    <p>Custom Format: [[name]] - Name text, [[url]] - Url text, [[n]] - New line</p>
     <form>
+        <label data-i18n-msg="toolbar_button_action">Toolbar button action: </label>
+        <select id="selToolbarButtonAction">
+            <option value="3" data-i18n-msg="copy_selected_puretext">Copy selected pure text</option>
+            <option value="4" data-i18n-msg="copy_selected_htmltext">Copy selected HTML text</option>
+            <option value="5" data-i18n-msg="copy_selected_urls">Copy selected URLs</option>
+            <option value="6" data-i18n-msg="open_selected_urls">Open selected URLs</option>
+            <option value="11" data-i18n-msg="copy_selected_image_urls">Copy selected image urls</option>
+            <option value="12" data-i18n-msg="show_selected_images">Show selected images</option>
+        </select><br /><br />
+        <hr />
+        <p>Custom Format: [[name]] - Name text, [[url]] - Url text, [[n]] - New line</p>
         <label data-i18n-msg="link_custom_format">Link custom format: </label>
         <input type="text" id="inpLinkCustomFormat" maxlength="100" value="Name:[[name]][[n]]Url:[[url]]" /><br /><br />
         <label data-i18n-msg="tab_custom_format">Tab custom format: </label>
         <input type="text" id="inpTabCustomFormat" maxlength="100" value="Name:[[name]][[n]]Url:[[url]]" /><br /><br />
+        <hr />
         <label data-i18n-msg="max_tabs_limit">Max tabs limit at once open: </label>
         <input type="number" id="inpOpenPagesLimit" min="1" max="999" value="10" /><br /><br />
-        <label data-i18n-msg="toolbar_button_action">Toolbar button action: </label>
-        <select id="selToolbarButtonAction">
-            <option value="7" data-i18n-msg="copy_page_puretext">Copy page pure text</option>
-            <option value="8" data-i18n-msg="copy_page_htmltext">Copy page HTML text</option>
-            <option value="9" data-i18n-msg="copy_page_urls">Copy page URLs</option>
-            <option value="10" data-i18n-msg="open_page_urls">Open page URLs</option>
-            <option value="13" data-i18n-msg="copy_page_image_urls">Copy page image urls</option>
-            <option value="14" data-i18n-msg="show_page_images">Show page images</option>
+        <hr />
+        <p>keybord shortcut: F8</p>
+        <label data-i18n-msg="keyboard_shortcut_action">keyboard shortcut action: </label>
+        <select id="selKeyboardShortcutAction">
+            <option value="3" data-i18n-msg="copy_selected_puretext">Copy selected pure text</option>
+            <option value="4" data-i18n-msg="copy_selected_htmltext">Copy selected HTML text</option>
+            <option value="5" data-i18n-msg="copy_selected_urls">Copy selected URLs</option>
+            <option value="6" data-i18n-msg="open_selected_urls">Open selected URLs</option>
+            <option value="11" data-i18n-msg="copy_selected_image_urls">Copy selected image urls</option>
+            <option value="12" data-i18n-msg="show_selected_images">Show selected images</option>
         </select><br /><br />
+        <hr />
         <button type="submit" data-i18n-msg="save_settings">save</button>
     </form>
     <label id="lblSaved" data-i18n-msg="save_ok">Data saved.</label>

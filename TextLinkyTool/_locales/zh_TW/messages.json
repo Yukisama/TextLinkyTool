@@ -105,5 +105,9 @@
     
     "copy_tab_format_text": {
         "message": "複製頁籤格式化文字"
+    },
+    
+    "keyboard_shortcut_action": {
+        "message": "鍵盤快速鍵動作: "
     }
 }

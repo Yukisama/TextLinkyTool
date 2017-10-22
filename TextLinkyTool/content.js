@@ -109,18 +109,29 @@ function copyTabFormatText(name,url){
     });
 }
 
+//user custom action
+function userCustomAction(actid){
+    switch (actid) {
+        case commonLookup.menuids.copy_page_puretext: case commonLookup.menuids.copy_selected_puretext: copySelectedPureText(); break;
+        case commonLookup.menuids.copy_page_htmltext: case commonLookup.menuids.copy_selected_htmltext: copySelectedHtmlText(); break;
+        case commonLookup.menuids.copy_page_urls: case commonLookup.menuids.copy_selected_urls: copySelectedUrls(); break;
+        case commonLookup.menuids.open_page_urls: case commonLookup.menuids.open_selected_urls: openSelectedUrls(); break;
+        case commonLookup.menuids.copy_page_image_urls: case commonLookup.menuids.copy_selected_image_urls: copySelectedImageUrls(); break;
+        case commonLookup.menuids.show_page_images: case commonLookup.menuids.show_selected_images: showSelectedImages(); break;
+        default: console.log('no use');
+    }
+}
+
 //toolbar button action
 function toolbarButtonAction(){
     commonLookup.getUserTltSetting().then((tlt)=>{
-        switch (tlt.userTltSetting.toolbarButtonAction)
-        {
-            case commonLookup.menuids.copy_page_puretext: copySelectedPureText(); break;
-            case commonLookup.menuids.copy_page_htmltext: copySelectedHtmlText(); break;
-            case commonLookup.menuids.copy_page_urls: copySelectedUrls(); break;
-            case commonLookup.menuids.open_page_urls: openSelectedUrls(); break;
-            case commonLookup.menuids.copy_page_image_urls: copySelectedImageUrls(); break;
-            case commonLookup.menuids.show_page_images: showSelectedImages(); break;
-            default: console.log('no use');
-        }
+        userCustomAction(tlt.userTltSetting.toolbarButtonAction);
+    });
+}
+
+//keyboard shortcut action
+function keyboardShortcutAction(){
+    commonLookup.getUserTltSetting().then((tlt)=>{
+        userCustomAction(tlt.userTltSetting.keyboardShortcutAction);
     });
 }

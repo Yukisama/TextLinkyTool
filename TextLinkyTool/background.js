@@ -182,6 +182,11 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
 browser.browserAction.onClicked.addListener((tab) => {
     executeCode("toolbarButtonAction()", tab);
 });
+browser.commands.onCommand.addListener((command) => {
+    browser.tabs.query({currentWindow: true, active: true}).then((tab)=>{
+        executeCode("keyboardShortcutAction()", tab);
+    });
+});
 
 //Common Method
 //execute script on page

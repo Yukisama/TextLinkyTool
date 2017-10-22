@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Text Linky Tool",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "Yuki GUO",
   "homepage_url": "https://github.com/Yukisama/TextLinkyTool",
   "applications": {
@@ -52,6 +52,14 @@
       "32": "icons/icon96.png"
     },
     "default_title": "Text Linky Tool"
+  },
+
+  "commands": {
+    "copy_pure_text": {
+      "suggested_key": {
+        "default": "F8"
+      }
+    }
   }
 
 }

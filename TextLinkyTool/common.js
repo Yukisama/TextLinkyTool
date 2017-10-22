@@ -36,7 +36,8 @@ const commonLookup = {
         openPagesLimit: 10,
         linkCustomFormat: "Name:[[name]][[n]]Url:[[url]]",
         tabCustomFormat: "Name:[[name]][[n]]Url:[[url]]",
-        toolbarButtonAction: "14"
+        toolbarButtonAction: "12",
+        keyboardShortcutAction: "3"
     },
     getUserTltSetting() {
         return browser.storage.local.get({userTltSetting:commonLookup.defaultTltSetting});

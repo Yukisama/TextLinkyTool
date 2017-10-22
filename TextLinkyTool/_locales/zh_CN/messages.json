@@ -105,5 +105,9 @@
     
     "copy_tab_format_text": {
         "message": "复制标签页格式化文本"
+    },
+    
+    "keyboard_shortcut_action": {
+        "message": "快捷键动作: "
     }
 }

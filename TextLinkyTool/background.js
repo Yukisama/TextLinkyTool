@@ -207,7 +207,11 @@ browser.runtime.onMessage.addListener((msg) => {
             break;
         case 'showImgs':
             browser.tabs.create({url:"imglist.html"}).then((tab) => {
-                browser.tabs.sendMessage(tab.id,msg).then(() => { console.log("showImgs executed."); }, (errmsg) => { console.error("Failed to showImgs: " + errmsg); }); 
+                browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo)=>{
+                    if (tabId==tab.id){
+                        browser.tabs.sendMessage(tab.id,msg).then(() => { console.log("showImgs executed."); }, (errmsg) => { console.error("Failed to showImgs: " + errmsg); }); 
+                    }
+                });
             });
             break;
         default:

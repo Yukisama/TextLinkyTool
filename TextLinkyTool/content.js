@@ -31,7 +31,7 @@ function copySelectedHtmlText(){
 }
 
 //analyze selected context link URLs
-function getSelectedUrls() {
+function getSelectedUrls(fixquot) {
     let body = getSelectedObject().innerHTML;
     let regex1 = new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])(.*?)\1/gi);
     let imglist = body.match(regex1);
@@ -49,24 +49,29 @@ function getSelectedUrls() {
     let matches = body.match(regex3);
     if (matches===null) { matches=[]; }
     let a = document.createElement("a");
-    let area = document.createElement('textarea');
+    var parser = new DOMParser;
+    let regexQuot = new RegExp(/\"*$/);
     let urls = imglist.concat(alist).concat(matches).map((h)=>{
         a.href = h;
-        area.innerHTML = (a.protocol+"//"+a.host+a.pathname+a.search+a.hash);
-        return area.value;
+        let dom = parser.parseFromString('<!doctype html><body>' + (a.protocol+"//"+a.host+a.pathname+a.search+a.hash),'text/html');
+        let u = dom.body.textContent;
+        if (fixquot===true) {u=u.replace(regexQuot,'');}
+        return u;
     }).filter((value, index, self) => { return self.indexOf(value) === index; });
     return urls;
 }
 
 //copy link URLs
 function copySelectedUrls(){
-    copyToClipboard(getSelectedUrls().toString().replace(/\,/gi,'\n'));
+    commonLookup.getUserTltSetting().then((tlt)=>{
+        copyToClipboard(getSelectedUrls(tlt.userTltSetting.fixUrlQuotEnd).join('\n'));
+    });
 }
 
 //open link URLs to browser tabs
 function openSelectedUrls(){
     commonLookup.getUserTltSetting().then((tlt)=>{
-	    let urls=getSelectedUrls();
+	    let urls=getSelectedUrls(tlt.userTltSetting.fixUrlQuotEnd);
         let limit = Number(tlt.userTltSetting.openPagesLimit);
         if (urls.length>limit) { urls=urls.slice(0,limit); alert(browser.i18n.getMessage("tabs_limit_alert").format(tlt.userTltSetting.openPagesLimit));}
         browser.runtime.sendMessage({cmd:'openTabs',data:urls});
@@ -74,21 +79,43 @@ function openSelectedUrls(){
 }
 
 //filter images URLs
-function getSelectedImageUrls(){
-    let regex = new RegExp(/\.(bmp|gif|jpe?g|png|tif?f|svg|webp)$/gi);
-    let urls = getSelectedUrls().filter((value, index, self) => { return regex.test(value); });
+function getSelectedImageUrls(fixquot){  
+    let body = getSelectedObject().innerHTML;
+    let regex1 = new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])(.*?)\1/gi);
+    let imglist1 = body.match(regex1);
+    if (imglist1===null) { imglist1=[]; } else {
+        imglist1=imglist1.map((s)=>{return s.replace(/<img\s+(?:[^>]*?\s+)?src=(["'])/i,'').replace(/["']$/,'');});
+    }
+    
+    let regex = new RegExp(/\.(bmp|gif|jpe?g|png|tif?f|svg|webp)(\?.*)?$/gi);
+    let imglist2 = getSelectedUrls(fixquot).filter((value, index, self) => { return regex.test(value); });
+
+    let a = document.createElement("a");
+    var parser = new DOMParser;
+    let regexQuot = new RegExp(/\"*$/);
+    let urls = imglist1.concat(imglist2).map((h)=>{
+        a.href = h;
+        let dom = parser.parseFromString('<!doctype html><body>' + (a.protocol+"//"+a.host+a.pathname+a.search+a.hash),'text/html');
+        let u = dom.body.textContent;
+        if (fixquot===true) {u=u.replace(regexQuot,'');}
+        return u;
+    }).filter((value, index, self) => { return self.indexOf(value) === index; });
     return urls;
 }
 
 //copy images link URLs
 function copySelectedImageUrls(){
-    copyToClipboard(getSelectedImageUrls().toString().replace(/\,/ig,'\n'));
+    commonLookup.getUserTltSetting().then((tlt)=>{
+        copyToClipboard(getSelectedImageUrls(tlt.userTltSetting.fixUrlQuotEnd).join('\n'));
+    });
 }
 
 //show images
 function showSelectedImages(){
-    let urls = getSelectedImageUrls();
-    browser.runtime.sendMessage({cmd:'showImgs',data:urls});
+    commonLookup.getUserTltSetting().then((tlt)=>{
+        let urls = getSelectedImageUrls(tlt.userTltSetting.fixUrlQuotEnd);
+        browser.runtime.sendMessage({cmd:'showImgs',data:urls});
+    });
 }
 
 //copy link format text

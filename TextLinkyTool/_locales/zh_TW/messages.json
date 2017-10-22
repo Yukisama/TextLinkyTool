@@ -109,5 +109,9 @@
     
     "keyboard_shortcut_action": {
         "message": "鍵盤快速鍵動作: "
+    },
+    
+    "fix_url_quot_end": {
+        "message": "修正網址結尾的引號"
     }
 }

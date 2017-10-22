@@ -1,6 +1,7 @@
 //show images
 function showImages(msg) {
-    browser.runtime.onMessage.removeListener(showImages);
+    if (msg.cmd!='showImgs'){return;}
+    document.querySelector('span').textContent=` - ${msg.data.length.toString()} pics`;
     let frag = document.createDocumentFragment();
     msg.data.forEach((value) => { 
         let i = document.createElement("img");
@@ -13,6 +14,7 @@ function showImages(msg) {
         frag.appendChild(a);
     });
     document.body.appendChild(frag);
+    browser.runtime.onMessage.removeListener(showImages);
 }
 
 //page listener

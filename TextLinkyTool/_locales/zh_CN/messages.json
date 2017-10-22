@@ -109,5 +109,9 @@
     
     "keyboard_shortcut_action": {
         "message": "快捷键动作: "
+    },
+    
+    "fix_url_quot_end": {
+        "message": "fix URLs end with quotation"
     }
 }

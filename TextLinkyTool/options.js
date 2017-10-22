@@ -10,6 +10,8 @@ function pageReady() {
         document.querySelector("#inpLinkCustomFormat").value = tlt.userTltSetting.linkCustomFormat;
         document.querySelector("#inpTabCustomFormat").value = tlt.userTltSetting.tabCustomFormat;
         document.querySelector("#selToolbarButtonAction").value = tlt.userTltSetting.toolbarButtonAction;
+        document.querySelector("#selKeyboardShortcutAction").value = tlt.userTltSetting.keyboardShortcutAction;
+        document.querySelector("#inpFixUrlQuotEnd").checked = tlt.userTltSetting.fixUrlQuotEnd;
     });
 }
 
@@ -19,7 +21,8 @@ function setOptionSettings(e) {
             ,"linkCustomFormat":document.querySelector("#inpLinkCustomFormat").value
             ,"tabCustomFormat":document.querySelector("#inpTabCustomFormat").value
             ,"toolbarButtonAction":document.querySelector("#selToolbarButtonAction").value
-            ,"keyboardShortcutAction":document.querySelector("#selKeyboardShortcutAction").value};
+            ,"keyboardShortcutAction":document.querySelector("#selKeyboardShortcutAction").value
+            ,"fixUrlQuotEnd":document.querySelector("#inpFixUrlQuotEnd").checked}
     browser.storage.local.set({"userTltSetting":tlt});
     document.querySelector("#lblSaved").style.visibility="visible";
     e.preventDefault();

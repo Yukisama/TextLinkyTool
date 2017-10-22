@@ -37,7 +37,8 @@ const commonLookup = {
         linkCustomFormat: "Name:[[name]][[n]]Url:[[url]]",
         tabCustomFormat: "Name:[[name]][[n]]Url:[[url]]",
         toolbarButtonAction: "12",
-        keyboardShortcutAction: "3"
+        keyboardShortcutAction: "3",
+        fixUrlQuotEnd:true
     },
     getUserTltSetting() {
         return browser.storage.local.get({userTltSetting:commonLookup.defaultTltSetting});

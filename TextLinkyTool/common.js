@@ -38,7 +38,20 @@ const commonLookup = {
         tabCustomFormat: "Name:[[name]][[n]]Url:[[url]]",
         toolbarButtonAction: "12",
         keyboardShortcutAction: "3",
-        fixUrlQuotEnd:true
+        fixUrlQuotEnd:true,
+        puretextFormat: {
+            delAroundSpace:true,
+            delInvisibleSpace:true,
+            convertSpace:true,
+            convertDash:true,
+            convertApostrophe:true,
+            convertQuotation:true,
+            mergeNewline:true,
+            mergeSpace:false,
+            mergeFullwidthSpace:false,
+            mergeTabulation:false,
+            mergeAllTypeSpace:false
+        }
     },
     getUserTltSetting() {
         return browser.storage.local.get({userTltSetting:commonLookup.defaultTltSetting});

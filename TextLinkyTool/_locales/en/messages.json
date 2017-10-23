@@ -54,7 +54,7 @@
     "tab_custom_format": {
         "message": "Tab custom format: "
     },
-    
+
     "max_tabs_limit": {
         "message": "Max tabs limit at once open: "
     },
@@ -82,11 +82,11 @@
     "show_page_images":{
         "message": "Show page images"
     },
-    
+
     "copy_tab_name":{
         "message": "Copy Tab Name"
     },
-    
+
     "copy_tab_url":{
         "message": "Copy Tab URL"
     },
@@ -112,6 +112,51 @@
     },
     
     "fix_url_quot_end": {
-        "message": "fix URLs end with quotation"
+        "message": "fix URLs end with quotation."
+    },
+
+    "puretext_format_del_around_space":{
+        "message": "Delete context around space.(trim)"
+    },
+
+    "puretext_format_del_invisible_space":{
+        "message": "Delete invisible space."
+    },
+
+    "puretext_format_convert_space":{
+        "message": "Convert fullwidth space to normal space."
+    },
+
+    "puretext_format_convert_dash":{
+        "message": "Convert all type dash to normal dash."
+    },
+
+    "puretext_format_convert_apostrophe":{
+        "message": "Convert all type apostrophe to normal apostrophe."
+    },
+
+    "puretext_format_convert_quotation":{
+        "message": "Convert all type quotation to normal quotation."
+    },
+
+    "puretext_format_merge_newline":{
+        "message": "Merge newline."
+    },
+
+    "puretext_format_merge_space":{
+        "message": "Merge space."
+    },
+
+    "puretext_format_merge_fullwidth_space":{
+        "message": "Merge fullwidth space."
+    },
+
+    "puretext_format_merge_tabulation":{
+        "message": "Merge tabulation."
+    },
+    
+    "puretext_format_merge_all_type_space":{
+        "message": "Merge all type space to one space."
     }
+
 }

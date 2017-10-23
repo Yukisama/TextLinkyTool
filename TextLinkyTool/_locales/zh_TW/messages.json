@@ -59,7 +59,7 @@
         "message": "開啟分頁最大數量："
     },
 
-    "save_settings": {
+    "save_settings":{
         "message": "存檔"
     },
     
@@ -67,27 +67,27 @@
         "message": "存檔完成"
     },
 
-    "copy_selected_image_urls": {
+    "copy_selected_image_urls":{
         "message": "複製選取範圍出現的圖片網址"
     },
 
-    "show_selected_images": {
+    "show_selected_images":{
         "message": "開啟選取範圍出現的圖片網址"
     },
 
-    "copy_page_image_urls": {
+    "copy_page_image_urls":{
         "message": "複製全頁面出現的圖片網址"
     },
 
-    "show_page_images": {
+    "show_page_images":{
         "message": "開啟全頁面出現的圖片網址"
     },
 
-    "copy_tab_name": {
+    "copy_tab_name":{
         "message": "複製頁籤名稱"
     },
 
-    "copy_tab_url": {
+    "copy_tab_url":{
         "message": "複製頁籤網址"
     },
     
@@ -113,5 +113,50 @@
     
     "fix_url_quot_end": {
         "message": "修正網址結尾的引號"
+    },
+
+    "puretext_format_del_around_space":{
+        "message": "去除頭尾空白"
+    },
+
+    "puretext_format_del_invisible_space":{
+        "message": "去除隱藏空白"
+    },
+
+    "puretext_format_convert_space":{
+        "message": "轉換全形空白為半形空白"
+    },
+
+    "puretext_format_convert_dash":{
+        "message": "轉換全形破折號為半形破折號"
+    },
+
+    "puretext_format_convert_apostrophe":{
+        "message": "轉換全形單引號為半形單引號"
+    },
+
+    "puretext_format_convert_quotation":{
+        "message": "轉換全形雙引號為半形雙引號"
+    },
+
+    "puretext_format_merge_newline":{
+        "message": "合併連續換行"
+    },
+
+    "puretext_format_merge_space":{
+        "message": "合併連續半形空白"
+    },
+
+    "puretext_format_merge_fullwidth_space":{
+        "message": "合併連續全形空白"
+    },
+
+    "puretext_format_merge_tabulation":{
+        "message": "合併連續間隔字元(TAB)"
+    },
+    
+    "puretext_format_merge_all_type_space":{
+        "message": "合併所有形式的連續空白為半形空白"
     }
+
 }

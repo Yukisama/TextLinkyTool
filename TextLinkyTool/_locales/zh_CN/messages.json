@@ -59,7 +59,7 @@
         "message": "最多打开标签页: "
     },
 
-    "save_settings": {
+    "save_settings":{
         "message": "存档"
     },
     
@@ -67,27 +67,27 @@
         "message": "数据已保存"
     },
 
-    "copy_selected_image_urls": {
+    "copy_selected_image_urls":{
         "message": "复制选定图片网址"
     },
 
-    "show_selected_images": {
+    "show_selected_images":{
         "message": "打开选定图片网址"
     },
 
-    "copy_page_image_urls": {
+    "copy_page_image_urls":{
         "message": "复制页面图片网址"
     },
 
-    "show_page_images": {
+    "show_page_images":{
         "message": "打开页面图片网址"
     },
 
-    "copy_tab_name": {
+    "copy_tab_name":{
         "message": "复制标签页名称"
     },
 
-    "copy_tab_url": {
+    "copy_tab_url":{
         "message": "复制标签页网址"
     },
     
@@ -112,6 +112,51 @@
     },
     
     "fix_url_quot_end": {
-        "message": "fix URLs end with quotation"
+        "message": "fix URLs end with quotation."
+    },
+
+    "puretext_format_del_around_space":{
+        "message": "Delete context around space.(trim)"
+    },
+
+    "puretext_format_del_invisible_space":{
+        "message": "Delete invisible space."
+    },
+
+    "puretext_format_convert_space":{
+        "message": "Convert fullwidth space to normal space."
+    },
+
+    "puretext_format_convert_dash":{
+        "message": "Convert all type dash to normal dash."
+    },
+
+    "puretext_format_convert_apostrophe":{
+        "message": "Convert all type apostrophe to normal apostrophe."
+    },
+
+    "puretext_format_convert_quotation":{
+        "message": "Convert all type quotation to normal quotation."
+    },
+
+    "puretext_format_merge_newline":{
+        "message": "Merge newline."
+    },
+
+    "puretext_format_merge_space":{
+        "message": "Merge space."
+    },
+
+    "puretext_format_merge_fullwidth_space":{
+        "message": "Merge fullwidth space."
+    },
+
+    "puretext_format_merge_tabulation":{
+        "message": "Merge tabulation."
+    },
+    
+    "puretext_format_merge_all_type_space":{
+        "message": "Merge all type space to one space."
     }
+
 }

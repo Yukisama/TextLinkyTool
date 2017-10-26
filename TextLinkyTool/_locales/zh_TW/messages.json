@@ -157,6 +157,10 @@
     
     "puretext_format_merge_all_type_space":{
         "message": "合併所有形式的連續空白為半形空白"
+    },
+
+    "htmltext_format_Without_tag" :{
+        "message": "去除 HTML Tag"
     }
 
 }

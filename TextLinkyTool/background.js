@@ -126,74 +126,57 @@ browser.contextMenus.create({
 
 //Main Methods
 browser.contextMenus.onClicked.addListener((info, tab) => {
-    switch (info.menuItemId) {
-        case commonLookup.menuids.copy_link_name:
-            executeCode(`copyToClipboard(${JSON.stringify(info.linkText)})`, tab);
-            break;
-        case commonLookup.menuids.copy_link_url:
-            executeCode(`copyToClipboard(${JSON.stringify(info.linkUrl)})`, tab);
-            break;
-        case commonLookup.menuids.copy_selected_puretext:
-        case commonLookup.menuids.copy_page_puretext:
-            executeCode("copySelectedPureText()", tab);
-            break;
-        case commonLookup.menuids.copy_selected_htmltext:
-        case commonLookup.menuids.copy_page_htmltext:
-            executeCode("copySelectedHtmlText()", tab);
-            break;
-        case commonLookup.menuids.copy_selected_urls:
-        case commonLookup.menuids.copy_page_urls:
-            executeCode("copySelectedUrls()", tab);
-            break;
-        case commonLookup.menuids.open_selected_urls:
-        case commonLookup.menuids.open_page_urls:
-            executeCode("openSelectedUrls()", tab);
-            break;
-        case commonLookup.menuids.copy_selected_image_urls:
-        case commonLookup.menuids.copy_page_image_urls:
-            executeCode("copySelectedImageUrls()", tab);
-            break;
-        case commonLookup.menuids.show_selected_images:
-        case commonLookup.menuids.show_page_images:
-            executeCode("showSelectedImages()", tab);
-            break;
-        case commonLookup.menuids.copy_tab_name:
-            executeCode(`copyToClipboard(${JSON.stringify(tab.title)})`, tab);
-            break;
-        case commonLookup.menuids.copy_tab_url:
-            executeCode(`copyToClipboard(${JSON.stringify(tab.url)})`, tab);
-            break;           
-        case commonLookup.menuids.copy_image_url:
-            executeCode(`copyToClipboard(${JSON.stringify(info.srcUrl)})`, tab);
-            break;
-        case commonLookup.menuids.show_image:        
-            browser.tabs.create({url:info.srcUrl});
-            break;
-        case commonLookup.menuids.copy_link_format_text:
-            executeCode(`copyLinkFormatText(${JSON.stringify(info.linkText)},${JSON.stringify(info.linkUrl)})`, tab);
-            break;
-        case commonLookup.menuids.copy_tab_format_text:
-            executeCode(`copyTabFormatText(${JSON.stringify(tab.title)},${JSON.stringify(tab.url)})`, tab);
-            break;
-        default:
-            console.log('no use');
-    }
+    browser.tabs.query({active:true}).then((acttabs)=>{
+        let acttab=acttabs[0];
+        switch (info.menuItemId) {
+            case commonLookup.menuids.copy_selected_puretext:
+            case commonLookup.menuids.copy_page_puretext:
+            case commonLookup.menuids.copy_selected_htmltext:
+            case commonLookup.menuids.copy_page_htmltext:
+            case commonLookup.menuids.copy_selected_urls:
+            case commonLookup.menuids.copy_page_urls:
+            case commonLookup.menuids.open_selected_urls:
+            case commonLookup.menuids.open_page_urls:
+            case commonLookup.menuids.copy_selected_image_urls:
+            case commonLookup.menuids.copy_page_image_urls:
+            case commonLookup.menuids.show_selected_images:
+            case commonLookup.menuids.show_page_images:
+                executeCommand(acttab,{cmd:info.menuItemId});
+                break;
+            case commonLookup.menuids.copy_link_name:
+            case commonLookup.menuids.copy_link_url:
+            case commonLookup.menuids.copy_link_format_text:
+                executeCommand(acttab,{cmd:info.menuItemId,data:{name:JSON.stringify(info.linkText),url:JSON.stringify(info.linkUrl)}});
+                break;
+            case commonLookup.menuids.copy_tab_name:
+            case commonLookup.menuids.copy_tab_url:
+            case commonLookup.menuids.copy_tab_format_text:
+                executeCommand(acttab,{cmd:info.menuItemId,data:{name:JSON.stringify(tab.title),url:JSON.stringify(tab.url)}});
+                break;           
+            case commonLookup.menuids.copy_image_url:
+                executeCommand(acttab,{cmd:info.menuItemId,data:{url:JSON.stringify(info.srcUrl)}});
+                break;
+            case commonLookup.menuids.show_image:        
+                browser.tabs.create({url:info.srcUrl});
+                break;
+            default:
+                console.log('no use');
+        }
+    });
 });
 browser.browserAction.onClicked.addListener((tab) => {
-    executeCode("toolbarButtonAction()", tab);
+    executeCommand(tab,{cmd:commonLookup.menuids.toolbar_button_action});
 });
 browser.commands.onCommand.addListener((command) => {
     browser.tabs.query({currentWindow: true, active: true}).then((tab)=>{
-        executeCode("keyboardShortcutAction()", tab);
+        executeCommand(tab,{cmd:commonLookup.menuids.keyboard_shortcut_action});
     });
 });
 
 //Common Method
-//execute script on page
-function executeCode(execode, tab) {
-    browser.tabs.executeScript(tab.id, {
-        code: execode
-    }).then(() => { console.log("Code executed."); }, (errmsg) => { console.error("Failed to executeCode: " + errmsg); });
+//execute command on page
+function executeCommand(tab,msg) {
+    browser.tabs.sendMessage(tab.id,msg).then(() => { console.log("Command executed."); }, (errmsg) => { console.error("Command failed: " + errmsg); }); 
 }
 
 //get content message
@@ -209,7 +192,7 @@ browser.runtime.onMessage.addListener((msg) => {
             browser.tabs.create({url:"imglist.html"}).then((tab) => {
                 browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo)=>{
                     if (tabId==tab.id){
-                        browser.tabs.sendMessage(tab.id,msg).then(() => { console.log("showImgs executed."); }, (errmsg) => { console.error("Failed to showImgs: " + errmsg); }); 
+                        executeCommand(tab,msg); 
                     }
                 });
             });

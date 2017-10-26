@@ -13,25 +13,32 @@ function copyToClipboard(text) {
 //get selected context
 function getSelectedObject() {
     let body = document.body;
+    let actelement = document.activeElement;
     let selection = window.getSelection();
-    if (selection.rangeCount === 0 || selection.toString() === '') { return body; }
-    body = document.createElement('div');
-    body.appendChild(selection.getRangeAt(0).cloneContents().cloneNode(true));
+    if (selection.rangeCount === 0 || selection.toString() === '') {
+        if (actelement.value === undefined) { return body; }
+        body = document.createElement('div');        
+        body.appendChild(actelement.cloneNode(true));
+    } else {
+        body = document.createElement('div');
+        body.appendChild(selection.getRangeAt(0).cloneContents().cloneNode(true));
+    }
     return body;
 }
 
 //copy selected context to pure text
-function copySelectedPureText(){    
+function copySelectedPureText(){
     commonLookup.getUserTltSetting().then((tlt)=>{
-        let txt=getSelectedObject().innerText;
+        let txt = window.getSelection().toString();
+        if (txt === '' && document.activeElement.value !== undefined) { txt=document.activeElement.value.substring(document.activeElement.selectionStart,document.activeElement.selectionEnd); }
+        if (txt === '') { txt=document.body.innerText; }
         if (tlt.userTltSetting.puretextFormat.delAroundSpace===true) { txt=txt.replace(new RegExp(/^\s*|\s*$/g), ''); }
         if (tlt.userTltSetting.puretextFormat.delInvisibleSpace===true) { txt=txt.replace(new RegExp(/[\r\f\v]/g), ''); }
+        if (tlt.userTltSetting.puretextFormat.convertQuotation===true) { txt=txt.replace(new RegExp(/[“”〝〞„〃]/g), '"'); }
+        if (tlt.userTltSetting.puretextFormat.convertApostrophe===true) { txt=txt.replace(new RegExp(/[‵′‘’]/g), "'"); }
+        if (tlt.userTltSetting.puretextFormat.convertDash===true) { txt=txt.replace(new RegExp(/[╴－─‒–—―]/g), '-'); }
         if (tlt.userTltSetting.puretextFormat.convertSpace===true) { txt=txt.replace(new RegExp(/[　]/g), ' '); }
-        if (tlt.userTltSetting.puretextFormat.convertDash===true) { txt=txt.replace(new RegExp(/[╴|－|─|‒|–|—|―]/g), '-'); }
-        if (tlt.userTltSetting.puretextFormat.convertApostrophe===true) { txt=txt.replace(new RegExp(/[‵|′|‘|’]/g), "'"); }
-        if (tlt.userTltSetting.puretextFormat.convertQuotation===true) { txt=txt.replace(new RegExp(/[“|”|〝|〞|„|〃]/g), '"'); }
-        //if (tlt.userTltSetting.puretextFormat.mergeNewline===true) { txt=txt.replace(new RegExp(/[\r\n]+/g), '\n').replace(new RegExp(/\s*\n\s*\n\s*/g), '\n'); }
-        if (tlt.userTltSetting.puretextFormat.mergeNewline===true) { txt=txt.replace(new RegExp(/[\r\n]+/g), '\n'); }
+        if (tlt.userTltSetting.puretextFormat.mergeNewline===true) { txt=txt.replace(new RegExp(/[\r]+/g), '').replace(new RegExp(/\s*\n\s*\n\s*/g), '\n'); }
         if (tlt.userTltSetting.puretextFormat.mergeSpace===true) { txt=txt.replace(new RegExp(/[ ]+/g), ' '); }
         if (tlt.userTltSetting.puretextFormat.mergeFullwidthSpace===true) { txt=txt.replace(new RegExp(/[　]+/g), '　'); }
         if (tlt.userTltSetting.puretextFormat.mergeTabulation===true) { txt=txt.replace(new RegExp(/[\t]+/g), '\t'); }
@@ -42,7 +49,11 @@ function copySelectedPureText(){
 
 //copy selected context to HTML text
 function copySelectedHtmlText(){
-    copyToClipboard(getSelectedObject().innerHTML);
+    commonLookup.getUserTltSetting().then((tlt)=>{
+        let txt = getSelectedObject().innerHTML;
+        if (tlt.userTltSetting.htmltextFormatWithoutTag) { txt = getSelectedObject().innerText;}
+        copyToClipboard(txt);
+    });    
 }
 
 //analyze selected context link URLs
@@ -149,29 +160,73 @@ function copyTabFormatText(name,url){
     });
 }
 
-//user custom action
-function userCustomAction(actid){
-    switch (actid) {
-        case commonLookup.menuids.copy_page_puretext: case commonLookup.menuids.copy_selected_puretext: copySelectedPureText(); break;
-        case commonLookup.menuids.copy_page_htmltext: case commonLookup.menuids.copy_selected_htmltext: copySelectedHtmlText(); break;
-        case commonLookup.menuids.copy_page_urls: case commonLookup.menuids.copy_selected_urls: copySelectedUrls(); break;
-        case commonLookup.menuids.open_page_urls: case commonLookup.menuids.open_selected_urls: openSelectedUrls(); break;
-        case commonLookup.menuids.copy_page_image_urls: case commonLookup.menuids.copy_selected_image_urls: copySelectedImageUrls(); break;
-        case commonLookup.menuids.show_page_images: case commonLookup.menuids.show_selected_images: showSelectedImages(); break;
-        default: console.log('no use');
-    }
-}
-
 //toolbar button action
 function toolbarButtonAction(){
     commonLookup.getUserTltSetting().then((tlt)=>{
-        userCustomAction(tlt.userTltSetting.toolbarButtonAction);
+        executeCommand({cmd:tlt.userTltSetting.toolbarButtonAction});
     });
 }
 
 //keyboard shortcut action
 function keyboardShortcutAction(){
     commonLookup.getUserTltSetting().then((tlt)=>{
-        userCustomAction(tlt.userTltSetting.keyboardShortcutAction);
+        executeCommand({cmd:tlt.userTltSetting.keyboardShortcutAction});
     });
 }
+
+//execute command
+function executeCommand(msg) {
+    if (msg.cmd==='showImgs'){return;}
+    switch (msg.cmd) {
+        case commonLookup.menuids.copy_selected_puretext:
+        case commonLookup.menuids.copy_page_puretext:
+            copySelectedPureText();
+            break;
+        case commonLookup.menuids.copy_selected_htmltext:
+        case commonLookup.menuids.copy_page_htmltext:
+            copySelectedHtmlText();
+            break;
+        case commonLookup.menuids.copy_selected_urls:
+        case commonLookup.menuids.copy_page_urls:
+            copySelectedUrls();
+            break;
+        case commonLookup.menuids.open_selected_urls:
+        case commonLookup.menuids.open_page_urls:
+            openSelectedUrls();
+            break;
+        case commonLookup.menuids.copy_selected_image_urls:
+        case commonLookup.menuids.copy_page_image_urls:
+            copySelectedImageUrls();
+            break;
+        case commonLookup.menuids.show_selected_images:
+        case commonLookup.menuids.show_page_images:
+            showSelectedImages();
+            break;
+        case commonLookup.menuids.copy_link_name:
+        case commonLookup.menuids.copy_tab_name:
+            copyToClipboard(msg.data.name);
+            break;
+        case commonLookup.menuids.copy_link_url:
+        case commonLookup.menuids.copy_tab_url:
+        case commonLookup.menuids.copy_image_url:
+            copyToClipboard(msg.data.url);
+            break;
+        case commonLookup.menuids.copy_link_format_text:
+            copyLinkFormatText(msg.data.name,msg.data.url);
+            break;
+        case commonLookup.menuids.copy_tab_format_text:
+            copyTabFormatText(msg.data.name,msg.data.url);
+            break;
+        case commonLookup.menuids.toolbar_button_action:
+            toolbarButtonAction();
+            break;
+        case commonLookup.menuids.keyboard_shortcut_action:
+            keyboardShortcutAction();
+            break;
+        default:
+            console.log('no use');
+    }
+}
+
+//page listener
+browser.runtime.onMessage.addListener(executeCommand);

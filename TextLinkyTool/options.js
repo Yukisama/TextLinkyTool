@@ -14,15 +14,16 @@ function pageReady() {
         document.querySelector("#inpFixUrlQuotEnd").checked = tlt.userTltSetting.fixUrlQuotEnd;
         document.querySelector("#PuretextFormatDelAroundSpace").checked = tlt.userTltSetting.puretextFormat.delAroundSpace;
         document.querySelector("#PuretextFormatDelInvisibleSpace").checked = tlt.userTltSetting.puretextFormat.delInvisibleSpace;
-        document.querySelector("#PuretextFormatConvertSpace").checked = tlt.userTltSetting.puretextFormat.convertSpace;
-        document.querySelector("#PuretextFormatConvertDash").checked = tlt.userTltSetting.puretextFormat.convertDash;
-        document.querySelector("#PuretextFormatConvertApostrophe").checked = tlt.userTltSetting.puretextFormat.convertApostrophe;
         document.querySelector("#PuretextFormatConvertQuotation").checked = tlt.userTltSetting.puretextFormat.convertQuotation;
+        document.querySelector("#PuretextFormatConvertApostrophe").checked = tlt.userTltSetting.puretextFormat.convertApostrophe;
+        document.querySelector("#PuretextFormatConvertDash").checked = tlt.userTltSetting.puretextFormat.convertDash;
+        document.querySelector("#PuretextFormatConvertSpace").checked = tlt.userTltSetting.puretextFormat.convertSpace;
         document.querySelector("#inpPuretextFormatMergeNewline").checked = tlt.userTltSetting.puretextFormat.mergeNewline;
         document.querySelector("#inpPuretextFormatMergeSpace").checked = tlt.userTltSetting.puretextFormat.mergeSpace;
         document.querySelector("#inpPuretextFormatMergeFullwidthSpace").checked = tlt.userTltSetting.puretextFormat.mergeFullwidthSpace;
         document.querySelector("#inpPuretextFormatMergeTabulation").checked = tlt.userTltSetting.puretextFormat.mergeTabulation;
         document.querySelector("#inpPuretextFormatMergeAllTypeSpace").checked = tlt.userTltSetting.puretextFormat.mergeAllTypeSpace;
+        document.querySelector("#inpHtmltextFormatWithoutTag").checked = tlt.userTltSetting.htmltextFormatWithoutTag;
     });
 }
 
@@ -37,16 +38,17 @@ function setOptionSettings(e) {
             puretextFormat:{
                 delAroundSpace:document.querySelector("#PuretextFormatDelAroundSpace").checked,
                 delInvisibleSpace:document.querySelector("#PuretextFormatDelInvisibleSpace").checked,
-                convertSpace:document.querySelector("#PuretextFormatConvertSpace").checked,
-                convertDash:document.querySelector("#PuretextFormatConvertDash").checked,
-                convertApostrophe:document.querySelector("#PuretextFormatConvertApostrophe").checked,
                 convertQuotation:document.querySelector("#PuretextFormatConvertQuotation").checked,
+                convertApostrophe:document.querySelector("#PuretextFormatConvertApostrophe").checked,
+                convertDash:document.querySelector("#PuretextFormatConvertDash").checked,
+                convertSpace:document.querySelector("#PuretextFormatConvertSpace").checked,
                 mergeNewline:document.querySelector("#inpPuretextFormatMergeNewline").checked,
                 mergeSpace:document.querySelector("#inpPuretextFormatMergeSpace").checked,
                 mergeFullwidthSpace:document.querySelector("#inpPuretextFormatMergeFullwidthSpace").checked,
                 mergeTabulation:document.querySelector("#inpPuretextFormatMergeTabulation").checked,
                 mergeAllTypeSpace:document.querySelector("#inpPuretextFormatMergeAllTypeSpace").checked
-            }
+            },
+            htmltextFormatWithoutTag:document.querySelector("#inpHtmltextFormatWithoutTag").checked
         }
     browser.storage.local.set({"userTltSetting":tlt});
     document.querySelector("#lblSaved").style.visibility="visible";

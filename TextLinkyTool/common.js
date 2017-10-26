@@ -30,10 +30,12 @@ const commonLookup = {
         copy_image_url: "17",
         show_image:"20",
         copy_link_format_text: "18",
-        copy_tab_format_text: "19"
+        copy_tab_format_text: "19",
+        toolbar_button_action: "A",
+        keyboard_shortcut_action: "B"
     },
     defaultTltSetting : {
-        openPagesLimit: 10,
+        openPagesLimit: 5,
         linkCustomFormat: "Name:[[name]][[n]]Url:[[url]]",
         tabCustomFormat: "Name:[[name]][[n]]Url:[[url]]",
         toolbarButtonAction: "12",
@@ -42,16 +44,17 @@ const commonLookup = {
         puretextFormat: {
             delAroundSpace:true,
             delInvisibleSpace:true,
-            convertSpace:true,
-            convertDash:true,
-            convertApostrophe:true,
             convertQuotation:true,
+            convertApostrophe:true,
+            convertDash:false,
+            convertSpace:false,
             mergeNewline:true,
             mergeSpace:false,
             mergeFullwidthSpace:false,
             mergeTabulation:false,
             mergeAllTypeSpace:false
-        }
+        },
+        htmltextFormatWithoutTag: false
     },
     getUserTltSetting() {
         return browser.storage.local.get({userTltSetting:commonLookup.defaultTltSetting});

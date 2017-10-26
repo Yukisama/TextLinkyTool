@@ -157,6 +157,10 @@
     
     "puretext_format_merge_all_type_space":{
         "message": "Merge all type space to one space."
+    },
+
+    "htmltext_format_Without_tag" :{
+        "message": "Copy without HTML Tag."
     }
 
 }

@@ -1,166 +1,128 @@
 {
-    "copy_link_name": {
+    "copyLinkName": {
         "message": "複製連結名稱"
     },
-
-    "copy_link_url": {
+    "copyLinkUrl": {
         "message": "複製連結網址"
     },
-
-    "copy_selected_puretext": {
+    "copySelectedPuretext": {
         "message": "複製選取範圍為純文字"
     },
-
-    "copy_selected_htmltext": {
+    "copySelectedHtmltext": {
         "message": "複製選取範圍為 HTML 文字"
     },
-
-    "copy_selected_urls": {
+    "copySelectedUrls": {
         "message": "複製選取範圍出現的網址"
     },
-
-    "open_selected_urls": {
+    "openSelectedUrls": {
         "message": "開啟選取範圍出現的網址"
     },
-
-    "copy_page_puretext": {
+    "copyPagePuretext": {
         "message": "複製全頁面為純文字"
     },
-
-    "copy_page_htmltext": {
+    "copyPageHtmltext": {
         "message": "複製全頁面為 HTML 文字"
     },
-
-    "copy_page_urls": {
+    "copyPageUrls": {
         "message": "複製全頁面出現的網址"
     },
-
-    "open_page_urls": {
+    "openPageUrls": {
         "message": "開啟全頁面出現的網址"
     },
-
-    "tabs_limit_alert": {
+    "tabsLimitAlert": {
         "message": "開啟過多分頁,只開啟前{0}頁"
     },
-    
-    "toolbar_button_action": {
+    "toolbarButtonAction": {
         "message": "工具列按鈕動作: "
     },
-    
-    "link_custom_format": {
+    "linkCustomFormat": {
         "message": "連結自訂格式："
     },
-    
-    "tab_custom_format": {
+    "tabCustomFormat": {
         "message": "頁籤自訂格式："
     },
-
-    "max_tabs_limit": {
+    "maxTabsLimit": {
         "message": "開啟分頁最大數量："
     },
-
-    "save_settings":{
-        "message": "存檔"
+    "saveSettings": {
+        "message": "儲存目前設定"
     },
-    
-    "save_ok":{
+    "saveOk": {
         "message": "存檔完成"
     },
-
-    "copy_selected_image_urls":{
+    "copySelectedImageUrls": {
         "message": "複製選取範圍出現的圖片網址"
     },
-
-    "show_selected_images":{
+    "showSelectedImages": {
         "message": "開啟選取範圍出現的圖片網址"
     },
-
-    "copy_page_image_urls":{
+    "copyPageImageUrls": {
         "message": "複製全頁面出現的圖片網址"
     },
-
-    "show_page_images":{
+    "showPageImages": {
         "message": "開啟全頁面出現的圖片網址"
     },
-
-    "copy_tab_name":{
+    "copyTabName": {
         "message": "複製頁籤名稱"
     },
-
-    "copy_tab_url":{
+    "copyTabUrl": {
         "message": "複製頁籤網址"
     },
-    
-    "copy_image_url":{
+    "copyImageUrl": {
         "message": "複製圖片網址"
     },
-    
-    "show_image":{
+    "showImage": {
         "message": "開啟圖片網址"
     },
-    
-    "copy_link_format_text": {
+    "copyLinkFormatText": {
         "message": "複製連結格式化文字"
     },
-    
-    "copy_tab_format_text": {
+    "copyTabFormatText": {
         "message": "複製頁籤格式化文字"
     },
-    
-    "keyboard_shortcut_action": {
+    "keyboardShortcutAction": {
         "message": "鍵盤快速鍵動作: "
     },
-    
-    "fix_url_quot_end": {
+    "fixUrlQuotEnd": {
         "message": "修正網址結尾的引號"
     },
-
-    "puretext_format_del_around_space":{
+    "puretextFormatDelAroundSpace": {
         "message": "去除頭尾空白"
     },
-
-    "puretext_format_del_invisible_space":{
+    "puretextFormatDelInvisibleSpace": {
         "message": "去除隱藏空白"
     },
-
-    "puretext_format_convert_space":{
-        "message": "轉換全形空白為半形空白"
-    },
-
-    "puretext_format_convert_dash":{
-        "message": "轉換全形破折號為半形破折號"
-    },
-
-    "puretext_format_convert_apostrophe":{
-        "message": "轉換全形單引號為半形單引號"
-    },
-
-    "puretext_format_convert_quotation":{
+    "puretextFormatConvertQuotation": {
         "message": "轉換全形雙引號為半形雙引號"
     },
-
-    "puretext_format_merge_newline":{
+    "puretextFormatConvertApostrophe": {
+        "message": "轉換全形單引號為半形單引號"
+    },
+    "puretextFormatConvertDash": {
+        "message": "轉換全形破折號為半形破折號"
+    },
+    "puretextFormatConvertSpace": {
+        "message": "轉換全形空白為半形空白"
+    },
+    "puretextFormatMergeNewline": {
         "message": "合併連續換行"
     },
-
-    "puretext_format_merge_space":{
+    "puretextFormatMergeSpace": {
         "message": "合併連續半形空白"
     },
-
-    "puretext_format_merge_fullwidth_space":{
+    "puretextFormatMergeFullwidthSpace": {
         "message": "合併連續全形空白"
     },
-
-    "puretext_format_merge_tabulation":{
+    "puretextFormatMergeTabulation": {
         "message": "合併連續間隔字元(TAB)"
     },
-    
-    "puretext_format_merge_all_type_space":{
+    "puretextFormatMergeAllTypeSpace": {
         "message": "合併所有形式的連續空白為半形空白"
     },
-
-    "htmltext_format_Without_tag" :{
+    "htmltextFormatWithoutTag": {
         "message": "去除 HTML Tag"
+    },
+    "resetSettings": {
+        "message": "預設值"
     }
-
 }

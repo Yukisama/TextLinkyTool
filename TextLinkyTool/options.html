@@ -3,81 +3,76 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <style>
-        hr { border-color: #CCCCCC; }
-        #inpLinkCustomFormat,#inpTabCustomFormat { width: 80%; font-size: small; }
-        #inpOpenPagesLimit { width: 4em; }
-        #selToolbarButtonAction,#selKeyboardShortcutAction { font-size: small; }
-        #lblSaved { color:red; visibility: hidden; }
-        .formatdiv { display:inline-table; border: 1px solid black; padding: 0.5em; }
-    </style>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="options.css" />
 </head>
+
 <body>
     <form>
         <p>Copy as pure text - Format: </p>
         <div class="formatdiv">
             <span>delete</span><br />
-            <input type="checkbox" id="PuretextFormatDelAroundSpace"><label data-i18n-msg="puretext_format_del_around_space">Delete context around space.(trim)</label><br />
-            <input type="checkbox" id="PuretextFormatDelInvisibleSpace"><label data-i18n-msg="puretext_format_del_invisible_space">Delete invisible space.</label><br />
+            <input type="checkbox" id="inpPuretextFormatDelAroundSpace" /><label data-i18n="puretextFormatDelAroundSpace">Delete context around space.(trim)</label><br />
+            <input type="checkbox" id="inpPuretextFormatDelInvisibleSpace" /><label data-i18n="puretextFormatDelInvisibleSpace">Delete invisible space.</label><br />
         </div>
         <div class="formatdiv">
             <span>convert</span><br />
-            <input type="checkbox" id="PuretextFormatConvertQuotation"><label data-i18n-msg="puretext_format_convert_quotation">Convert all type quotation to normal quotation.</label><br />
-            <input type="checkbox" id="PuretextFormatConvertApostrophe"><label data-i18n-msg="puretext_format_convert_apostrophe">Convert all type apostrophe to normal apostrophe.</label><br />
-            <input type="checkbox" id="PuretextFormatConvertDash"><label data-i18n-msg="puretext_format_convert_dash">Convert all type dash to normal dash.</label><br />
-            <input type="checkbox" id="PuretextFormatConvertSpace"><label data-i18n-msg="puretext_format_convert_space">Convert fullwidth space to normal space</label><br />
+            <input type="checkbox" id="inpPuretextFormatConvertQuotation" /><label data-i18n="puretextFormatConvertQuotation">Convert all type quotation to normal quotation.</label><br />
+            <input type="checkbox" id="inpPuretextFormatConvertApostrophe" /><label data-i18n="puretextFormatConvertApostrophe">Convert all type apostrophe to normal apostrophe.</label><br />
+            <input type="checkbox" id="inpPuretextFormatConvertDash" /><label data-i18n="puretextFormatConvertDash">Convert all type dash to normal dash.</label><br />
+            <input type="checkbox" id="inpPuretextFormatConvertSpace" /><label data-i18n="puretextFormatConvertSpace">Convert fullwidth space to normal space</label><br />
         </div>
         <div class="formatdiv">
             <span>merge</span><br />
-            <input type="checkbox" id="inpPuretextFormatMergeNewline"><label data-i18n-msg="puretext_format_merge_newline">Merge newline.</label><br />
-            <input type="checkbox" id="inpPuretextFormatMergeSpace"><label data-i18n-msg="puretext_format_merge_space">Merge space.</label><br />
-            <input type="checkbox" id="inpPuretextFormatMergeFullwidthSpace"><label data-i18n-msg="puretext_format_merge_fullwidth_space">Merge fullwidth space.</label><br />
-            <input type="checkbox" id="inpPuretextFormatMergeTabulation"><label data-i18n-msg="puretext_format_merge_tabulation">Merge tabulation.</label><br />
-            <input type="checkbox" id="inpPuretextFormatMergeAllTypeSpace"><label data-i18n-msg="puretext_format_merge_all_type_space">Merge all type space to one space.</label><br />    
+            <input type="checkbox" id="inpPuretextFormatMergeNewline" /><label data-i18n="puretextFormatMergeNewline">Merge newline.</label><br />
+            <input type="checkbox" id="inpPuretextFormatMergeSpace" /><label data-i18n="puretextFormatMergeSpace">Merge space.</label><br />
+            <input type="checkbox" id="inpPuretextFormatMergeFullwidthSpace" /><label data-i18n="puretextFormatMergeFullwidthSpace">Merge fullwidth space.</label><br />
+            <input type="checkbox" id="inpPuretextFormatMergeTabulation" /><label data-i18n="puretextFormatMergeTabulation">Merge tabulation.</label><br />
+            <input type="checkbox" id="inpPuretextFormatMergeAllTypeSpace" /><label data-i18n="puretextFormatMergeAllTypeSpace">Merge all type space to one space.</label><br />
         </div>
         <hr />
         <p>Copy as HTML text - Format: </p>
-            <input type="checkbox" id="inpHtmltextFormatWithoutTag" /><label data-i18n-msg="htmltext_format_Without_tag">Copy without HTML Tag.</label><br /><br />
+        <input type="checkbox" id="inpHtmltextFormatWithoutTag" /><label data-i18n="htmltextFormatWithoutTag">Copy without HTML Tag.</label><br /><br />
         <hr />
-        <p>Copy link info - Format: [[name]] - Name text, [[url]] - Url text, [[n]] - New line</p>
-        <label data-i18n-msg="link_custom_format">Link custom format: </label>
+        <p>Copy Link info - Format: [[name]] - Name text, [[url]] - Url text, [[n]] - New line</p>
+        <label data-i18n="linkCustomFormat">Link custom format: </label>
         <input type="text" id="inpLinkCustomFormat" maxlength="100" value="Name:[[name]][[n]]Url:[[url]]" /><br /><br />
-        <label data-i18n-msg="tab_custom_format">Tab custom format: </label>
+        <hr />
+        <p>Copy Tab info - Format: [[name]] - Name text, [[url]] - Url text, [[n]] - New line</p>
+        <label data-i18n="tabCustomFormat">Tab custom format: </label>
         <input type="text" id="inpTabCustomFormat" maxlength="100" value="Name:[[name]][[n]]Url:[[url]]" /><br /><br />
         <hr />
         <p>Analyze URLs: </p>
-        <input type="checkbox" id="inpFixUrlQuotEnd"><label data-i18n-msg="fix_url_quot_end">fix URLs end with quotation</label><br /><br />
-        <hr />
-        <p>Open URLs:</p>
-        <label data-i18n-msg="max_tabs_limit">Max tabs limit at once open: </label>
+        <input type="checkbox" id="inpFixUrlQuotEnd" /><label data-i18n="fixUrlQuotEnd">fix URLs end with quotation</label><br /><br />
+        <label data-i18n="maxTabsLimit">Max tabs limit at once open: </label>
         <input type="number" id="inpOpenPagesLimit" min="1" max="999" value="10" /><br /><br />
         <hr />
         <p>Toolbar button:</p>
-        <label data-i18n-msg="toolbar_button_action">Toolbar button action: </label>
+        <label data-i18n="toolbarButtonAction">Toolbar button action: </label>
         <select id="selToolbarButtonAction">
-            <option value="3" data-i18n-msg="copy_selected_puretext">Copy selected pure text</option>
-            <option value="4" data-i18n-msg="copy_selected_htmltext">Copy selected HTML text</option>
-            <option value="5" data-i18n-msg="copy_selected_urls">Copy selected URLs</option>
-            <option value="6" data-i18n-msg="open_selected_urls">Open selected URLs</option>
-            <option value="11" data-i18n-msg="copy_selected_image_urls">Copy selected image urls</option>
-            <option value="12" data-i18n-msg="show_selected_images">Show selected images</option>
+            <option value="3" data-i18n="copySelectedPuretext">Copy selected pure text</option>
+            <option value="4" data-i18n="copySelectedHtmltext">Copy selected HTML text</option>
+            <option value="5" data-i18n="copySelectedUrls">Copy selected URLs</option>
+            <option value="6" data-i18n="openSelectedUrls">Open selected URLs</option>
+            <option value="11" data-i18n="copySelectedImageUrls">Copy selected image urls</option>
+            <option value="12" data-i18n="showSelectedImages">Show selected images</option>
         </select><br /><br />
         <hr />
         <p>keybord shortcut: F8</p>
-        <label data-i18n-msg="keyboard_shortcut_action">keyboard shortcut action: </label>
+        <label data-i18n="keyboardShortcutAction">keyboard shortcut action: </label>
         <select id="selKeyboardShortcutAction">
-            <option value="3" data-i18n-msg="copy_selected_puretext">Copy selected pure text</option>
-            <option value="4" data-i18n-msg="copy_selected_htmltext">Copy selected HTML text</option>
-            <option value="5" data-i18n-msg="copy_selected_urls">Copy selected URLs</option>
-            <option value="6" data-i18n-msg="open_selected_urls">Open selected URLs</option>
-            <option value="11" data-i18n-msg="copy_selected_image_urls">Copy selected image urls</option>
-            <option value="12" data-i18n-msg="show_selected_images">Show selected images</option>
+            <option value="3" data-i18n="copySelectedPuretext">Copy selected pure text</option>
+            <option value="4" data-i18n="copySelectedHtmltext">Copy selected HTML text</option>
+            <option value="5" data-i18n="copySelectedUrls">Copy selected URLs</option>
+            <option value="6" data-i18n="openSelectedUrls">Open selected URLs</option>
+            <option value="11" data-i18n="copySelectedImageUrls">Copy selected image urls</option>
+            <option value="12" data-i18n="showSelectedImages">Show selected images</option>
         </select><br /><br />
         <hr />
-        <button type="submit" data-i18n-msg="save_settings">save</button>
+        <button type="button" id="inpResetSettings" data-i18n="resetSettings">Default</button>
+        <button type="submit" data-i18n="saveSettings" >Save settings</button>
     </form>
-    <label id="lblSaved" data-i18n-msg="save_ok">Data saved.</label>
+    <label id="lblSaved" data-i18n="saveOk">Data saved.</label>
     <script src="common.js"></script>
     <script src="options.js"></script>
 </body>

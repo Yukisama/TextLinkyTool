@@ -1,166 +1,128 @@
 {
-    "copy_link_name": {
+    "copyLinkName": {
         "message": "复制链接名称"
     },
-
-    "copy_link_url": {
+    "copyLinkUrl": {
         "message": "复制链接网址"
     },
-
-    "copy_selected_puretext": {
+    "copySelectedPuretext": {
         "message": "复制选定纯文本"
     },
-
-    "copy_selected_htmltext": {
+    "copySelectedHtmltext": {
         "message": "复制选定 HTML 文本"
     },
-
-    "copy_selected_urls": {
+    "copySelectedUrls": {
         "message": "复制选定网址"
     },
-
-    "open_selected_urls": {
+    "openSelectedUrls": {
         "message": "打开选定网址"
     },
-
-    "copy_page_puretext": {
+    "copyPagePuretext": {
         "message": "复制页面纯文本"
     },
-
-    "copy_page_htmltext": {
+    "copyPageHtmltext": {
         "message": "复制页面 HTML 文本"
     },
-
-    "copy_page_urls": {
+    "copyPageUrls": {
         "message": "复制页面网址"
     },
-
-    "open_page_urls": {
+    "openPageUrls": {
         "message": "打开页面网址"
     },
-
-    "tabs_limit_alert": {
+    "tabsLimitAlert": {
         "message": "网址太多，最多打开{0}个标签页。"
     },
-    
-    "toolbar_button_action": {
+    "toolbarButtonAction": {
         "message": "按钮动作: "
     },
-    
-    "link_custom_format": {
+    "linkCustomFormat": {
         "message": "链接格式化: "
     },
-    
-    "tab_custom_format": {
+    "tabCustomFormat": {
         "message": "标签页格式化: "
     },
-
-    "max_tabs_limit": {
+    "maxTabsLimit": {
         "message": "最多打开标签页: "
     },
-
-    "save_settings":{
+    "saveSettings": {
         "message": "存档"
     },
-    
-    "save_ok":{
+    "saveOk": {
         "message": "数据已保存"
     },
-
-    "copy_selected_image_urls":{
+    "copySelectedImageUrls": {
         "message": "复制选定图片网址"
     },
-
-    "show_selected_images":{
+    "showSelectedImages": {
         "message": "打开选定图片网址"
     },
-
-    "copy_page_image_urls":{
+    "copyPageImageUrls": {
         "message": "复制页面图片网址"
     },
-
-    "show_page_images":{
+    "showPageImages": {
         "message": "打开页面图片网址"
     },
-
-    "copy_tab_name":{
+    "copyTabName": {
         "message": "复制标签页名称"
     },
-
-    "copy_tab_url":{
+    "copyTabUrl": {
         "message": "复制标签页网址"
     },
-    
-    "copy_image_url":{
+    "copyImageUrl": {
         "message": "复制图片网址"
     },
-    
-    "show_image":{
+    "showImage": {
         "message": "打开图片网址"
     },
-    
-    "copy_link_format_text": {
+    "copyLinkFormatText": {
         "message": "复制链接格式化文本"
     },
-    
-    "copy_tab_format_text": {
+    "copyTabFormatText": {
         "message": "复制标签页格式化文本"
     },
-    
-    "keyboard_shortcut_action": {
+    "keyboardShortcutAction": {
         "message": "快捷键动作: "
     },
-    
-    "fix_url_quot_end": {
+    "fixUrlQuotEnd": {
         "message": "fix URLs end with quotation."
     },
-
-    "puretext_format_del_around_space":{
+    "puretextFormatDelAroundSpace": {
         "message": "Delete context around space.(trim)"
     },
-
-    "puretext_format_del_invisible_space":{
+    "puretextFormatDelInvisibleSpace": {
         "message": "Delete invisible space."
     },
-
-    "puretext_format_convert_space":{
-        "message": "Convert fullwidth space to normal space."
-    },
-
-    "puretext_format_convert_dash":{
-        "message": "Convert all type dash to normal dash."
-    },
-
-    "puretext_format_convert_apostrophe":{
-        "message": "Convert all type apostrophe to normal apostrophe."
-    },
-
-    "puretext_format_convert_quotation":{
+    "puretextFormatConvertQuotation": {
         "message": "Convert all type quotation to normal quotation."
     },
-
-    "puretext_format_merge_newline":{
+    "puretextFormatConvertApostrophe": {
+        "message": "Convert all type apostrophe to normal apostrophe."
+    },
+    "puretextFormatConvertDash": {
+        "message": "Convert all type dash to normal dash."
+    },
+    "puretextFormatConvertSpace": {
+        "message": "Convert fullwidth space to normal space."
+    },
+    "puretextFormatMergeNewline": {
         "message": "Merge newline."
     },
-
-    "puretext_format_merge_space":{
+    "puretextFormatMergeSpace": {
         "message": "Merge space."
     },
-
-    "puretext_format_merge_fullwidth_space":{
+    "puretextFormatMergeFullwidthSpace": {
         "message": "Merge fullwidth space."
     },
-
-    "puretext_format_merge_tabulation":{
+    "puretextFormatMergeTabulation": {
         "message": "Merge tabulation."
     },
-    
-    "puretext_format_merge_all_type_space":{
+    "puretextFormatMergeAllTypeSpace": {
         "message": "Merge all type space to one space."
     },
-
-    "htmltext_format_Without_tag" :{
+    "htmltextFormatWithoutTag": {
         "message": "Copy without HTML Tag."
+    },
+    "resetSettings": {
+        "message": "Default"
     }
-
 }

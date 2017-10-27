@@ -1,0 +1,2 @@
+a, img { display: block; float: left; clear: left; min-width: 1em; min-height: 1em; max-width: 95%; max-height: 95%; }
+.display { clear:initial; }

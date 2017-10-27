@@ -1,0 +1,8 @@
+hr { border-color: #CCCCCC; }
+
+#inpLinkCustomFormat,#inpTabCustomFormat { width: 80%; font-size: small; }
+#inpOpenPagesLimit { width: 4em; }
+#selToolbarButtonAction, #selKeyboardShortcutAction { font-size: small; }
+#lblSaved { color: red; visibility: hidden; }
+
+.formatdiv { display: inline-table; border: 1px solid black; padding: 0.5em; }

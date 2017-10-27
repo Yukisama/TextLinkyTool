@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Text Linky Tool",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "author": "Yuki GUO",
   "homepage_url": "https://addons.mozilla.org/addon/text-linky-tool/",
   "developer": {
@@ -10,20 +10,18 @@
   },
   "applications": {
     "gecko": {
-      "id": "{3efee51a-7d3b-4412-a889-addc6ff6276b}", 
-      "strict_min_version": "56.0"    
+      "id": "{3efee51a-7d3b-4412-a889-addc6ff6276b}",
+      "strict_min_version": "56.0"
     }
   },
   "description": "A useful tool for web links. Features: Copy as plain text/HTML source. Copy Link Name & URLs.  Analyze image/page URLs.",
   "default_locale": "en",
-
   "icons": {
     "16": "icons/icon48.png",
     "32": "icons/icon96.png",
     "48": "icons/icon48.png",
     "96": "icons/icon96.png"
   },
-
   "permissions": [
     "<all_urls>",
     "menus",
@@ -33,24 +31,26 @@
     "clipboardWrite",
     "storage"
   ],
-
   "background": {
-    "scripts": ["common.js","background.js"]
+    "scripts": [
+      "common.js",
+      "background.js"
+    ]
   },
-
-  "content_scripts": [
-    {
-      "js": ["common.js","content.js"],
-      "matches": ["<all_urls>"],
-      "all_frames": true
-    }
-  ],
-
+  "content_scripts": [{
+    "js": [
+      "common.js",
+      "content.js"
+    ],
+    "matches": [
+      "<all_urls>"
+    ],
+    "all_frames": true
+  }],
   "options_ui": {
     "page": "options.html",
     "browser_style": true
   },
-  
   "browser_action": {
     "default_icon": {
       "16": "icons/icon48.png",
@@ -58,7 +58,6 @@
     },
     "default_title": "Text Linky Tool"
   },
-
   "commands": {
     "command_action": {
       "suggested_key": {
@@ -66,5 +65,4 @@
       }
     }
   }
-
 }

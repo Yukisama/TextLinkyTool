@@ -8,31 +8,45 @@ String.prototype.format = function () {
     return formatted;
 };
 
+//string.getFormatRule 
+String.prototype.getFormatRule = function () {
+    let ruletxt = this
+        .replace(new RegExp(/\[\[name\]\]/ig), "{0}")
+        .replace(new RegExp(/\[\[url\]\]/ig), "{1}")
+        .replace(new RegExp(/\[\[n\]\]/ig), "{2}")
+        .replace(new RegExp(/\[\[t\]\]/ig), "{3}")
+        .replace(new RegExp(/\[\[index\]\]/ig), "{4}");
+    return ruletxt;
+};
+
 //command lookup
 const commonLookup = {
     actlist: {
         copySelectedPuretext: "3",
         copySelectedHtmltext: "4",
+        copyPagePuretext: "7",
+        copyPageHtmltext: "8",
         copyLinkName: "1",
         copyLinkUrl: "2",
+        copyLinkFormatText: "18",
+        copyTabName: "15",
+        copyTabUrl: "16",
+        copyTabFormatText: "19",
+        copyAllTabsInfo: "21",
+        copyImageUrl: "17",
+        showImage: "20", 
         copySelectedUrls: "5",
         openSelectedUrls: "6",
         copySelectedImageUrls: "11",
         showSelectedImages: "12",
-        copyPagePuretext: "7",
-        copyPageHtmltext: "8",
         copyPageUrls: "9",
         openPageUrls: "10",
         copyPageImageUrls: "13",
-        showPageImages: "14",
-        copyTabName: "15",
-        copyTabUrl: "16",
-        copyImageUrl: "17",
-        showImage: "20",
-        copyLinkFormatText: "18",
-        copyTabFormatText: "19",
+        showPageImages: "14", 
         toolbarButtonAction: "A",
-        keyboardShortcutAction: "B"
+        keyboardShortcutAction: "B",
+        serverOpenTabs: "S1",
+        serverShowImages: "S2"
     },
     defaultTltSetting: {
         openPagesLimit: 5,
@@ -54,11 +68,15 @@ const commonLookup = {
             mergeTabulation: false,
             mergeAllTypeSpace: false
         },
-        htmltextFormatWithoutTag: false
+        htmltextFormatWithoutTag: false,
+        openOneImageDirectly: true,
+        tabsinfoCustomFormat: "[[index]].[[t]][[url]][[t]]([[name]])[[n]]",
+        urlsCustomFormat: "[[url]][[n]]",
+        imageUrlsCustomFormat: "[[url]][[n]]"
     },
     getUserTltSetting() {
         return browser.storage.local.get({
             userTltSetting: commonLookup.defaultTltSetting
         });
     }
-}
+};

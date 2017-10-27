@@ -34,18 +34,33 @@
         <p>Copy as HTML text - Format: </p>
         <input type="checkbox" id="inpHtmltextFormatWithoutTag" /><label data-i18n="htmltextFormatWithoutTag">Copy without HTML Tag.</label><br /><br />
         <hr />
-        <p>Copy Link info - Format: [[name]] - Name text, [[url]] - Url text, [[n]] - New line</p>
+        <p>Copy Link info - Format:</p>
+        <label> [[name]] - Name text, [[url]] - URL text, [[n]] - New line, [[t]] - Tabulation </label><br />
         <label data-i18n="linkCustomFormat">Link custom format: </label>
         <input type="text" id="inpLinkCustomFormat" maxlength="100" value="Name:[[name]][[n]]Url:[[url]]" /><br /><br />
         <hr />
-        <p>Copy Tab info - Format: [[name]] - Name text, [[url]] - Url text, [[n]] - New line</p>
+        <p>Copy Tab info - Format:</p>
+        <label> [[name]] - Name text, [[url]] - URL text, [[n]] - New line, [[t]] - Tabulation </label><br />
         <label data-i18n="tabCustomFormat">Tab custom format: </label>
         <input type="text" id="inpTabCustomFormat" maxlength="100" value="Name:[[name]][[n]]Url:[[url]]" /><br /><br />
+        <label> [[index]] - Index, [[name]] - Name text, [[url]] - URL text, [[n]] - New line, [[t]] - Tabulation</label><br />
+        <label> Not for break line automate, you should add [[n]] at format end.</label><br />
+        <label data-i18n="tabsinfoCustomFormat">All tabs info custom format: </label>
+        <input type="text" id="inpTabsinfoCustomFormat" maxlength="100" value="[[index]].[[t]][[url]][[t]]([[name]])[[n]]" /><br /><br />
         <hr />
         <p>Analyze URLs: </p>
         <input type="checkbox" id="inpFixUrlQuotEnd" /><label data-i18n="fixUrlQuotEnd">fix URLs end with quotation</label><br /><br />
+        <label> [[index]] - Index, [[url]] - URL text, [[n]] - New line, [[t]] - Tabulation</label><br />
+        <label> Not for break line automate, you should add [[n]] at format end.</label><br />
+        <label data-i18n="urlsCustomFormat">Copy URLs custom format: </label>
+        <input type="text" id="inpUrlsCustomFormat" maxlength="100" value="[[url]][[n]]" /><br /><br />
+        <label> [[index]] - Index, [[url]] - URL text, [[n]] - New line, [[t]] - Tabulation</label><br />
+        <label> Not for break line automate, you should add [[n]] at format end.</label><br />
+        <label data-i18n="imageUrlsCustomFormat">Copy Image URLs custom format: </label>
+        <input type="text" id="inpImageUrlsCustomFormat" maxlength="100" value="[[url]][[n]]" /><br /><br />
         <label data-i18n="maxTabsLimit">Max tabs limit at once open: </label>
         <input type="number" id="inpOpenPagesLimit" min="1" max="999" value="10" /><br /><br />
+        <input type="checkbox" id="inpOpenOneImageDirectly" /><label data-i18n="openOneImageDirectly">Open a single Image link directly</label><br /><br />
         <hr />
         <p>Toolbar button:</p>
         <label data-i18n="toolbarButtonAction">Toolbar button action: </label>
@@ -70,7 +85,7 @@
         </select><br /><br />
         <hr />
         <button type="button" id="inpResetSettings" data-i18n="resetSettings">Default</button>
-        <button type="submit" data-i18n="saveSettings" >Save settings</button>
+        <button type="submit" data-i18n="saveSettings">Save settings</button>
     </form>
     <label id="lblSaved" data-i18n="saveOk">Data saved.</label>
     <script src="common.js"></script>

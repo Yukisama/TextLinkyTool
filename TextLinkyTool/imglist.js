@@ -1,6 +1,6 @@
 //show images
 function showImages(msg) {
-    if (msg.cmd !== "showImgs") {
+    if (msg.cmd !== commonLookup.actlist.serverShowImages) {
         return;
     }
     document.querySelector("span").textContent = ` - ${msg.data.length.toString()} pics`;

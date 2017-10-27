@@ -30,6 +30,10 @@ function showOptionSettings(setting) {
     document.querySelector("#inpPuretextFormatMergeTabulation").checked = setting.puretextFormat.mergeTabulation;
     document.querySelector("#inpPuretextFormatMergeAllTypeSpace").checked = setting.puretextFormat.mergeAllTypeSpace;
     document.querySelector("#inpHtmltextFormatWithoutTag").checked = setting.htmltextFormatWithoutTag;
+    document.querySelector("#inpOpenOneImageDirectly").checked = setting.openOneImageDirectly;
+    document.querySelector("#inpTabsinfoCustomFormat").value = setting.tabsinfoCustomFormat;
+    document.querySelector("#inpUrlsCustomFormat").value = setting.urlsCustomFormat;
+    document.querySelector("#inpImageUrlsCustomFormat").value = setting.imageUrlsCustomFormat;
 }
 
 //set option settings
@@ -54,7 +58,11 @@ function setOptionSettings(e) {
             mergeTabulation: document.querySelector("#inpPuretextFormatMergeTabulation").checked,
             mergeAllTypeSpace: document.querySelector("#inpPuretextFormatMergeAllTypeSpace").checked
         },
-        htmltextFormatWithoutTag: document.querySelector("#inpHtmltextFormatWithoutTag").checked
+        htmltextFormatWithoutTag: document.querySelector("#inpHtmltextFormatWithoutTag").checked,
+        openOneImageDirectly: document.querySelector("#inpOpenOneImageDirectly").checked,        
+        tabsinfoCustomFormat: document.querySelector("#inpTabsinfoCustomFormat").value,
+        urlsCustomFormat: document.querySelector("#inpUrlsCustomFormat").value,
+        imageUrlsCustomFormat: document.querySelector("#inpImageUrlsCustomFormat").value
     }
     browser.storage.local.set({
         "userTltSetting": tlt

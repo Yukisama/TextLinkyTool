@@ -33,7 +33,7 @@
         "message": "開啟過多分頁,只開啟前{0}頁"
     },
     "toolbarButtonAction": {
-        "message": "工具列按鈕動作: "
+        "message": "工具列按鈕動作："
     },
     "linkCustomFormat": {
         "message": "連結自訂格式："
@@ -124,5 +124,20 @@
     },
     "resetSettings": {
         "message": "預設值"
+    },
+    "openOneImageDirectly": {
+        "message": "直接開啟單一圖片連結"
+    },
+    "copyAllTabsInfo": {
+        "message": "複製所有頁籤資訊"
+    },
+    "tabsinfoCustomFormat": {
+        "message": "頁籤資訊自訂格式："
+    },
+    "urlsCustomFormat": {
+        "message": "複製連結自訂格式："
+    },
+    "imageUrlsCustomFormat": {
+        "message": "複製圖片連結自訂格式："
     }
 }

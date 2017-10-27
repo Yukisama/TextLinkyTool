@@ -123,6 +123,15 @@ browser.contextMenus.create({
     title: browser.i18n.getMessage("copyTabFormatText"),
     contexts: ["tab"]
 });
+browser.contextMenus.create({
+    type: "separator",
+    contexts: ["tab"]
+});
+browser.contextMenus.create({
+    id: commonLookup.actlist.copyAllTabsInfo,
+    title: browser.i18n.getMessage("copyAllTabsInfo"),
+    contexts: ["tab"]
+});
 
 //Main Methods
 browser.contextMenus.onClicked.addListener((info, tab) => {
@@ -160,13 +169,25 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
                 break;
             case commonLookup.actlist.copyTabName:
             case commonLookup.actlist.copyTabUrl:
-            case commonLookup.actlist.copyTabFormatText:
+            case commonLookup.actlist.copyTabFormatText:            
                 executeCommand(acttab, {
                     cmd: info.menuItemId,
                     data: {
                         name: tab.title,
                         url: tab.url
                     }
+                });
+                break;
+            case commonLookup.actlist.copyAllTabsInfo:
+                let tabsInfo=[];
+                browser.tabs.query({currentWindow:true}).then((ti)=>{
+                    ti.forEach((t)=>{
+                        tabsInfo.push({name:t.title,url:t.url});
+                    });
+                    executeCommand(acttab, {
+                        cmd: info.menuItemId,
+                        data: tabsInfo
+                    });
                 });
                 break;
             case commonLookup.actlist.copyImageUrl:
@@ -178,8 +199,16 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
                 });
                 break;
             case commonLookup.actlist.showImage:
-                browser.tabs.create({
-                    url: info.srcUrl
+                commonLookup.getUserTltSetting().then((tlt) => {
+                    let data = [info.srcUrl];
+                    let cmd = commonLookup.actlist.serverOpenTabs;
+                    if (tlt.userTltSetting.openOneImageDirectly === false) {
+                        cmd = commonLookup.actlist.serverShowImages;
+                    }
+                    serverAction({
+                        cmd: cmd,
+                        data: data
+                    });
                 });
                 break;
             default:
@@ -206,24 +235,26 @@ browser.commands.onCommand.addListener((command) => {
 //Common Method
 //execute command on page
 function executeCommand(tab, msg) {
-    browser.tabs.sendMessage(tab.id, msg).then(() => {
-        console.log("Command executed.");
-    }, (errmsg) => {
-        console.error(`Command failed: ${errmsg}`);
-    });
+    browser.tabs.sendMessage(tab.id, msg)
+        .then(() => {
+            console.log("Command executed.");
+        })
+        .catch((errmsg) => {
+            console.error(`Command failed: ${errmsg}`);
+        });
 }
 
-//get content message
-browser.runtime.onMessage.addListener((msg) => {
+//execute command on background
+function serverAction(msg) {
     switch (msg.cmd) {
-        case 'openTabs':
+        case commonLookup.actlist.serverOpenTabs:
             msg.data.forEach((u) => {
                 browser.tabs.create({
                     url: u
                 });
             });
             break;
-        case 'showImgs':
+        case commonLookup.actlist.serverShowImages:
             browser.tabs.create({
                 url: "imglist.html"
             }).then((tab) => {
@@ -237,4 +268,7 @@ browser.runtime.onMessage.addListener((msg) => {
         default:
             console.log("no use");
     }
-});
+}
+
+//background listener
+browser.runtime.onMessage.addListener(serverAction);

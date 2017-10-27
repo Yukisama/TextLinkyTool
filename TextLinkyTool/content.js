@@ -133,7 +133,14 @@ function getSelectedUrls(fixquot) {
 //copy link URLs
 function copySelectedUrls() {
     commonLookup.getUserTltSetting().then((tlt) => {
-        copyToClipboard(getSelectedUrls(tlt.userTltSetting.fixUrlQuotEnd).join("\n"));
+        let i = 0;
+        let formatRule = tlt.userTltSetting.urlsCustomFormat.getFormatRule();
+        let formatText = '';
+        getSelectedUrls(tlt.userTltSetting.fixUrlQuotEnd).forEach((url) => {
+            i++;
+            formatText += formatRule.format("[[name]]", url, "\n", "\t", i.toString());
+        });
+        copyToClipboard(formatText);
     });
 }
 
@@ -147,7 +154,7 @@ function openSelectedUrls() {
             alert(browser.i18n.getMessage("tabsLimitAlert").format(tlt.userTltSetting.openPagesLimit));
         }
         browser.runtime.sendMessage({
-            cmd: 'openTabs',
+            cmd: commonLookup.actlist.serverOpenTabs,
             data: urls
         });
     });
@@ -190,7 +197,14 @@ function getSelectedImageUrls(fixquot) {
 //copy images link URLs
 function copySelectedImageUrls() {
     commonLookup.getUserTltSetting().then((tlt) => {
-        copyToClipboard(getSelectedImageUrls(tlt.userTltSetting.fixUrlQuotEnd).join("\n"));
+        let i = 0;
+        let formatRule = tlt.userTltSetting.imageUrlsCustomFormat.getFormatRule();
+        let formatText = '';
+        getSelectedImageUrls(tlt.userTltSetting.fixUrlQuotEnd).forEach((url) => {
+            i++;
+            formatText += formatRule.format("[[name]]", url, "\n", "\t", i.toString());
+        });
+        copyToClipboard(formatText);
     });
 }
 
@@ -199,7 +213,7 @@ function showSelectedImages() {
     commonLookup.getUserTltSetting().then((tlt) => {
         let urls = getSelectedImageUrls(tlt.userTltSetting.fixUrlQuotEnd);
         browser.runtime.sendMessage({
-            cmd: 'showImgs',
+            cmd: commonLookup.actlist.serverShowImages,
             data: urls
         });
     });
@@ -208,8 +222,8 @@ function showSelectedImages() {
 //copy link format text
 function copyLinkFormatText(name, url) {
     commonLookup.getUserTltSetting().then((tlt) => {
-        let formatRule = tlt.userTltSetting.linkCustomFormat.replace(new RegExp(/\[\[name\]\]/ig), "{0}").replace(new RegExp(/\[\[url\]\]/ig), "{1}").replace(new RegExp(/\[\[n\]\]/ig), "{2}");
-        let formatText = formatRule.format(name, url, "\n");
+        let formatRule = tlt.userTltSetting.linkCustomFormat.getFormatRule();
+        let formatText = formatRule.format(name, url, "\n", "\t", "[[index]]");
         copyToClipboard(formatText);
     });
 }
@@ -217,8 +231,8 @@ function copyLinkFormatText(name, url) {
 //copy tab format text
 function copyTabFormatText(name, url) {
     commonLookup.getUserTltSetting().then((tlt) => {
-        let formatRule = tlt.userTltSetting.tabCustomFormat.replace(new RegExp(/\[\[name\]\]/ig), "{0}").replace(new RegExp(/\[\[url\]\]/ig), "{1}").replace(new RegExp(/\[\[n\]\]/ig), "{2}");
-        let formatText = formatRule.format(name, url, "\n");
+        let formatRule = tlt.userTltSetting.tabCustomFormat.getFormatRule();
+        let formatText = formatRule.format(name, url, "\n", "\t", "[[index]]");
         copyToClipboard(formatText);
     });
 }
@@ -241,9 +255,23 @@ function keyboardShortcutAction() {
     });
 }
 
+//keyboard shortcut action
+function copyAllTabsInfo(tabsInfo) {
+    commonLookup.getUserTltSetting().then((tlt) => {
+        let i = 0;
+        let formatRule = tlt.userTltSetting.tabsinfoCustomFormat.getFormatRule();
+        let formatText = '';
+        tabsInfo.forEach((ti) => {
+            i++;
+            formatText += formatRule.format(ti.name, ti.url, "\n", "\t", i.toString());
+        });
+        copyToClipboard(formatText);
+    });
+    }
+
 //execute command
 function executeCommand(msg) {
-    if (msg.cmd === "showImgs") {
+    if (msg.cmd === commonLookup.actlist.serverShowImages) {
         return;
     }
     switch (msg.cmd) {
@@ -285,6 +313,9 @@ function executeCommand(msg) {
             break;
         case commonLookup.actlist.copyTabFormatText:
             copyTabFormatText(msg.data.name, msg.data.url);
+            break;
+        case commonLookup.actlist.copyAllTabsInfo:
+            copyAllTabsInfo(msg.data);
             break;
         case commonLookup.actlist.toolbarButtonAction:
             toolbarButtonAction();

@@ -124,5 +124,20 @@
     },
     "resetSettings": {
         "message": "Default"
+    },
+    "openOneImageDirectly": {
+        "message": "Open a single Image link directly"
+    },
+    "copyAllTabsInfo": {
+        "message": "Copy all tabs info"
+    },
+    "tabsinfoCustomFormat": {
+        "message": "Copy all tabs info custom format: "
+    },
+    "urlsCustomFormat": {
+        "message": "Copy URLs custom format: "
+    },
+    "imageUrlsCustomFormat": {
+        "message": "Copy Image URLs custom format: "
     }
 }

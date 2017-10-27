@@ -267,7 +267,7 @@ function copyAllTabsInfo(tabsInfo) {
         });
         copyToClipboard(formatText);
     });
-    }
+}
 
 //execute command
 function executeCommand(msg) {

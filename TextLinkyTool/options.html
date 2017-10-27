@@ -12,27 +12,27 @@
         <p>Copy as pure text - Format: </p>
         <div class="formatdiv">
             <span>delete</span><br />
-            <input type="checkbox" id="inpPuretextFormatDelAroundSpace" /><label data-i18n="puretextFormatDelAroundSpace">Delete context around space.(trim)</label><br />
-            <input type="checkbox" id="inpPuretextFormatDelInvisibleSpace" /><label data-i18n="puretextFormatDelInvisibleSpace">Delete invisible space.</label><br />
+            <input type="checkbox" id="inpPuretextFormatDelAroundSpace" /><label for="inpPuretextFormatDelAroundSpace"  data-i18n="puretextFormatDelAroundSpace">Delete context around space.(trim)</label><br />
+            <input type="checkbox" id="inpPuretextFormatDelInvisibleSpace" /><label for="inpPuretextFormatDelInvisibleSpace" data-i18n="puretextFormatDelInvisibleSpace">Delete invisible space.</label><br />
         </div>
         <div class="formatdiv">
             <span>convert</span><br />
-            <input type="checkbox" id="inpPuretextFormatConvertQuotation" /><label data-i18n="puretextFormatConvertQuotation">Convert all type quotation to normal quotation.</label><br />
-            <input type="checkbox" id="inpPuretextFormatConvertApostrophe" /><label data-i18n="puretextFormatConvertApostrophe">Convert all type apostrophe to normal apostrophe.</label><br />
-            <input type="checkbox" id="inpPuretextFormatConvertDash" /><label data-i18n="puretextFormatConvertDash">Convert all type dash to normal dash.</label><br />
-            <input type="checkbox" id="inpPuretextFormatConvertSpace" /><label data-i18n="puretextFormatConvertSpace">Convert fullwidth space to normal space</label><br />
+            <input type="checkbox" id="inpPuretextFormatConvertQuotation" /><label for="inpPuretextFormatConvertQuotation" data-i18n="puretextFormatConvertQuotation">Convert all type quotation to normal quotation.</label><br />
+            <input type="checkbox" id="inpPuretextFormatConvertApostrophe" /><label for="inpPuretextFormatConvertApostrophe" data-i18n="puretextFormatConvertApostrophe">Convert all type apostrophe to normal apostrophe.</label><br />
+            <input type="checkbox" id="inpPuretextFormatConvertDash" /><label for="inpPuretextFormatConvertDash" data-i18n="puretextFormatConvertDash">Convert all type dash to normal dash.</label><br />
+            <input type="checkbox" id="inpPuretextFormatConvertSpace" /><label for="inpPuretextFormatConvertSpace" data-i18n="puretextFormatConvertSpace">Convert fullwidth space to normal space</label><br />
         </div>
         <div class="formatdiv">
             <span>merge</span><br />
-            <input type="checkbox" id="inpPuretextFormatMergeNewline" /><label data-i18n="puretextFormatMergeNewline">Merge newline.</label><br />
-            <input type="checkbox" id="inpPuretextFormatMergeSpace" /><label data-i18n="puretextFormatMergeSpace">Merge space.</label><br />
-            <input type="checkbox" id="inpPuretextFormatMergeFullwidthSpace" /><label data-i18n="puretextFormatMergeFullwidthSpace">Merge fullwidth space.</label><br />
-            <input type="checkbox" id="inpPuretextFormatMergeTabulation" /><label data-i18n="puretextFormatMergeTabulation">Merge tabulation.</label><br />
-            <input type="checkbox" id="inpPuretextFormatMergeAllTypeSpace" /><label data-i18n="puretextFormatMergeAllTypeSpace">Merge all type space to one space.</label><br />
+            <input type="checkbox" id="inpPuretextFormatMergeNewline" /><label for="inpPuretextFormatMergeNewline" data-i18n="puretextFormatMergeNewline">Merge newline.</label><br />
+            <input type="checkbox" id="inpPuretextFormatMergeSpace" /><label for="inpPuretextFormatMergeSpace" data-i18n="puretextFormatMergeSpace">Merge space.</label><br />
+            <input type="checkbox" id="inpPuretextFormatMergeFullwidthSpace" /><label for="inpPuretextFormatMergeFullwidthSpace" data-i18n="puretextFormatMergeFullwidthSpace">Merge fullwidth space.</label><br />
+            <input type="checkbox" id="inpPuretextFormatMergeTabulation" /><label for="inpPuretextFormatMergeTabulation" data-i18n="puretextFormatMergeTabulation">Merge tabulation.</label><br />
+            <input type="checkbox" id="inpPuretextFormatMergeAllTypeSpace" /><label for="inpPuretextFormatMergeAllTypeSpace" data-i18n="puretextFormatMergeAllTypeSpace">Merge all type space to one space.</label><br />
         </div>
         <hr />
         <p>Copy as HTML text - Format: </p>
-        <input type="checkbox" id="inpHtmltextFormatWithoutTag" /><label data-i18n="htmltextFormatWithoutTag">Copy without HTML Tag.</label><br /><br />
+        <input type="checkbox" id="inpHtmltextFormatWithoutTag" /><label for="inpHtmltextFormatWithoutTag" data-i18n="htmltextFormatWithoutTag">Copy without HTML Tag.</label><br /><br />
         <hr />
         <p>Copy Link info - Format:</p>
         <label> [[name]] - Name text, [[url]] - URL text, [[n]] - New line, [[t]] - Tabulation </label><br />
@@ -49,7 +49,7 @@
         <input type="text" id="inpTabsinfoCustomFormat" maxlength="100" value="[[index]].[[t]][[url]][[t]]([[name]])[[n]]" /><br /><br />
         <hr />
         <p>Analyze URLs: </p>
-        <input type="checkbox" id="inpFixUrlQuotEnd" /><label data-i18n="fixUrlQuotEnd">fix URLs end with quotation</label><br /><br />
+        <input type="checkbox" id="inpFixUrlQuotEnd" /><label for="inpFixUrlQuotEnd" data-i18n="fixUrlQuotEnd">fix URLs end with quotation</label><br /><br />
         <label> [[index]] - Index, [[url]] - URL text, [[n]] - New line, [[t]] - Tabulation</label><br />
         <label> Not for break line automate, you should add [[n]] at format end.</label><br />
         <label data-i18n="urlsCustomFormat">Copy URLs custom format: </label>
@@ -60,7 +60,7 @@
         <input type="text" id="inpImageUrlsCustomFormat" maxlength="100" value="[[url]][[n]]" /><br /><br />
         <label data-i18n="maxTabsLimit">Max tabs limit at once open: </label>
         <input type="number" id="inpOpenPagesLimit" min="1" max="999" value="10" /><br /><br />
-        <input type="checkbox" id="inpOpenOneImageDirectly" /><label data-i18n="openOneImageDirectly">Open a single Image link directly</label><br /><br />
+        <input type="checkbox" id="inpOpenOneImageDirectly" /><label for="inpOpenOneImageDirectly" data-i18n="openOneImageDirectly">Open a single Image link directly</label><br /><br />
         <hr />
         <p>Toolbar button:</p>
         <label data-i18n="toolbarButtonAction">Toolbar button action: </label>

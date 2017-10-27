@@ -78,6 +78,7 @@ function clearSavedMessage() {
 
 //clear saved message
 function resetOptionSettings() {
+    clearSavedMessage();
     showOptionSettings(commonLookup.defaultTltSetting);
 }
 

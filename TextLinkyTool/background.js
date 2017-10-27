@@ -136,6 +136,7 @@ browser.contextMenus.create({
 //Main Methods
 browser.contextMenus.onClicked.addListener((info, tab) => {
     browser.tabs.query({
+        currentWindow: true,
         active: true
     }).then((acttabs) => {
         let acttab = acttabs[0];
@@ -225,8 +226,9 @@ browser.commands.onCommand.addListener((command) => {
     browser.tabs.query({
         currentWindow: true,
         active: true
-    }).then((tab) => {
-        executeCommand(tab, {
+    }).then((acttabs) => {
+        let acttab = acttabs[0];
+        executeCommand(acttab, {
             cmd: commonLookup.actlist.keyboardShortcutAction
         });
     });

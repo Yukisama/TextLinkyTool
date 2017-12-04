@@ -10,12 +10,28 @@ function copyToClipboard(text) {
     document.execCommand("copy");
 }
 
-//get selected context
+//get selected context text
+function getSelectedText() {
+    let txt = "";
+    let selection = window.getSelection();
+    if (selection !== null) {
+        txt = selection.toString();
+    }
+    if (txt === "" && document.activeElement.value !== undefined) {
+        txt = document.activeElement.value.substring(document.activeElement.selectionStart, document.activeElement.selectionEnd);
+    }
+    if (txt === "") {
+        txt = document.body.innerText;
+    }
+    return txt;
+}
+
+//get selected context objects
 function getSelectedObject() {
     let body = document.body;
     let actelement = document.activeElement;
     let selection = window.getSelection();
-    if (selection.rangeCount === 0 || selection.toString() === "") {
+    if (selection === null || selection.rangeCount === 0 || selection.toString() === "") {
         if (actelement.value === undefined) {
             return body;
         }
@@ -31,13 +47,7 @@ function getSelectedObject() {
 //copy selected context to pure text
 function copySelectedPureText() {
     commonLookup.getUserTltSetting().then((tlt) => {
-        let txt = window.getSelection().toString();
-        if (txt === "" && document.activeElement.value !== undefined) {
-            txt = document.activeElement.value.substring(document.activeElement.selectionStart, document.activeElement.selectionEnd);
-        }
-        if (txt === "") {
-            txt = document.body.innerText;
-        }
+        let txt = getSelectedText();
         if (tlt.userTltSetting.puretextFormat.delAroundSpace === true) {
             txt = txt.replace(new RegExp(/^\s*|\s*$/g), "");
         }
@@ -88,7 +98,7 @@ function copySelectedHtmlText() {
 
 //analyze selected context link URLs
 function getSelectedUrls(fixquot) {
-    let body = getSelectedObject().innerHTML;
+    let body = getSelectedObject().innerHTML + "\n" + getSelectedText();
     let regex1 = new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])(.*?)\1/gi);
     let imglist = body.match(regex1);
     if (imglist === null) {
@@ -98,6 +108,26 @@ function getSelectedUrls(fixquot) {
             return s.replace(/<img\s+(?:[^>]*?\s+)?src=(["'])/i, "").replace(new RegExp(/["']$/i), "");
         });
         body = body.replace(regex1, "");
+    }
+    let regex4 = new RegExp(/background\-image\:\s*url\(((\&quot\;)|\"|\')(.*?)((\&quot\;)|\"|\')\)/gi);
+    let cssbglist = body.match(regex4);
+    if (cssbglist === null) {
+        cssbglist = [];
+    } else {
+        cssbglist = cssbglist.map((s) => {
+            return s.replace(new RegExp(/background\-image\:\ url\(((\&quot\;)|\"|\')/i), "").replace(new RegExp(/((\&quot\;)|\"|\')\)$/i), "");
+        });
+        body = body.replace(regex4, "");
+    }
+    let regex5 = new RegExp(/\s+background=[\"\'](.*?)[\"\']/gi);
+    let attbglist = body.match(regex5);
+    if (attbglist === null) {
+        attbglist = [];
+    } else {
+        attbglist = attbglist.map((s) => {
+            return s.replace(new RegExp(/\s+background=[\"\']/i), "").replace(new RegExp(/["']$/i), "");
+        });
+        body = body.replace(regex5, "");
     }
     let regex2 = new RegExp(/<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/gi);
     let alist = body.match(regex2);
@@ -116,7 +146,7 @@ function getSelectedUrls(fixquot) {
     }
     let a = document.createElement("a");
     let parser = new DOMParser;
-    let urls = imglist.concat(alist).concat(matches).map((h) => {
+    let urls = imglist.concat(cssbglist).concat(attbglist).concat(alist).concat(matches).map((h) => {
         a.href = h;
         let dom = parser.parseFromString("<!doctype html><body>" + (a.protocol + "//" + a.host + a.pathname + a.search + a.hash), "text/html");
         let u = dom.body.textContent;
@@ -169,18 +199,37 @@ function getSelectedImageUrls(fixquot) {
         imglist1 = [];
     } else {
         imglist1 = imglist1.map((s) => {
-            return s.replace(new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])/i), "").replace(new RegExp(/["']$/), "");
+            return s.replace(new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])/i), "").replace(new RegExp(/["']$/i), "");
         });
+        body = body.replace(regex1, "");
     }
-
+    let regex4 = new RegExp(/background\-image\:\s*url\(((\&quot\;)|\"|\')(.*?)((\&quot\;)|\"|\')\)/gi);
+    let cssbglist = body.match(regex4);
+    if (cssbglist === null) {
+        cssbglist = [];
+    } else {
+        cssbglist = cssbglist.map((s) => {
+            return s.replace(new RegExp(/background\-image\:\ url\(((\&quot\;)|\"|\')/i), "").replace(new RegExp(/((\&quot\;)|\"|\')\)$/i), "");
+        });
+        body = body.replace(regex4, "");
+    }
+    let regex5 = new RegExp(/\s+background=[\"\'](.*?)[\"\']/gi);
+    let attbglist = body.match(regex5);
+    if (attbglist === null) {
+        attbglist = [];
+    } else {
+        attbglist = attbglist.map((s) => {
+            return s.replace(new RegExp(/\s+background=[\"\']/i), "").replace(new RegExp(/["']$/i), "");
+        });
+        body = body.replace(regex5, "");
+    }
     let regex = new RegExp(/\.(bmp|gif|jpe?g|png|tif?f|svg|webp)(\?.*)?$/gi);
     let imglist2 = getSelectedUrls(fixquot).filter((value, index, self) => {
         return regex.test(value);
     });
-
     let a = document.createElement("a");
     let parser = new DOMParser;
-    let urls = imglist1.concat(imglist2).map((h) => {
+    let urls = imglist1.concat(cssbglist).concat(attbglist).concat(imglist2).map((h) => {
         a.href = h;
         let dom = parser.parseFromString("<!doctype html><body>" + (a.protocol + "//" + a.host + a.pathname + a.search + a.hash), "text/html");
         let u = dom.body.textContent;
@@ -275,28 +324,34 @@ function executeCommand(msg) {
         return;
     }
     switch (msg.cmd) {
-        case commonLookup.actlist.copySelectedPuretext:
         case commonLookup.actlist.copyPagePuretext:
+            getTopWindow();
+        case commonLookup.actlist.copySelectedPuretext:
             copySelectedPureText();
             break;
-        case commonLookup.actlist.copySelectedHtmltext:
         case commonLookup.actlist.copyPageHtmltext:
+            getTopWindow();
+        case commonLookup.actlist.copySelectedHtmltext:        
             copySelectedHtmlText();
             break;
-        case commonLookup.actlist.copySelectedUrls:
         case commonLookup.actlist.copyPageUrls:
+            getTopWindow();
+        case commonLookup.actlist.copySelectedUrls:
             copySelectedUrls();
             break;
-        case commonLookup.actlist.openSelectedUrls:
         case commonLookup.actlist.openPageUrls:
+            getTopWindow();
+        case commonLookup.actlist.openSelectedUrls:
             openSelectedUrls();
             break;
-        case commonLookup.actlist.copySelectedImageUrls:
         case commonLookup.actlist.copyPageImageUrls:
+            getTopWindow();
+        case commonLookup.actlist.copySelectedImageUrls:
             copySelectedImageUrls();
             break;
-        case commonLookup.actlist.showSelectedImages:
         case commonLookup.actlist.showPageImages:
+            getTopWindow();
+        case commonLookup.actlist.showSelectedImages:
             showSelectedImages();
             break;
         case commonLookup.actlist.copyLinkName:
@@ -326,6 +381,14 @@ function executeCommand(msg) {
         default:
             console.log("no use");
     }
+}
+
+//get top window
+function getTopWindow()
+{  
+    let topwindow=window.self;
+    while (window.top!=topwindow) { topwindow=window.top; }
+    topwindow.document.querySelectorAll("input,textarea").forEach((s)=>{s.blur();});
 }
 
 //page listener

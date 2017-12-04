@@ -1,3 +1,9 @@
+Version 1.2.2　2017-12-04
+------
+fix analyze full page URLs in frame/iframe.
+enhance analyze URLs of background images.
+
+
 Version 1.2.1　2017-10-28
 ------
 Bug fix.

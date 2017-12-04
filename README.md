@@ -3,7 +3,7 @@
 A useful tool for web links.  
   
 Home Page：https://github.com/Yukisama/TextLinkyTool  
-Firefox Extension：https://addons.mozilla.org/addon/text-linky-tool/  
+Firefox Extension：https://addons.mozilla.org/addon/text-linky-tool  
 Chrome Extension：not yet. but soon.  
   
 Features:  
@@ -16,27 +16,27 @@ Analyze image/page URLs.
   
 Over 20 actions:  
   
-1. Copy Selected context as pure text  
-2. Copy Selected context as HTML source text  
+1. Copy selected context as pure text  
+2. Copy selected context as HTML source text  
 3. Copy full page context as pure text  
 4. Copy full page context as HTML source text  
-5. Copy Link Name  
+5. Copy Link name  
 6. Copy Link URL  
-7. Copy Link Name & URL as format text  
+7. Copy Link name & URL as format text  
 8. Copy Image URL  
 9. Open Image on new tab  
-10. Copy Tab Name  
+10. Copy Tab name  
 11. Copy Tab URL  
-12. Copy Tab Name & URL as format text  
+12. Copy Tab name & URL as format text  
 13. Copy all Tabs info  
-14. Analyze Selected context URLs, copy to clipboard  
-15. Analyze Selected context URLs, open to new tabs  
-16. Analyze Selected context Image URLs, copy to clipboard  
-17. Analyze Selected context Image URLs, show on new tab  
-18. Analyze full page context URLs, copy to clipboard  
-19. Analyze full page context URLs, open to new tabs  
-20. Analyze full page context Image URLs, copy to clipboard  
-21. Analyze full page context Image URLs, show on new tab  
+14. Analyze selected context URLs, copy as format text  
+15. Analyze selected context URLs, open to new Tabs  
+16. Analyze selected context Image URLs, copy as format text  
+17. Analyze selected context Image URLs, show on new Tab  
+18. Analyze full page context URLs, copy as format text  
+19. Analyze full page context URLs, open to new Tabs  
+20. Analyze full page context Image URLs, copy as format text  
+21. Analyze full page context Image URLs, show on new Tab  
 ... and more  
   
   

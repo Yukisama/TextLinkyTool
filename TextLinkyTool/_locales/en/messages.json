@@ -1,143 +1,190 @@
 {
     "copyLinkName": {
-        "message": "Copy Link Name"
+        "message": "Copy Link name",
+        "description": "feature - Copy name of this Link."
     },
     "copyLinkUrl": {
-        "message": "Copy Link URL"
+        "message": "Copy Link URL",
+        "description": "feature - Copy URL of this Link."
     },
     "copySelectedPuretext": {
-        "message": "Copy selected pure text"
+        "message": "Copy selected pure text",
+        "description": "feature - Copy text without HTML format of selected area."
     },
     "copySelectedHtmltext": {
-        "message": "Copy selected HTML text"
+        "message": "Copy selected HTML text",
+        "description": "feature - Copy HTML source text of selected area."
     },
     "copySelectedUrls": {
-        "message": "Copy selected URLs"
+        "message": "Copy selected URLs",
+        "description": "feature - Copy all URLs text of selected area."
     },
     "openSelectedUrls": {
-        "message": "Open selected URLs"
+        "message": "Open selected URLs",
+        "description": "feature - Open all URLs text of selected area."
     },
     "copyPagePuretext": {
-        "message": "Copy page pure text"
+        "message": "Copy page pure text",
+        "description": "feature - Copy text without HTML format of full page."
     },
     "copyPageHtmltext": {
-        "message": "Copy page HTML text"
+        "message": "Copy page HTML text",
+        "description": "feature - Copy HTML source text of full page."
     },
     "copyPageUrls": {
-        "message": "Copy page URLs"
+        "message": "Copy page URLs",
+        "description": "feature - Copy all URLs of full page."
     },
     "openPageUrls": {
-        "message": "Open page URLs"
+        "message": "Open page URLs",
+        "description": "feature - Open all URLs of full page."
     },
     "tabsLimitAlert": {
-        "message": "Too many URLs,only open the top {0} tabs."
+        "message": "Too many URLs,only open the top {0} tabs.",
+        "description": "Message - Max tabs limit at once open."
     },
     "toolbarButtonAction": {
-        "message": "Toolbar button action: "
+        "message": "Toolbar button action: ",
+        "description": "UI text - Toolbar button action."
     },
     "linkCustomFormat": {
-        "message": "Link custom format: "
+        "message": "Link custom format: ",
+        "description": "UI text - Link custom format for copy feature."
     },
     "tabCustomFormat": {
-        "message": "Tab custom format: "
+        "message": "Tab custom format: ",
+        "description": "UI text - Tab custom format for copy feature."
     },
     "maxTabsLimit": {
-        "message": "Max tabs limit at once open: "
+        "message": "Max tabs limit at once open: ",
+        "description": "UI text - Max tabs limit at once open."
     },
     "saveSettings": {
-        "message": "Save settings"
+        "message": "Save settings",
+        "description": "UI text - Save settings."
     },
     "saveOk": {
-        "message": "Data saved."
+        "message": "Data saved.",
+        "description": "UI text - Data saved."
     },
     "copySelectedImageUrls": {
-        "message": "Copy selected image urls"
+        "message": "Copy selected image URLs",
+        "description": "feature - Copy all image URLs text of selected area."
     },
     "showSelectedImages": {
-        "message": "Show selected images"
+        "message": "Show selected images",
+        "description": "feature - Show all image URLs on new Tab of selected area."
     },
     "copyPageImageUrls": {
-        "message": "Copy page image urls"
+        "message": "Copy page image URLs",
+        "description": "feature - Copy all image URLs text of full page."
     },
     "showPageImages": {
-        "message": "Show page images"
+        "message": "Show page images",
+        "description": "feature - Show all image URLs on new Tab of full page."
     },
     "copyTabName": {
-        "message": "Copy Tab Name"
+        "message": "Copy Tab name",
+        "description": "feature - Copy name of this Tab."
     },
     "copyTabUrl": {
-        "message": "Copy Tab URL"
+        "message": "Copy Tab URL",
+        "description": "feature - Copy URL of this Tab."
     },
     "copyImageUrl": {
-        "message": "Copy Image URL"
+        "message": "Copy Image URL",
+        "description": "feature - Copy URL of this Image."
     },
     "showImage": {
-        "message": "Show Image"
+        "message": "Show Image",
+        "description": "feature - Show image on new Tab of this Image."
     },
     "copyLinkFormatText": {
-        "message": "Copy Link format text"
+        "message": "Copy Link format text",
+        "description": "feature - Copy name to custom format text of this Link."
     },
     "copyTabFormatText": {
-        "message": "Copy Tab format text"
+        "message": "Copy Tab format text",
+        "description": "feature - Copy name to custom format text of this Tab."
     },
     "keyboardShortcutAction": {
-        "message": "keyboard shortcut action: "
+        "message": "keyboard shortcut action: ",
+        "description": "UI text - keyboard shortcut action."
     },
     "fixUrlQuotEnd": {
-        "message": "fix URLs end with quotation."
+        "message": "fix URLs end with quotation.",
+        "description": "UI text - fix URLs end with quotation."
     },
     "puretextFormatDelAroundSpace": {
-        "message": "Delete context around space.(trim)"
+        "message": "Delete context around space.(trim)",
+        "description": "UI text - Delete context around space.(trim)"
     },
     "puretextFormatDelInvisibleSpace": {
-        "message": "Delete invisible space."
+        "message": "Delete invisible space.",
+        "description": "UI text - Delete invisible space."
     },
     "puretextFormatConvertQuotation": {
-        "message": "Convert all type quotation to normal quotation."
+        "message": "Convert all type quotation to normal quotation.",
+        "description": "UI text - Convert all type quotation to normal quotation."
     },
     "puretextFormatConvertApostrophe": {
-        "message": "Convert all type apostrophe to normal apostrophe."
+        "message": "Convert all type apostrophe to normal apostrophe.",
+        "description": "UI text - Convert all type apostrophe to normal apostrophe."
     },
     "puretextFormatConvertDash": {
-        "message": "Convert all type dash to normal dash."
+        "message": "Convert all type dash to normal dash.",
+        "description": "UI text - Convert all type dash to normal dash."
     },
     "puretextFormatConvertSpace": {
-        "message": "Convert fullwidth space to normal space."
+        "message": "Convert fullwidth space to normal space.",
+        "description": "UI text - Convert fullwidth space to normal space."
     },
     "puretextFormatMergeNewline": {
-        "message": "Merge newline."
+        "message": "Merge newline.",
+        "description": "UI text - Merge newline."
     },
     "puretextFormatMergeSpace": {
-        "message": "Merge space."
+        "message": "Merge space.",
+        "description": "UI text - Merge space."
     },
     "puretextFormatMergeFullwidthSpace": {
-        "message": "Merge fullwidth space."
+        "message": "Merge fullwidth space.",
+        "description": "UI text - Merge fullwidth space."
     },
     "puretextFormatMergeTabulation": {
-        "message": "Merge tabulation."
+        "message": "Merge tabulation.",
+        "description": "UI text - Merge tabulation."
     },
     "puretextFormatMergeAllTypeSpace": {
-        "message": "Merge all type space to one space."
+        "message": "Merge all type space to one space.",
+        "description": "UI text - Merge all type space to one space."
     },
     "htmltextFormatWithoutTag": {
-        "message": "Copy without HTML Tag."
+        "message": "Copy without HTML Tag.",
+        "description": "UI text - Copy without HTML Tag."
     },
     "resetSettings": {
-        "message": "Default"
+        "message": "Default",
+        "description": "UI text - reset to default settings."
     },
     "openOneImageDirectly": {
-        "message": "Open a single Image link directly"
+        "message": "Open a single Image link directly",
+        "description": "UI text - Open a single Image link directly"
     },
     "copyAllTabsInfo": {
-        "message": "Copy all tabs info"
+        "message": "Copy all Tabs info",
+        "description": "UI text - Copy all Tabs info."
     },
     "tabsinfoCustomFormat": {
-        "message": "Copy all tabs info custom format: "
+        "message": "Copy all Tabs info custom format: ",
+        "description": "UI text - Copy all Tabs info custom format."
     },
     "urlsCustomFormat": {
-        "message": "Copy URLs custom format: "
+        "message": "Copy URLs custom format: ",
+        "description": "UI text - Copy URLs custom format."
     },
     "imageUrlsCustomFormat": {
-        "message": "Copy Image URLs custom format: "
+        "message": "Copy Image URLs custom format: ",
+        "description": "UI text - Copy Image URLs custom format."
     }
 }

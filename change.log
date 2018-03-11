@@ -1,3 +1,10 @@
+Version 1.2.3　2018-03-08
+------
+Support copy features on "New Tab"( about:blank ).
+***Cannot support any features on "New Tab"( about:newtab / about:home ), becouse Mozilla policy. [ extend URL: https://bugzil.la/1270412 ]
+Add ja locale.
+
+
 Version 1.2.2　2017-12-04
 ------
 fix analyze full page URLs in frame/iframe.

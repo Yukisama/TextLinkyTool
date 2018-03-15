@@ -1,27 +1,11 @@
 {
-    "copyLinkName": {
-        "message": "複製連結名稱",
-        "description": "feature - Copy name of this Link."
-    },
-    "copyLinkUrl": {
-        "message": "複製連結網址",
-        "description": "feature - Copy URL of this Link."
-    },
     "copySelectedPuretext": {
         "message": "複製選取範圍為純文字",
-        "description": "feature - Copy text without HTML format of selected area."
+        "description": "feature - Copy text without HTML format of selected context."
     },
     "copySelectedHtmltext": {
         "message": "複製選取範圍為 HTML 文字",
-        "description": "feature - Copy HTML source text of selected area."
-    },
-    "copySelectedUrls": {
-        "message": "複製選取範圍出現的網址",
-        "description": "feature - Copy all URLs text of selected area."
-    },
-    "openSelectedUrls": {
-        "message": "開啟選取範圍出現的網址",
-        "description": "feature - Open all URLs text of selected area."
+        "description": "feature - Copy HTML source text of selected context."
     },
     "copyPagePuretext": {
         "message": "複製全頁面為純文字",
@@ -31,57 +15,25 @@
         "message": "複製全頁面為 HTML 文字",
         "description": "feature - Copy HTML source text of full page."
     },
-    "copyPageUrls": {
-        "message": "複製全頁面出現的網址",
-        "description": "feature - Copy all URLs of full page."
+    "copyLinkName": {
+        "message": "複製連結名稱",
+        "description": "feature - Copy name of this Link."
     },
-    "openPageUrls": {
-        "message": "開啟全頁面出現的網址",
-        "description": "feature - Open all URLs of full page."
+    "copyLinkUrl": {
+        "message": "複製連結網址",
+        "description": "feature - Copy URL of this Link."
     },
-    "tabsLimitAlert": {
-        "message": "開啟過多分頁,只開啟前{0}頁",
-        "description": "Message - Max tabs limit at once open."
+    "copyLinkFormatText": {
+        "message": "複製連結為格式化文字",
+        "description": "feature - Copy name & URL as custom format text of this Link."
     },
-    "toolbarButtonAction": {
-        "message": "工具列按鈕動作：",
-        "description": "UI text - Toolbar button action."
+    "copyImageUrl": {
+        "message": "複製圖片網址",
+        "description": "feature - Copy URL of this Image."
     },
-    "linkCustomFormat": {
-        "message": "連結自訂格式：",
-        "description": "UI text - Link custom format for copy feature."
-    },
-    "tabCustomFormat": {
-        "message": "頁籤自訂格式：",
-        "description": "UI text - Tab custom format for copy feature."
-    },
-    "maxTabsLimit": {
-        "message": "開啟分頁最大數量：",
-        "description": "UI text - Max tabs limit at once open."
-    },
-    "saveSettings": {
-        "message": "儲存目前設定",
-        "description": "UI text - Save settings."
-    },
-    "saveOk": {
-        "message": "存檔完成",
-        "description": "UI text - Data saved."
-    },
-    "copySelectedImageUrls": {
-        "message": "複製選取範圍出現的圖片網址",
-        "description": "feature - Copy all image URLs text of selected area."
-    },
-    "showSelectedImages": {
-        "message": "開啟選取範圍出現的圖片網址",
-        "description": "feature - Show all image URLs on new Tab of selected area."
-    },
-    "copyPageImageUrls": {
-        "message": "複製全頁面出現的圖片網址",
-        "description": "feature - Copy all image URLs text of full page."
-    },
-    "showPageImages": {
-        "message": "開啟全頁面出現的圖片網址",
-        "description": "feature - Show all image URLs on new Tab of full page."
+    "showImage": {
+        "message": "開啟圖片網址",
+        "description": "feature - Open Image on new Tab."
     },
     "copyTabName": {
         "message": "複製頁籤名稱",
@@ -91,100 +43,148 @@
         "message": "複製頁籤網址",
         "description": "feature - Copy URL of this Tab."
     },
-    "copyImageUrl": {
-        "message": "複製圖片網址",
-        "description": "feature - Copy URL of this Image."
-    },
-    "showImage": {
-        "message": "開啟圖片網址",
-        "description": "feature - Show image on new Tab of this Image."
-    },
-    "copyLinkFormatText": {
-        "message": "複製連結格式化文字",
-        "description": "feature - Copy name to custom format text of this Link."
-    },
     "copyTabFormatText": {
-        "message": "複製頁籤格式化文字",
-        "description": "feature - Copy name to custom format text of this Tab."
-    },
-    "keyboardShortcutAction": {
-        "message": "鍵盤快速鍵動作: ",
-        "description": "UI text - keyboard shortcut action."
-    },
-    "fixUrlQuotEnd": {
-        "message": "修正網址結尾的引號",
-        "description": "UI text - fix URLs end with quotation."
-    },
-    "puretextFormatDelAroundSpace": {
-        "message": "去除頭尾空白",
-        "description": "UI text - Delete context around space.(trim)"
-    },
-    "puretextFormatDelInvisibleSpace": {
-        "message": "去除隱藏空白",
-        "description": "UI text - Delete invisible space."
-    },
-    "puretextFormatConvertQuotation": {
-        "message": "轉換全形雙引號為半形雙引號",
-        "description": "UI text - Convert all type quotation to normal quotation."
-    },
-    "puretextFormatConvertApostrophe": {
-        "message": "轉換全形單引號為半形單引號",
-        "description": "UI text - Convert all type apostrophe to normal apostrophe."
-    },
-    "puretextFormatConvertDash": {
-        "message": "轉換全形破折號為半形破折號",
-        "description": "UI text - Convert all type dash to normal dash."
-    },
-    "puretextFormatConvertSpace": {
-        "message": "轉換全形空白為半形空白",
-        "description": "UI text - Convert fullwidth space to normal space."
-    },
-    "puretextFormatMergeNewline": {
-        "message": "合併連續換行",
-        "description": "UI text - Merge newline."
-    },
-    "puretextFormatMergeSpace": {
-        "message": "合併連續半形空白",
-        "description": "UI text - Merge space."
-    },
-    "puretextFormatMergeFullwidthSpace": {
-        "message": "合併連續全形空白",
-        "description": "UI text - Merge fullwidth space."
-    },
-    "puretextFormatMergeTabulation": {
-        "message": "合併連續間隔字元(TAB)",
-        "description": "UI text - Merge tabulation."
-    },
-    "puretextFormatMergeAllTypeSpace": {
-        "message": "合併所有形式的連續空白為半形空白",
-        "description": "UI text - Merge all type space to one space."
-    },
-    "htmltextFormatWithoutTag": {
-        "message": "去除 HTML Tag",
-        "description": "UI text - Copy without HTML Tag."
-    },
-    "resetSettings": {
-        "message": "預設值",
-        "description": "UI text - reset to default settings."
-    },
-    "openOneImageDirectly": {
-        "message": "直接開啟單一圖片連結",
-        "description": "UI text - Open a single Image link directly"
+        "message": "複製頁籤為格式化文字",
+        "description": "feature - Copy name & URL as custom format text of this Tab."
     },
     "copyAllTabsInfo": {
         "message": "複製所有頁籤資訊",
-        "description": "UI text - Copy all Tabs info."
+        "description": "feature - Copy all Tabs info."
+    },
+    "copySelectedUrls": {
+        "message": "複製選取範圍出現的網址",
+        "description": "feature - Analyze selected context to find URLs, copy all as custom format text."
+    },
+    "openSelectedUrls": {
+        "message": "開啟選取範圍出現的網址",
+        "description": "feature - Analyze selected context to find URLs, open all to new Tabs."
+    },
+    "copyPageUrls": {
+        "message": "複製全頁面出現的網址",
+        "description": "feature - Analyze full page to find URLs, copy all as custom format text."
+    },
+    "openPageUrls": {
+        "message": "開啟全頁面出現的網址",
+        "description": "feature - Analyze full page to find URLs, open all to new Tabs."
+    },
+    "copySelectedImageUrls": {
+        "message": "複製選取範圍出現的圖片網址",
+        "description": "feature - Analyze selected context to find image URLs, copy all as custom format text."
+    },
+    "showSelectedImages": {
+        "message": "開啟選取範圍出現的圖片網址",
+        "description": "feature - Analyze selected context to find image URLs, open all to new Tabs."
+    },
+    "copyPageImageUrls": {
+        "message": "複製全頁面出現的圖片網址",
+        "description": "feature -  Analyze full page to find image URLs, copy all as custom format text."
+    },
+    "showPageImages": {
+        "message": "開啟全頁面出現的圖片網址",
+        "description": "feature - Analyze full page to find image URLs, open all to new Tabs."
+    },
+    "tabsLimitAlert": {
+        "message": "開啟過多分頁,只開啟前{0}頁！",
+        "description": "message - Max tabs limit at once open."
+    },
+    "saveOk": {
+        "message": "存檔完成",
+        "description": "messsage - Data saved."
+    },
+    "resetSettings": {
+        "message": "預設值",
+        "description": "UI button - reset to default settings."
+    },
+    "saveSettings": {
+        "message": "儲存目前設定",
+        "description": "UI button - Save settings."
+    },
+    "puretextFormatDelAroundSpace": {
+        "message": "去除頭尾空白",
+        "description": "UI setting - [Copy as pure text - format] - Delete context around space.(trim)"
+    },
+    "puretextFormatDelInvisibleSpace": {
+        "message": "去除隱藏空白",
+        "description": "UI setting - [Copy as pure text - format] - Delete invisible space."
+    },
+    "puretextFormatConvertQuotation": {
+        "message": "轉換全形雙引號為半形雙引號",
+        "description": "UI setting - [Copy as pure text - format] - Convert all type quotation to normal quotation."
+    },
+    "puretextFormatConvertApostrophe": {
+        "message": "轉換全形單引號為半形單引號",
+        "description": "UI setting - [Copy as pure text - format] - Convert all type apostrophe to normal apostrophe."
+    },
+    "puretextFormatConvertDash": {
+        "message": "轉換全形破折號為半形破折號",
+        "description": "UI setting - [Copy as pure text - format] - Convert all type dash to normal dash."
+    },
+    "puretextFormatConvertSpace": {
+        "message": "轉換全形空白為半形空白",
+        "description": "UI setting - [Copy as pure text - format - Convert fullwidth space to normal space."
+    },
+    "puretextFormatMergeNewline": {
+        "message": "合併連續換行",
+        "description": "UI setting - [Copy as pure text - format] - Merge newline."
+    },
+    "puretextFormatMergeSpace": {
+        "message": "合併連續半形空白",
+        "description": "UI setting - [Copy as pure text - format] - Merge space."
+    },
+    "puretextFormatMergeFullwidthSpace": {
+        "message": "合併連續全形空白",
+        "description": "UI setting - [Copy as pure text - format] - Merge fullwidth space."
+    },
+    "puretextFormatMergeTabulation": {
+        "message": "合併連續間隔字元(TAB)",
+        "description": "UI setting - [Copy as pure text - format] - Merge tabulation."
+    },
+    "puretextFormatMergeAllTypeSpace": {
+        "message": "合併所有形式的連續空白為半形空白",
+        "description": "UI setting - [Copy as pure text - format] - Merge all type space to one space."
+    },
+    "htmltextFormatWithoutTag": {
+        "message": "去除 HTML Tag",
+        "description": "UI setting - [Copy as pure text - format] - Copy without HTML Tag."
+    },
+    "linkCustomFormat": {
+        "message": "連結自訂格式：",
+        "description": "UI setting - [Copy Link info - Format] - Link custom format for copy feature."
+    },
+    "tabCustomFormat": {
+        "message": "頁籤自訂格式：",
+        "description": "UI setting - [Copy Tab info - Format] - Tab custom format for copy feature."
     },
     "tabsinfoCustomFormat": {
         "message": "頁籤資訊自訂格式：",
-        "description": "UI text - Copy all Tabs info custom format."
+        "description": "UI setting - [Copy Tab info - Format] - Copy all Tabs info custom format."
+    },
+    "fixUrlQuotEnd": {
+        "message": "修正網址結尾的引號",
+        "description": "UI setting - [Analyze URLs] - fix URLs end with quotation."
     },
     "urlsCustomFormat": {
         "message": "複製連結自訂格式：",
-        "description": "UI text - Copy URLs custom format."
+        "description": "UI setting - [Analyze URLs] - Copy URLs custom format."
     },
     "imageUrlsCustomFormat": {
         "message": "複製圖片連結自訂格式：",
-        "description": "UI text - Copy Image URLs custom format."
+        "description": "UI setting - [Analyze URLs] - Copy Image URLs custom format."
+    },
+    "maxTabsLimit": {
+        "message": "開啟分頁最大數量：",
+        "description": "UI setting - [Analyze URLs] - Max tabs limit at once open."
+    },
+    "openOneImageDirectly": {
+        "message": "直接開啟單一圖片連結",
+        "description": "UI setting - [Analyze URLs] - Open a single Image link directly"
+    },
+    "toolbarButtonAction": {
+        "message": "工具列按鈕動作：",
+        "description": "UI setting - [Toolbar button] - Toolbar button action."
+    },
+    "keyboardShortcutAction": {
+        "message": "鍵盤快速鍵動作: ",
+        "description": "UI setting - [keybord shortcut] - keyboard shortcut action."
     }
 }

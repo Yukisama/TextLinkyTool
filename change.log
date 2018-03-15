@@ -1,3 +1,13 @@
+Version 1.2.4　2018-03-14
+------
+Modify en locale.
+Modify zh_TW locale.
+Modify zh_CN locale.
+Modify ja locale.
+Disable toolbar button in block site (addons.mozilla.org / about:newtab / about:config)
+Hide contextmenus in block site (addons.mozilla.org / about:newtab / about:config)
+
+
 Version 1.2.3　2018-03-08
 ------
 Support copy features on "New Tab"( about:blank ).

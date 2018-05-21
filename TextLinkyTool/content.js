@@ -88,8 +88,11 @@ function copySelectedPureText() {
 //copy selected context to HTML text
 function copySelectedHtmlText() {
     commonLookup.getUserTltSetting().then((tlt) => {
-        let txt = getSelectedObject().innerHTML;
-        if (tlt.userTltSetting.htmltextFormatWithoutTag) {
+        let txt = "";
+        if (!tlt.userTltSetting.htmltextFormatWithoutTag) {            
+            txt = getSelectedObject().innerHTML;
+        }
+        else {
             txt = getSelectedObject().innerText;
         }
         copyToClipboard(txt);
@@ -97,7 +100,7 @@ function copySelectedHtmlText() {
 }
 
 //analyze selected context link URLs
-function getSelectedUrls(fixquot) {
+function getSelectedUrls(fixquot,blobtolocal) {
     let body = getSelectedObject().innerHTML + "\n" + getSelectedText();
     let regex1 = new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])(.*?)\1/gi);
     let imglist = body.match(regex1);
@@ -150,6 +153,8 @@ function getSelectedUrls(fixquot) {
         a.href = h;
         let dom = parser.parseFromString("<!doctype html><body>" + (a.protocol + "//" + a.host + a.pathname + a.search + a.hash), "text/html");
         let u = dom.body.textContent;
+        if (a.protocol == "blob:" || a.protocol == "data:") { u = a.href; }
+        if (blobtolocal === true && a.protocol == "blob:") { u = getImageToLocal(a.href); }
         if (fixquot === true) {
             u = u.replace(new RegExp(/\"*$/i), "");
         }
@@ -161,12 +166,12 @@ function getSelectedUrls(fixquot) {
 }
 
 //copy link URLs
-function copySelectedUrls() {
+function copySelectedUrls(idx) {
     commonLookup.getUserTltSetting().then((tlt) => {
         let i = 0;
-        let formatRule = tlt.userTltSetting.urlsCustomFormat.getFormatRule();
+        let formatRule = tlt.userTltSetting.urlsCustomFormatList[idx].data.getFormatRule();
         let formatText = '';
-        getSelectedUrls(tlt.userTltSetting.fixUrlQuotEnd).forEach((url) => {
+        getSelectedUrls(tlt.userTltSetting.fixUrlQuotEnd,tlt.userTltSetting.blobUrlToLocal).forEach((url) => {
             i++;
             formatText += formatRule.format("[[name]]", url, "\n", "\t", i.toString());
         });
@@ -177,7 +182,7 @@ function copySelectedUrls() {
 //open link URLs to browser tabs
 function openSelectedUrls() {
     commonLookup.getUserTltSetting().then((tlt) => {
-        let urls = getSelectedUrls(tlt.userTltSetting.fixUrlQuotEnd);
+        let urls = getSelectedUrls(tlt.userTltSetting.fixUrlQuotEnd,tlt.userTltSetting.blobUrlToLocal);
         let limit = Number(tlt.userTltSetting.openPagesLimit);
         if (urls.length > limit) {
             urls = urls.slice(0, limit);
@@ -191,7 +196,7 @@ function openSelectedUrls() {
 }
 
 //filter images URLs
-function getSelectedImageUrls(fixquot) {
+function getSelectedImageUrls(fixquot,blobtolocal) {
     let body = getSelectedObject().innerHTML;
     let regex1 = new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])(.*?)\1/gi);
     let imglist1 = body.match(regex1);
@@ -224,7 +229,7 @@ function getSelectedImageUrls(fixquot) {
         body = body.replace(regex5, "");
     }
     let regex = new RegExp(/\.(bmp|gif|jpe?g|png|tif?f|svg|webp)(\?.*)?$/gi);
-    let imglist2 = getSelectedUrls(fixquot).filter((value, index, self) => {
+    let imglist2 = getSelectedUrls(fixquot,blobtolocal).filter((value, index, self) => {
         return regex.test(value);
     });
     let a = document.createElement("a");
@@ -233,6 +238,8 @@ function getSelectedImageUrls(fixquot) {
         a.href = h;
         let dom = parser.parseFromString("<!doctype html><body>" + (a.protocol + "//" + a.host + a.pathname + a.search + a.hash), "text/html");
         let u = dom.body.textContent;
+        if (a.protocol == "blob:" || a.protocol == "data:") { u = a.href; }
+        if (blobtolocal === true && a.protocol == "blob:") { u = getImageToLocal(a.href); }
         if (fixquot === true) {
             u = u.replace(new RegExp(/\"*$/i), "");
         }
@@ -243,13 +250,26 @@ function getSelectedImageUrls(fixquot) {
     return urls;
 }
 
+//get image to local
+function getImageToLocal(url)
+{
+    let result="";
+    let img=document.querySelectorAll("[src='" + url +"']");
+    let canvas = document.createElement("canvas");
+    canvas.width = img[0].naturalWidth;
+    canvas.height = img[0].naturalHeight;
+    canvas.getContext("2d").drawImage(img[0], 0, 0);
+    result = canvas.toDataURL();
+    return result;
+}
+
 //copy images link URLs
-function copySelectedImageUrls() {
+function copySelectedImageUrls(idx) {
     commonLookup.getUserTltSetting().then((tlt) => {
         let i = 0;
-        let formatRule = tlt.userTltSetting.imageUrlsCustomFormat.getFormatRule();
+        let formatRule = tlt.userTltSetting.imageUrlsCustomFormatList[idx].data.getFormatRule();
         let formatText = '';
-        getSelectedImageUrls(tlt.userTltSetting.fixUrlQuotEnd).forEach((url) => {
+        getSelectedImageUrls(tlt.userTltSetting.fixUrlQuotEnd,tlt.userTltSetting.blobUrlToLocal).forEach((url) => {
             i++;
             formatText += formatRule.format("[[name]]", url, "\n", "\t", i.toString());
         });
@@ -260,7 +280,7 @@ function copySelectedImageUrls() {
 //show images
 function showSelectedImages() {
     commonLookup.getUserTltSetting().then((tlt) => {
-        let urls = getSelectedImageUrls(tlt.userTltSetting.fixUrlQuotEnd);
+        let urls = getSelectedImageUrls(tlt.userTltSetting.fixUrlQuotEnd,tlt.userTltSetting.blobUrlToLocal);
         browser.runtime.sendMessage({
             cmd: commonLookup.actlist.serverShowImages,
             data: urls
@@ -269,19 +289,33 @@ function showSelectedImages() {
 }
 
 //copy link format text
-function copyLinkFormatText(name, url) {
+function copyLinkFormatText(name, url, idx) {
     commonLookup.getUserTltSetting().then((tlt) => {
-        let formatRule = tlt.userTltSetting.linkCustomFormat.getFormatRule();
+        let formatRule = tlt.userTltSetting.linkCustomFormatList[idx].data.getFormatRule();
         let formatText = formatRule.format(name, url, "\n", "\t", "[[index]]");
         copyToClipboard(formatText);
     });
 }
 
 //copy tab format text
-function copyTabFormatText(name, url) {
+function copyTabFormatText(name, url, idx) {
     commonLookup.getUserTltSetting().then((tlt) => {
-        let formatRule = tlt.userTltSetting.tabCustomFormat.getFormatRule();
+        let formatRule = tlt.userTltSetting.tabCustomFormatList[idx].data.getFormatRule();
         let formatText = formatRule.format(name, url, "\n", "\t", "[[index]]");
+        copyToClipboard(formatText);
+    });
+}
+
+//copy all tabs info
+function copyAllTabsInfo(tabsInfo, idx) {
+    commonLookup.getUserTltSetting().then((tlt) => {
+        let i = 0;
+        let formatRule = tlt.userTltSetting.tabsinfoCustomFormatList[idx].data.getFormatRule();
+        let formatText = "";
+        tabsInfo.forEach((ti) => {
+            i++;
+            formatText += formatRule.format(ti.name, ti.url, "\n", "\t", i.toString());
+        });
         copyToClipboard(formatText);
     });
 }
@@ -295,26 +329,13 @@ function toolbarButtonAction() {
     });
 }
 
+
 //keyboard shortcut action
 function keyboardShortcutAction() {
     commonLookup.getUserTltSetting().then((tlt) => {
         executeCommand({
             cmd: tlt.userTltSetting.keyboardShortcutAction
         });
-    });
-}
-
-//keyboard shortcut action
-function copyAllTabsInfo(tabsInfo) {
-    commonLookup.getUserTltSetting().then((tlt) => {
-        let i = 0;
-        let formatRule = tlt.userTltSetting.tabsinfoCustomFormat.getFormatRule();
-        let formatText = '';
-        tabsInfo.forEach((ti) => {
-            i++;
-            formatText += formatRule.format(ti.name, ti.url, "\n", "\t", i.toString());
-        });
-        copyToClipboard(formatText);
     });
 }
 
@@ -337,7 +358,7 @@ function executeCommand(msg) {
         case commonLookup.actlist.copyPageUrls:
             getTopWindow();
         case commonLookup.actlist.copySelectedUrls:
-            copySelectedUrls();
+            copySelectedUrls(msg.idx);
             break;
         case commonLookup.actlist.openPageUrls:
             getTopWindow();
@@ -347,7 +368,7 @@ function executeCommand(msg) {
         case commonLookup.actlist.copyPageImageUrls:
             getTopWindow();
         case commonLookup.actlist.copySelectedImageUrls:
-            copySelectedImageUrls();
+            copySelectedImageUrls(msg.idx);
             break;
         case commonLookup.actlist.showPageImages:
             getTopWindow();
@@ -364,13 +385,13 @@ function executeCommand(msg) {
             copyToClipboard(msg.data.url);
             break;
         case commonLookup.actlist.copyLinkFormatText:
-            copyLinkFormatText(msg.data.name, msg.data.url);
+            copyLinkFormatText(msg.data.name, msg.data.url, msg.idx);
             break;
         case commonLookup.actlist.copyTabFormatText:
-            copyTabFormatText(msg.data.name, msg.data.url);
+            copyTabFormatText(msg.data.name, msg.data.url, msg.idx);
             break;
         case commonLookup.actlist.copyAllTabsInfo:
-            copyAllTabsInfo(msg.data);
+            copyAllTabsInfo(msg.data, msg.idx);
             break;
         case commonLookup.actlist.toolbarButtonAction:
             toolbarButtonAction();

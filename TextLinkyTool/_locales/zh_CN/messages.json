@@ -24,7 +24,7 @@
         "description": "feature - Copy URL of this Link."
     },
     "copyLinkFormatText": {
-        "message": "复制链接格式化文本",
+        "message": "复制链接{0}",
         "description": "feature - Copy name & URL as custom format text of this Link."
     },
     "copyImageUrl": {
@@ -44,7 +44,7 @@
         "description": "feature - Copy URL of this Tab."
     },
     "copyTabFormatText": {
-        "message": "复制标签页格式化文本",
+        "message": "复制标签页{0}",
         "description": "feature - Copy name & URL as custom format text of this Tab."
     },
     "copyAllTabsInfo": {
@@ -177,7 +177,11 @@
     },
     "openOneImageDirectly": {
         "message": "直接打开单图",
-        "description": "UI setting - [Analyze URLs] - Open a single Image link directly"
+        "description": "UI setting - [Analyze URLs] - Open a single Image link directly."
+    },
+    "blobUrlToLocal": {
+        "message": "Blob URL transfer to local URL (very slow)",
+        "description": "UI setting - [Analyze URLs] - Blob URL transfer to local URL."
     },
     "toolbarButtonAction": {
         "message": "按钮动作: ",

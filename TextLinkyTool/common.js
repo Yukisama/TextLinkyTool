@@ -50,8 +50,8 @@ const commonLookup = {
     },
     defaultTltSetting: {
         openPagesLimit: 5,
-        linkCustomFormat: "Name:[[name]][[n]]Url:[[url]]",
-        tabCustomFormat: "Name:[[name]][[n]]Url:[[url]]",
+        linkCustomFormatList: [{name:"Custom",data:"Name:[[name]][[n]]Url:[[url]]"}],
+        tabCustomFormatList: [{name:"Custom",data:"Name:[[name]][[n]]Url:[[url]]"}],
         toolbarButtonAction: "12",
         keyboardShortcutAction: "3",
         fixUrlQuotEnd: true,
@@ -70,9 +70,10 @@ const commonLookup = {
         },
         htmltextFormatWithoutTag: false,
         openOneImageDirectly: true,
-        tabsinfoCustomFormat: "[[index]].[[t]][[url]][[t]]([[name]])[[n]]",
-        urlsCustomFormat: "[[url]][[n]]",
-        imageUrlsCustomFormat: "[[url]][[n]]"
+        tabsinfoCustomFormatList: [{name:"Custom",data:"[[index]].[[t]][[url]][[t]]([[name]])[[n]]"}],
+        urlsCustomFormatList: [{name:"Custom",data:"[[url]][[n]]"}],
+        imageUrlsCustomFormatList: [{name:"Custom",data:"[[url]][[n]]"}],
+        blobUrlToLocal: true
     },
     getUserTltSetting() {
         return browser.storage.local.get({

@@ -13,8 +13,10 @@ function pageReady() {
 //show option settings
 function showOptionSettings(setting) {
     document.querySelector("#inpOpenPagesLimit").value = setting.openPagesLimit;
-    document.querySelector("#inpLinkCustomFormat").value = setting.linkCustomFormat;
-    document.querySelector("#inpTabCustomFormat").value = setting.tabCustomFormat;
+    document.querySelector("#inpLinkCustomFormatName").value = setting.linkCustomFormatList[0].name;
+    document.querySelector("#inpLinkCustomFormatData").value = setting.linkCustomFormatList[0].data;
+    document.querySelector("#inpTabCustomFormatName").value = setting.tabCustomFormatList[0].name;
+    document.querySelector("#inpTabCustomFormatData").value = setting.tabCustomFormatList[0].data;
     document.querySelector("#selToolbarButtonAction").value = setting.toolbarButtonAction;
     document.querySelector("#selKeyboardShortcutAction").value = setting.keyboardShortcutAction;
     document.querySelector("#inpFixUrlQuotEnd").checked = setting.fixUrlQuotEnd;
@@ -31,17 +33,21 @@ function showOptionSettings(setting) {
     document.querySelector("#inpPuretextFormatMergeAllTypeSpace").checked = setting.puretextFormat.mergeAllTypeSpace;
     document.querySelector("#inpHtmltextFormatWithoutTag").checked = setting.htmltextFormatWithoutTag;
     document.querySelector("#inpOpenOneImageDirectly").checked = setting.openOneImageDirectly;
-    document.querySelector("#inpTabsinfoCustomFormat").value = setting.tabsinfoCustomFormat;
-    document.querySelector("#inpUrlsCustomFormat").value = setting.urlsCustomFormat;
-    document.querySelector("#inpImageUrlsCustomFormat").value = setting.imageUrlsCustomFormat;
+    document.querySelector("#inpTabsinfoCustomFormatName").value = setting.tabsinfoCustomFormatList[0].name;
+    document.querySelector("#inpTabsinfoCustomFormatData").value = setting.tabsinfoCustomFormatList[0].data;
+    document.querySelector("#inpUrlsCustomFormatName").value = setting.urlsCustomFormatList[0].name;
+    document.querySelector("#inpUrlsCustomFormatData").value = setting.urlsCustomFormatList[0].data;
+    document.querySelector("#inpImageUrlsCustomFormatName").value = setting.imageUrlsCustomFormatList[0].name;
+    document.querySelector("#inpImageUrlsCustomFormatData").value = setting.imageUrlsCustomFormatList[0].data;
+    document.querySelector("#inpBlobUrlToLocal").checked = setting.blobUrlToLocal;
 }
 
 //set option settings
 function setOptionSettings(e) {
     let tlt = {
         openPagesLimit: document.querySelector("#inpOpenPagesLimit").value,
-        linkCustomFormat: document.querySelector("#inpLinkCustomFormat").value,
-        tabCustomFormat: document.querySelector("#inpTabCustomFormat").value,
+        linkCustomFormatList:[{"name":document.querySelector("#inpLinkCustomFormatName").value,"data":document.querySelector("#inpLinkCustomFormatData").value}] ,
+        tabCustomFormatList:[{"name":document.querySelector("#inpTabCustomFormatName").value,"data":document.querySelector("#inpTabCustomFormatData").value}] ,
         toolbarButtonAction: document.querySelector("#selToolbarButtonAction").value,
         keyboardShortcutAction: document.querySelector("#selKeyboardShortcutAction").value,
         fixUrlQuotEnd: document.querySelector("#inpFixUrlQuotEnd").checked,
@@ -59,10 +65,11 @@ function setOptionSettings(e) {
             mergeAllTypeSpace: document.querySelector("#inpPuretextFormatMergeAllTypeSpace").checked
         },
         htmltextFormatWithoutTag: document.querySelector("#inpHtmltextFormatWithoutTag").checked,
-        openOneImageDirectly: document.querySelector("#inpOpenOneImageDirectly").checked,        
-        tabsinfoCustomFormat: document.querySelector("#inpTabsinfoCustomFormat").value,
-        urlsCustomFormat: document.querySelector("#inpUrlsCustomFormat").value,
-        imageUrlsCustomFormat: document.querySelector("#inpImageUrlsCustomFormat").value
+        openOneImageDirectly: document.querySelector("#inpOpenOneImageDirectly").checked,
+        tabsinfoCustomFormatList:[{"name":document.querySelector("#inpTabsinfoCustomFormatName").value,"data":document.querySelector("#inpTabsinfoCustomFormatData").value}] ,
+        urlsCustomFormatList:[{"name":document.querySelector("#inpUrlsCustomFormatName").value,"data":document.querySelector("#inpUrlsCustomFormatData").value}] ,
+        imageUrlsCustomFormatList:[{"name":document.querySelector("#inpImageUrlsCustomFormatName").value,"data":document.querySelector("#inpImageUrlsCustomFormatData").value}] ,
+        blobUrlToLocal: document.querySelector("#inpBlobUrlToLocal").checked
     }
     browser.storage.local.set({
         "userTltSetting": tlt

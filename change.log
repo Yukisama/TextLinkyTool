@@ -1,3 +1,10 @@
+Version 1.2.5　2018-05-18
+------
+Support blob/data style URL.
+Custom options - Blob URL to local URL.
+Custom options format name can be setting.
+
+
 Version 1.2.4　2018-03-14
 ------
 Modify en locale.

@@ -1,8 +1,9 @@
 hr { border-color: #CCCCCC; }
 
-#inpLinkCustomFormat,#inpTabCustomFormat,#inpTabsinfoCustomFormat,#inpUrlsCustomFormat,#inpImageUrlsCustomFormat { width: 80%; font-size: small; }
 #inpOpenPagesLimit { width: 4em; }
 #selToolbarButtonAction, #selKeyboardShortcutAction { font-size: small; }
 #lblSaved { color: red; visibility: hidden; }
 
 .formatdiv { display: inline-table; border: 1px solid black; padding: 0.5em; }
+.listName {width: 20%; font-size: small;}
+.listData {width: 60%; font-size: small; }

@@ -11,138 +11,157 @@ function menuCombine(tab)
     browser.browserAction.enable(tab.id);
 
     //Context menus combine
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copySelectedPuretext,
-        title: browser.i18n.getMessage("copySelectedPuretext"),
-        contexts: ["selection"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copySelectedHtmltext,
-        title: browser.i18n.getMessage("copySelectedHtmltext"),
-        contexts: ["selection"]
-    });
-    browser.contextMenus.create({
-        type: "separator",
-        contexts: ["selection"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copyLinkName,
-        title: browser.i18n.getMessage("copyLinkName"),
-        contexts: ["link"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copyLinkUrl,
-        title: browser.i18n.getMessage("copyLinkUrl"),
-        contexts: ["link"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copyLinkFormatText,
-        title: browser.i18n.getMessage("copyLinkFormatText"),
-        contexts: ["link"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copyImageUrl,
-        title: browser.i18n.getMessage("copyImageUrl"),
-        contexts: ["image"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.showImage,
-        title: browser.i18n.getMessage("showImage"),
-        contexts: ["image"]
-    });
-    browser.contextMenus.create({
-        type: "separator",
-        contexts: ["link", "image"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copySelectedUrls,
-        title: browser.i18n.getMessage("copySelectedUrls"),
-        contexts: ["selection"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.openSelectedUrls,
-        title: browser.i18n.getMessage("openSelectedUrls"),
-        contexts: ["selection"]
-    });
-    browser.contextMenus.create({
-        type: "separator",
-        contexts: ["selection"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copySelectedImageUrls,
-        title: browser.i18n.getMessage("copySelectedImageUrls"),
-        contexts: ["selection"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.showSelectedImages,
-        title: browser.i18n.getMessage("showSelectedImages"),
-        contexts: ["selection"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copyPagePuretext,
-        title: browser.i18n.getMessage("copyPagePuretext"),
-        contexts: ["page"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copyPageHtmltext,
-        title: browser.i18n.getMessage("copyPageHtmltext"),
-        contexts: ["page"]
-    });
-    browser.contextMenus.create({
-        type: "separator",
-        contexts: ["page"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copyPageUrls,
-        title: browser.i18n.getMessage("copyPageUrls"),
-        contexts: ["page"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.openPageUrls,
-        title: browser.i18n.getMessage("openPageUrls"),
-        contexts: ["page"]
-    });
-    browser.contextMenus.create({
-        type: "separator",
-        contexts: ["page"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copyPageImageUrls,
-        title: browser.i18n.getMessage("copyPageImageUrls"),
-        contexts: ["page"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.showPageImages,
-        title: browser.i18n.getMessage("showPageImages"),
-        contexts: ["page"]
-    });
-    browser.contextMenus.create({
-        type: "separator",
-        contexts: ["page"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copyTabName,
-        title: browser.i18n.getMessage("copyTabName"),
-        contexts: ["tab"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copyTabUrl,
-        title: browser.i18n.getMessage("copyTabUrl"),
-        contexts: ["tab"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copyTabFormatText,
-        title: browser.i18n.getMessage("copyTabFormatText"),
-        contexts: ["tab"]
-    });
-    browser.contextMenus.create({
-        type: "separator",
-        contexts: ["tab"]
-    });
-    browser.contextMenus.create({
-        id: commonLookup.actlist.copyAllTabsInfo,
-        title: browser.i18n.getMessage("copyAllTabsInfo"),
-        contexts: ["tab"]
+    commonLookup.getUserTltSetting().then((tlt)=>{
+        browser.contextMenus.create({
+            id: commonLookup.actlist.copySelectedPuretext + "-0",
+            title: browser.i18n.getMessage("copySelectedPuretext"),
+            contexts: ["selection"]
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.copySelectedHtmltext + "-0",
+            title: browser.i18n.getMessage("copySelectedHtmltext"),
+            contexts: ["selection"]
+        });
+        browser.contextMenus.create({
+            id: "separator-0",
+            type: "separator",
+            contexts: ["selection"]
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.copyLinkName + "-0",
+            title: browser.i18n.getMessage("copyLinkName"),
+            contexts: ["link"]
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.copyLinkUrl + "-0",
+            title: browser.i18n.getMessage("copyLinkUrl"),
+            contexts: ["link"]
+        });
+        tlt.userTltSetting.linkCustomFormatList.forEach((item,idx)=>{
+            browser.contextMenus.create({
+                id: commonLookup.actlist.copyLinkFormatText + "-" + idx.toString(),
+                title: browser.i18n.getMessage("copyLinkFormatText").replace("{0}",item.name),
+                contexts: ["link"]
+            });
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.copyImageUrl + "-0",
+            title: browser.i18n.getMessage("copyImageUrl"),
+            contexts: ["image"]
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.showImage + "-0",
+            title: browser.i18n.getMessage("showImage"),
+            contexts: ["image"]
+        });
+        browser.contextMenus.create({
+            id: "separator-1",
+            type: "separator",
+            contexts: ["link", "image"]
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.copySelectedUrls + "-0",
+            title: browser.i18n.getMessage("copySelectedUrls"),
+            contexts: ["selection"]
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.openSelectedUrls + "-0",
+            title: browser.i18n.getMessage("openSelectedUrls"),
+            contexts: ["selection"]
+        });
+        browser.contextMenus.create({
+            id: "separator-2",
+            type: "separator",
+            contexts: ["selection"]
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.copySelectedImageUrls + "-0",
+            title: browser.i18n.getMessage("copySelectedImageUrls"),
+            contexts: ["selection"]
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.showSelectedImages + "-0",
+            title: browser.i18n.getMessage("showSelectedImages"),
+            contexts: ["selection"]
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.copyPagePuretext + "-0",
+            title: browser.i18n.getMessage("copyPagePuretext"),
+            contexts: ["page"]
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.copyPageHtmltext + "-0",
+            title: browser.i18n.getMessage("copyPageHtmltext"),
+            contexts: ["page"]
+        });
+        browser.contextMenus.create({
+            id: "separator-3",
+            type: "separator",
+            contexts: ["page"]
+        });
+        tlt.userTltSetting.urlsCustomFormatList.forEach((item,idx)=>{
+            browser.contextMenus.create({
+                id: commonLookup.actlist.copyPageUrls + "-" + idx.toString(),
+                title: browser.i18n.getMessage("copyPageUrls") + "(" + item.name + ")",
+                contexts: ["page"]
+            });
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.openPageUrls + "-0",
+            title: browser.i18n.getMessage("openPageUrls"),
+            contexts: ["page"]
+        });
+        browser.contextMenus.create({
+            id: "separator-4",
+            type: "separator",
+            contexts: ["page"]
+        });
+        tlt.userTltSetting.imageUrlsCustomFormatList.forEach((item,idx)=>{
+            browser.contextMenus.create({
+                id: commonLookup.actlist.copyPageImageUrls + "-" + idx.toString(),
+                title: browser.i18n.getMessage("copyPageImageUrls") + "(" + item.name + ")",
+                contexts: ["page"]
+            });
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.showPageImages + "-0",
+            title: browser.i18n.getMessage("showPageImages"),
+            contexts: ["page"]
+        });
+        browser.contextMenus.create({
+            id: "separator-5",
+            type: "separator",
+            contexts: ["page"]
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.copyTabName + "-0",
+            title: browser.i18n.getMessage("copyTabName"),
+            contexts: ["tab"]
+        });
+        browser.contextMenus.create({
+            id: commonLookup.actlist.copyTabUrl + "-0",
+            title: browser.i18n.getMessage("copyTabUrl"),
+            contexts: ["tab"]
+        });
+        tlt.userTltSetting.tabCustomFormatList.forEach((item,idx)=>{
+            browser.contextMenus.create({
+                id: commonLookup.actlist.copyTabFormatText + "-" + idx.toString(),
+                title: browser.i18n.getMessage("copyTabFormatText").replace("{0}",item.name),
+                contexts: ["tab"]
+            });
+        });
+        browser.contextMenus.create({
+            id: "separator-6",
+            type: "separator",
+            contexts: ["tab"]
+        });
+        tlt.userTltSetting.tabsinfoCustomFormatList.forEach((item,idx)=>{
+            browser.contextMenus.create({
+                id: commonLookup.actlist.copyAllTabsInfo + "-" + idx.toString(),
+                title: browser.i18n.getMessage("copyAllTabsInfo") + "(" + item.name + ")",
+                contexts: ["tab"]
+            });
+        });
     });
 }
 function tabActivated(tab)
@@ -170,7 +189,10 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
         active: true
     }).then((acttabs) => {
         let acttab = acttabs[0];
-        switch (info.menuItemId) {
+        let actinfo = info.menuItemId.split("-");
+        let actid = actinfo[0];
+        let actidx = Number(actinfo[1]);
+        switch (actid) {
             case commonLookup.actlist.copySelectedPuretext:
             case commonLookup.actlist.copyPagePuretext:
             case commonLookup.actlist.copySelectedHtmltext:
@@ -184,29 +206,32 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
             case commonLookup.actlist.showSelectedImages:
             case commonLookup.actlist.showPageImages:
                 executeCommand(acttab, {
-                    cmd: info.menuItemId
+                    cmd: actid,
+                    idx: actidx
                 });
                 break;
             case commonLookup.actlist.copyLinkName:
             case commonLookup.actlist.copyLinkUrl:
             case commonLookup.actlist.copyLinkFormatText:
                 executeCommand(acttab, {
-                    cmd: info.menuItemId,
+                    cmd: actid,                    
                     data: {
                         name: info.linkText,
                         url: info.linkUrl
-                    }
+                    },
+                    idx: actidx
                 });
                 break;
             case commonLookup.actlist.copyTabName:
             case commonLookup.actlist.copyTabUrl:
             case commonLookup.actlist.copyTabFormatText:            
                 executeCommand(acttab, {
-                    cmd: info.menuItemId,
+                    cmd: actid,
                     data: {
                         name: tab.title,
                         url: tab.url
-                    }
+                    },
+                    idx: actidx
                 });
                 break;
             case commonLookup.actlist.copyAllTabsInfo:
@@ -216,17 +241,19 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
                         tabsInfo.push({name:t.title,url:t.url});
                     });
                     executeCommand(acttab, {
-                        cmd: info.menuItemId,
-                        data: tabsInfo
+                        cmd: actid,
+                        data: tabsInfo,
+                        idx: actidx
                     });
                 });
                 break;
             case commonLookup.actlist.copyImageUrl:
                 executeCommand(acttab, {
-                    cmd: info.menuItemId,
+                    cmd: actid,
                     data: {
                         url: info.srcUrl
-                    }
+                    },
+                    idx: actidx
                 });
                 break;
             case commonLookup.actlist.showImage:
@@ -238,7 +265,8 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
                     }
                     serverAction({
                         cmd: cmd,
-                        data: data
+                        data: data,
+                        idx: actidx
                     });
                 });
                 break;

@@ -1,4 +1,4 @@
-hr { border-color: #CCCCCC; }
+hr { border-color: #CCCCCC; margin: 1em 0; }
 
 #inpOpenPagesLimit { width: 4em; }
 #selToolbarButtonAction, #selKeyboardShortcutAction { font-size: small; }
@@ -7,3 +7,5 @@ hr { border-color: #CCCCCC; }
 .formatdiv { display: inline-table; border: 1px solid black; padding: 0.5em; }
 .listName {width: 20%; font-size: small;}
 .listData {width: 60%; font-size: small; }
+.btnAdd { background-color: #009933;color:#000000; }
+.btnDel { background-color: #990033;color:#FFFFFF; }

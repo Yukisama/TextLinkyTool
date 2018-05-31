@@ -147,17 +147,9 @@ function getSelectedUrls(fixquot,blobtolocal) {
     if (matches === null) {
         matches = [];
     }
-    let a = document.createElement("a");
-    let parser = new DOMParser;
     let urls = imglist.concat(cssbglist).concat(attbglist).concat(alist).concat(matches).map((h) => {
-        a.href = h;
-        let dom = parser.parseFromString("<!doctype html><body>" + (a.protocol + "//" + a.host + a.pathname + a.search + a.hash), "text/html");
-        let u = dom.body.textContent;
-        if (a.protocol == "blob:" || a.protocol == "data:") { u = a.href; }
-        if (blobtolocal === true && a.protocol == "blob:") { u = getImageToLocal(a.href); }
-        if (fixquot === true) {
-            u = u.replace(new RegExp(/\"*$/i), "");
-        }
+        let u = getAbsolutePath(h);
+        if (fixquot === true) { u = u.replace(new RegExp(/\"*$/i), ""); }
         return u;
     }).filter((value, index, self) => {
         return self.indexOf(value) === index;
@@ -173,7 +165,8 @@ function copySelectedUrls(idx) {
         let formatText = '';
         getSelectedUrls(tlt.userTltSetting.fixUrlQuotEnd,tlt.userTltSetting.blobUrlToLocal).forEach((url) => {
             i++;
-            formatText += formatRule.format("[[name]]", url, "\n", "\t", i.toString());
+            let u=new URL(url);
+            formatText += formatRule.format("[[name]]", url, "\n", "\t", i.toString(),u.protocol,u.host,u.hostname,u.port,u.pathname,u.search,u.hash,u.origin,u.pathname+u.search+u.hash);
         });
         copyToClipboard(formatText);
     });
@@ -186,7 +179,7 @@ function openSelectedUrls() {
         let limit = Number(tlt.userTltSetting.openPagesLimit);
         if (urls.length > limit) {
             urls = urls.slice(0, limit);
-            alert(browser.i18n.getMessage("tabsLimitAlert").format(tlt.userTltSetting.openPagesLimit));
+            alert(commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"tabsLimitAlert").format(tlt.userTltSetting.openPagesLimit));
         }
         browser.runtime.sendMessage({
             cmd: commonLookup.actlist.serverOpenTabs,
@@ -232,36 +225,49 @@ function getSelectedImageUrls(fixquot,blobtolocal) {
     let imglist2 = getSelectedUrls(fixquot,blobtolocal).filter((value, index, self) => {
         return regex.test(value);
     });
-    let a = document.createElement("a");
-    let parser = new DOMParser;
     let urls = imglist1.concat(cssbglist).concat(attbglist).concat(imglist2).map((h) => {
-        a.href = h;
-        let dom = parser.parseFromString("<!doctype html><body>" + (a.protocol + "//" + a.host + a.pathname + a.search + a.hash), "text/html");
-        let u = dom.body.textContent;
-        if (a.protocol == "blob:" || a.protocol == "data:") { u = a.href; }
-        if (blobtolocal === true && a.protocol == "blob:") { u = getImageToLocal(a.href); }
-        if (fixquot === true) {
-            u = u.replace(new RegExp(/\"*$/i), "");
-        }
+        let u = getAbsolutePath(h);
+        if (fixquot === true) { u = u.replace(new RegExp(/\"*$/i), ""); }
         return u;
     }).filter((value, index, self) => {
         return self.indexOf(value) === index;
-    });
+    });   
+    let blobregex = new RegExp(/^blob:/i);
+    if (blobtolocal === true) {
+        urls = urls.map((u)=>{ 
+            if (blobregex.test(u)) { u = getImageToLocal(u); }
+            return u;
+        });
+    }
     return urls;
 }
 
+//get absolute path
+const getAbsolutePath = ((href)=>{
+    const a = document.createElement("a");
+    const parser = new DOMParser;
+
+    return function _getAbsolutePath() {
+        a.href = href;        
+        if (a.protocol == "blob:" || a.protocol == "data:") { return href; }  
+        let dom = parser.parseFromString("<!doctype html><body>" + (a.protocol + "//" + a.host + a.pathname + a.search + a.hash), "text/html");
+        return dom.body.textContent;
+    }();    
+});
+
 //get image to local
-function getImageToLocal(url)
-{
-    let result="";
-    let img=document.querySelectorAll("[src='" + url +"']");
-    let canvas = document.createElement("canvas");
-    canvas.width = img[0].naturalWidth;
-    canvas.height = img[0].naturalHeight;
-    canvas.getContext("2d").drawImage(img[0], 0, 0);
-    result = canvas.toDataURL();
-    return result;
-}
+const getImageToLocal = ((url) => {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+  
+    return function _getImageToLocal() {
+      let img=document.querySelector("img[src='" + url +"']");
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      ctx.drawImage(img, 0, 0);
+      return canvas.toDataURL();
+    }();
+});
 
 //copy images link URLs
 function copySelectedImageUrls(idx) {
@@ -271,7 +277,8 @@ function copySelectedImageUrls(idx) {
         let formatText = '';
         getSelectedImageUrls(tlt.userTltSetting.fixUrlQuotEnd,tlt.userTltSetting.blobUrlToLocal).forEach((url) => {
             i++;
-            formatText += formatRule.format("[[name]]", url, "\n", "\t", i.toString());
+            let u=new URL(url);
+            formatText += formatRule.format("[[name]]", url, "\n", "\t", i.toString(),u.protocol,u.host,u.hostname,u.port,u.pathname,u.search,u.hash,u.origin,u.pathname+u.search+u.hash);
         });
         copyToClipboard(formatText);
     });
@@ -292,7 +299,8 @@ function showSelectedImages() {
 function copyLinkFormatText(name, url, idx) {
     commonLookup.getUserTltSetting().then((tlt) => {
         let formatRule = tlt.userTltSetting.linkCustomFormatList[idx].data.getFormatRule();
-        let formatText = formatRule.format(name, url, "\n", "\t", "[[index]]");
+        let u=new URL(url);
+        let formatText = formatRule.format(name, url, "\n", "\t", "[[index]]",u.protocol,u.host,u.hostname,u.port,u.pathname,u.search,u.hash,u.origin,u.pathname+u.search+u.hash);
         copyToClipboard(formatText);
     });
 }
@@ -301,7 +309,8 @@ function copyLinkFormatText(name, url, idx) {
 function copyTabFormatText(name, url, idx) {
     commonLookup.getUserTltSetting().then((tlt) => {
         let formatRule = tlt.userTltSetting.tabCustomFormatList[idx].data.getFormatRule();
-        let formatText = formatRule.format(name, url, "\n", "\t", "[[index]]");
+        let u=new URL(url);
+        let formatText = formatRule.format(name, url, "\n", "\t", "[[index]]",u.protocol,u.host,u.hostname,u.port,u.pathname,u.search,u.hash,u.origin,u.pathname+u.search+u.hash);
         copyToClipboard(formatText);
     });
 }
@@ -314,7 +323,8 @@ function copyAllTabsInfo(tabsInfo, idx) {
         let formatText = "";
         tabsInfo.forEach((ti) => {
             i++;
-            formatText += formatRule.format(ti.name, ti.url, "\n", "\t", i.toString());
+            let u=new URL(ti.url);
+            formatText += formatRule.format(ti.name, ti.url, "\n", "\t", i.toString(),u.protocol,u.host,u.hostname,u.port,u.pathname,u.search,u.hash,u.origin,u.pathname+u.search+u.hash);
         });
         copyToClipboard(formatText);
     });

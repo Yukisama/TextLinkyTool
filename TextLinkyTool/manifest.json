@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Text Linky Tool",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "author": "Yuki GUO",
   "homepage_url": "https://addons.mozilla.org/addon/text-linky-tool",
   "developer": {
@@ -52,6 +52,9 @@
     "page": "options.html",
     "browser_style": true
   },
+  "web_accessible_resources": [
+    "_locales/*.json"
+  ],
   "browser_action": {
     "default_icon": {
       "16": "icons/icon16.png",

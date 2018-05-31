@@ -48,7 +48,7 @@
         "description": "feature - Copy name & URL as custom format text of this Tab."
     },
     "copyAllTabsInfo": {
-        "message": "複製所有頁籤資訊",
+        "message": "複製所有頁籤資訊 ({0})",
         "description": "feature - Copy all Tabs info."
     },
     "copySelectedUrls": {
@@ -60,7 +60,7 @@
         "description": "feature - Analyze selected context to find URLs, open all to new Tabs."
     },
     "copyPageUrls": {
-        "message": "複製全頁面出現的網址",
+        "message": "複製全頁面出現的網址 ({0})",
         "description": "feature - Analyze full page to find URLs, copy all as custom format text."
     },
     "openPageUrls": {
@@ -76,7 +76,7 @@
         "description": "feature - Analyze selected context to find image URLs, open all to new Tabs."
     },
     "copyPageImageUrls": {
-        "message": "複製全頁面出現的圖片網址",
+        "message": "複製全頁面出現的圖片網址 ({0})",
         "description": "feature -  Analyze full page to find image URLs, copy all as custom format text."
     },
     "showPageImages": {

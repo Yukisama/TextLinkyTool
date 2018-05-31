@@ -14,12 +14,12 @@ function menuCombine(tab)
     commonLookup.getUserTltSetting().then((tlt)=>{
         browser.contextMenus.create({
             id: commonLookup.actlist.copySelectedPuretext + "-0",
-            title: browser.i18n.getMessage("copySelectedPuretext"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copySelectedPuretext"),
             contexts: ["selection"]
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.copySelectedHtmltext + "-0",
-            title: browser.i18n.getMessage("copySelectedHtmltext"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copySelectedHtmltext"),
             contexts: ["selection"]
         });
         browser.contextMenus.create({
@@ -29,29 +29,29 @@ function menuCombine(tab)
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.copyLinkName + "-0",
-            title: browser.i18n.getMessage("copyLinkName"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyLinkName"),
             contexts: ["link"]
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.copyLinkUrl + "-0",
-            title: browser.i18n.getMessage("copyLinkUrl"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyLinkUrl"),
             contexts: ["link"]
         });
         tlt.userTltSetting.linkCustomFormatList.forEach((item,idx)=>{
             browser.contextMenus.create({
                 id: commonLookup.actlist.copyLinkFormatText + "-" + idx.toString(),
-                title: browser.i18n.getMessage("copyLinkFormatText").replace("{0}",item.name),
+                title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyLinkFormatText").format(item.name),
                 contexts: ["link"]
             });
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.copyImageUrl + "-0",
-            title: browser.i18n.getMessage("copyImageUrl"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyImageUrl"),
             contexts: ["image"]
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.showImage + "-0",
-            title: browser.i18n.getMessage("showImage"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"showImage"),
             contexts: ["image"]
         });
         browser.contextMenus.create({
@@ -61,12 +61,12 @@ function menuCombine(tab)
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.copySelectedUrls + "-0",
-            title: browser.i18n.getMessage("copySelectedUrls"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copySelectedUrls"),
             contexts: ["selection"]
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.openSelectedUrls + "-0",
-            title: browser.i18n.getMessage("openSelectedUrls"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"openSelectedUrls"),
             contexts: ["selection"]
         });
         browser.contextMenus.create({
@@ -76,22 +76,22 @@ function menuCombine(tab)
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.copySelectedImageUrls + "-0",
-            title: browser.i18n.getMessage("copySelectedImageUrls"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copySelectedImageUrls"),
             contexts: ["selection"]
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.showSelectedImages + "-0",
-            title: browser.i18n.getMessage("showSelectedImages"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"showSelectedImages"),
             contexts: ["selection"]
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.copyPagePuretext + "-0",
-            title: browser.i18n.getMessage("copyPagePuretext"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyPagePuretext"),
             contexts: ["page"]
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.copyPageHtmltext + "-0",
-            title: browser.i18n.getMessage("copyPageHtmltext"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyPageHtmltext"),
             contexts: ["page"]
         });
         browser.contextMenus.create({
@@ -102,13 +102,13 @@ function menuCombine(tab)
         tlt.userTltSetting.urlsCustomFormatList.forEach((item,idx)=>{
             browser.contextMenus.create({
                 id: commonLookup.actlist.copyPageUrls + "-" + idx.toString(),
-                title: browser.i18n.getMessage("copyPageUrls") + "(" + item.name + ")",
+                title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyPageUrls").format(item.name),
                 contexts: ["page"]
             });
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.openPageUrls + "-0",
-            title: browser.i18n.getMessage("openPageUrls"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"openPageUrls"),
             contexts: ["page"]
         });
         browser.contextMenus.create({
@@ -119,13 +119,13 @@ function menuCombine(tab)
         tlt.userTltSetting.imageUrlsCustomFormatList.forEach((item,idx)=>{
             browser.contextMenus.create({
                 id: commonLookup.actlist.copyPageImageUrls + "-" + idx.toString(),
-                title: browser.i18n.getMessage("copyPageImageUrls") + "(" + item.name + ")",
+                title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyPageImageUrls").format(item.name),
                 contexts: ["page"]
             });
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.showPageImages + "-0",
-            title: browser.i18n.getMessage("showPageImages"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"showPageImages"),
             contexts: ["page"]
         });
         browser.contextMenus.create({
@@ -135,18 +135,18 @@ function menuCombine(tab)
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.copyTabName + "-0",
-            title: browser.i18n.getMessage("copyTabName"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyTabName"),
             contexts: ["tab"]
         });
         browser.contextMenus.create({
             id: commonLookup.actlist.copyTabUrl + "-0",
-            title: browser.i18n.getMessage("copyTabUrl"),
+            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyTabUrl"),
             contexts: ["tab"]
         });
         tlt.userTltSetting.tabCustomFormatList.forEach((item,idx)=>{
             browser.contextMenus.create({
                 id: commonLookup.actlist.copyTabFormatText + "-" + idx.toString(),
-                title: browser.i18n.getMessage("copyTabFormatText").replace("{0}",item.name),
+                title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyTabFormatText").format(item.name),
                 contexts: ["tab"]
             });
         });
@@ -158,7 +158,7 @@ function menuCombine(tab)
         tlt.userTltSetting.tabsinfoCustomFormatList.forEach((item,idx)=>{
             browser.contextMenus.create({
                 id: commonLookup.actlist.copyAllTabsInfo + "-" + idx.toString(),
-                title: browser.i18n.getMessage("copyAllTabsInfo") + "(" + item.name + ")",
+                title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyAllTabsInfo").format(item.name),
                 contexts: ["tab"]
             });
         });

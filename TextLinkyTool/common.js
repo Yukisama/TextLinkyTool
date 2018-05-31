@@ -15,9 +15,25 @@ String.prototype.getFormatRule = function () {
         .replace(new RegExp(/\[\[url\]\]/ig), "{1}")
         .replace(new RegExp(/\[\[n\]\]/ig), "{2}")
         .replace(new RegExp(/\[\[t\]\]/ig), "{3}")
-        .replace(new RegExp(/\[\[index\]\]/ig), "{4}");
+        .replace(new RegExp(/\[\[index\]\]/ig), "{4}")
+        .replace(new RegExp(/\[\[potocol\]\]/ig), "{5}")
+        .replace(new RegExp(/\[\[host\]\]/ig), "{6}")
+        .replace(new RegExp(/\[\[hostname\]\]/ig), "{7}")
+        .replace(new RegExp(/\[\[port\]\]/ig), "{8}")
+        .replace(new RegExp(/\[\[pathname\]\]/ig), "{9}")
+        .replace(new RegExp(/\[\[search\]\]/ig), "{10}")
+        .replace(new RegExp(/\[\[hash\]\]/ig), "{11}")
+        .replace(new RegExp(/\[\[fullhost\]\]/ig), "{12}")
+        .replace(new RegExp(/\[\[fullpath\]\]/ig), "{13}")
     return ruletxt;
 };
+
+//element.clearElement
+Element.prototype.clearElement = function () {
+    let ele = this;
+    while (ele.firstChild) { ele.removeChild(ele.firstChild); }
+    return ele;
+}
 
 //command lookup
 const commonLookup = {
@@ -50,8 +66,8 @@ const commonLookup = {
     },
     defaultTltSetting: {
         openPagesLimit: 5,
-        linkCustomFormatList: [{name:"Custom",data:"Name:[[name]][[n]]Url:[[url]]"}],
-        tabCustomFormatList: [{name:"Custom",data:"Name:[[name]][[n]]Url:[[url]]"}],
+        linkCustomFormatList: [{name:"BBCode Format",data:"[url=[[url]]][[name]][/url]"},{name:"Wiki Syntax",data:"[[[url]] [[name]]]"}],
+        tabCustomFormatList: [{name:"BBCode Format",data:"[url=[[url]]][[name]][/url]"},{name:"Wiki Syntax",data:"[[[url]] [name]]]"}],
         toolbarButtonAction: "12",
         keyboardShortcutAction: "3",
         fixUrlQuotEnd: true,
@@ -73,11 +89,17 @@ const commonLookup = {
         tabsinfoCustomFormatList: [{name:"Custom",data:"[[index]].[[t]][[url]][[t]]([[name]])[[n]]"}],
         urlsCustomFormatList: [{name:"Custom",data:"[[url]][[n]]"}],
         imageUrlsCustomFormatList: [{name:"Custom",data:"[[url]][[n]]"}],
-        blobUrlToLocal: true
+        blobUrlToLocal: true,
+        locale: "",
+        localeData: {}
     },
     getUserTltSetting() {
         return browser.storage.local.get({
             userTltSetting: commonLookup.defaultTltSetting
         });
+    },
+    getMessage(locale,data,key) {
+        if (locale === undefined || locale == "" || data === undefined || data[key] === undefined || data[key]["message"] === undefined ) { return browser.i18n.getMessage(key); }
+        return data[key]["message"];
     }
 };

@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="options.css" />
@@ -32,41 +30,56 @@
         </div>
         <hr />
         <p>Copy as HTML text - Format: </p>
-        <input type="checkbox" id="inpHtmltextFormatWithoutTag" /><label for="inpHtmltextFormatWithoutTag" data-i18n="htmltextFormatWithoutTag">Copy without HTML Tag.</label><br /><br />
+        <input type="checkbox" id="inpHtmltextFormatWithoutTag" /><label for="inpHtmltextFormatWithoutTag" data-i18n="htmltextFormatWithoutTag">Copy without HTML Tag.</label><br />
         <hr />
         <p>Copy Link info - Format:</p>
         <label> [[name]] - Name text, [[url]] - URL text, [[n]] - New line, [[t]] - Tabulation </label><br />
+        <label> [[host]] - URL host text, [[fullhost]] - URL full host text, [[fullpath]] - URL full path text </label><br />
+        <label> [[potocol]] - URL potocol text, [[hostname]] - URL hostname text, [[port]] - URL port text </label><br />
+        <label> [[pathname]] - URL pathname text, [[search]] - URL search text, [[hash]] - URL hash text </label><br />
         <label data-i18n="linkCustomFormat">Link custom format: </label>
-        <input type="text" id="inpLinkCustomFormatName" maxlength="35" class="listName" value="Custom" />
-        <input type="text" id="inpLinkCustomFormatData" maxlength="100" class="listData" value="Name:[[name]][[n]]Url:[[url]]" /><br /><br />
+        <div id="divLinkCustomFormat"></div>
+        <input type="button" id="inpLinkCustomFormat" class="btnAdd" value="+" data-listid="divLinkCustomFormat" data-name="Custom" data-value="Name:[[name]][[n]]Url:[[url]]" /><br />
         <hr />
         <p>Copy Tab info - Format:</p>
         <label> [[name]] - Name text, [[url]] - URL text, [[n]] - New line, [[t]] - Tabulation </label><br />
+        <label> [[host]] - URL host text, [[fullhost]] - URL full host text, [[fullpath]] - URL full path text </label><br />
+        <label> [[potocol]] - URL potocol text, [[hostname]] - URL hostname text, [[port]] - URL port text </label><br />
+        <label> [[pathname]] - URL pathname text, [[search]] - URL search text, [[hash]] - URL hash text </label><br />
         <label data-i18n="tabCustomFormat">Tab custom format: </label>
-        <input type="text" id="inpTabCustomFormatName" maxlength="35" class="listName" value="Custom" />
-        <input type="text" id="inpTabCustomFormatData" maxlength="100" class="listData" value="Name:[[name]][[n]]Url:[[url]]" /><br /><br />
+        <div id="divTabCustomFormat"></div>
+        <input type="button" id="inpTabCustomFormat" class="btnAdd" value="+" data-listid="divTabCustomFormat" data-name="Custom" data-value="Name:[[name]][[n]]Url:[[url]]" /><br /><br />
         <label> [[index]] - Index, [[name]] - Name text, [[url]] - URL text, [[n]] - New line, [[t]] - Tabulation</label><br />
+        <label> [[host]] - URL host text, [[fullhost]] - URL full host text, [[fullpath]] - URL full path text</label><br />
+        <label> [[potocol]] - URL potocol text, [[hostname]] - URL hostname text, [[port]] - URL port text </label><br />
+        <label> [[pathname]] - URL pathname text, [[search]] - URL search text, [[hash]] - URL hash text </label><br />
         <label> Not for break line automate, you should add [[n]] at format end.</label><br />
         <label data-i18n="tabsinfoCustomFormat">All tabs info custom format: </label>
-        <input type="text" id="inpTabsinfoCustomFormatName" maxlength="35" class="listName" value="Custom" />
-        <input type="text" id="inpTabsinfoCustomFormatData" maxlength="100" class="listData" value="[[index]].[[t]][[url]][[t]]([[name]])[[n]]" /><br /><br />
+        <div id="divTabsinfoCustomFormat"></div>
+        <input type="button" id="inpTabsinfoCustomFormat" class="btnAdd" value="+" data-listid="divTabsinfoCustomFormat" data-name="Custom" data-value="[[index]].[[t]][[url]][[t]]([[name]])[[n]]" /><br />
         <hr />
         <p>Analyze URLs: </p>
         <input type="checkbox" id="inpFixUrlQuotEnd" /><label for="inpFixUrlQuotEnd" data-i18n="fixUrlQuotEnd">fix URLs end with quotation</label><br /><br />
         <label> [[index]] - Index, [[url]] - URL text, [[n]] - New line, [[t]] - Tabulation</label><br />
+        <label> [[host]] - URL host text, [[fullhost]] - URL full host text, [[fullpath]] - URL full path text</label><br />
+        <label> [[potocol]] - URL potocol text, [[hostname]] - URL hostname text, [[port]] - URL port text </label><br />
+        <label> [[pathname]] - URL pathname text, [[search]] - URL search text, [[hash]] - URL hash text </label><br />
         <label> Not for break line automate, you should add [[n]] at format end.</label><br />
-        <label data-i18n="urlsCustomFormat">Copy URLs custom format: </label>        
-        <input type="text" id="inpUrlsCustomFormatName" maxlength="35" class="listName" value="Custom" />
-        <input type="text" id="inpUrlsCustomFormatData" maxlength="100" class="listData" value="[[url]][[n]]" /><br /><br />
+        <label data-i18n="urlsCustomFormat">Copy URLs custom format: </label>
+        <div id="divUrlsCustomFormat"></div>
+        <input type="button" id="inpUrlsCustomFormat" class="btnAdd" value="+" data-listid="divUrlsCustomFormat" data-name="Custom" data-value="[[url]][[n]]" /><br /><br />
         <label> [[index]] - Index, [[url]] - URL text, [[n]] - New line, [[t]] - Tabulation</label><br />
+        <label> [[host]] - URL host text, [[fullhost]] - URL full host text, [[fullpath]] - URL full path text</label><br />
+        <label> [[potocol]] - URL potocol text, [[hostname]] - URL hostname text, [[port]] - URL port text </label><br />
+        <label> [[pathname]] - URL pathname text, [[search]] - URL search text, [[hash]] - URL hash text </label><br />
         <label> Not for break line automate, you should add [[n]] at format end.</label><br />
         <label data-i18n="imageUrlsCustomFormat">Copy Image URLs custom format: </label>        
-        <input type="text" id="inpImageUrlsCustomFormatName" maxlength="35" class="listName" value="Custom" />
-        <input type="text" id="inpImageUrlsCustomFormatData" maxlength="100" class="listData" value="[[url]][[n]]" /><br /><br />
+        <div id="divImageUrlsCustomFormat"></div>
+        <input type="button" id="inpImageUrlsCustomFormat" class="btnAdd" value="+" data-listid="divImageUrlsCustomFormat" data-name="Custom" data-value="[[url]][[n]]" /><br /><br />
         <label data-i18n="maxTabsLimit">Max tabs limit at once open: </label>
         <input type="number" id="inpOpenPagesLimit" min="1" max="999" value="10" /><br /><br />
         <input type="checkbox" id="inpOpenOneImageDirectly" /><label for="inpOpenOneImageDirectly" data-i18n="openOneImageDirectly">Open a single Image link directly</label><br /><br />
-        <input type="checkbox" id="inpBlobUrlToLocal" /><label for="inpBlobUrlToLocal" data-i18n="blobUrlToLocal">Blob URL transfer to local URL</label><br /><br />
+        <input type="checkbox" id="inpBlobUrlToLocal" /><label for="inpBlobUrlToLocal" data-i18n="blobUrlToLocal">Blob URL transfer to local URL</label><br />
         <hr />
         <p>Toolbar button:</p>
         <label data-i18n="toolbarButtonAction">Toolbar button action: </label>
@@ -77,9 +90,9 @@
             <option value="6" data-i18n="openSelectedUrls">Open selected URLs</option>
             <option value="11" data-i18n="copySelectedImageUrls">Copy selected image urls</option>
             <option value="12" data-i18n="showSelectedImages">Show selected images</option>
-        </select><br /><br />
+        </select><br />
         <hr />
-        <p>keybord shortcut: F8</p>
+        <p>Keybord shortcut: F8</p>
         <label data-i18n="keyboardShortcutAction">keyboard shortcut action: </label>
         <select id="selKeyboardShortcutAction">
             <option value="3" data-i18n="copySelectedPuretext">Copy selected pure text</option>
@@ -88,14 +101,29 @@
             <option value="6" data-i18n="openSelectedUrls">Open selected URLs</option>
             <option value="11" data-i18n="copySelectedImageUrls">Copy selected image urls</option>
             <option value="12" data-i18n="showSelectedImages">Show selected images</option>
-        </select><br /><br />
+        </select><br />
         <hr />
-        <button type="button" id="inpResetSettings" data-i18n="resetSettings">Default</button>
-        <button type="submit" data-i18n="saveSettings">Save settings</button>
+        <p>Interface</p>
+        <label>Language: </label>
+        <select id="selInterfaceLanguage">
+            <option value="">---</option>
+            <option value="de" disabled="disabled">de, Deutsch</option>
+            <option value="en">en-US, English (USA)</option>
+            <option value="en_GB">en-GB, English (Great Britain)</option>
+            <option value="es" disabled="disabled">es, Español</option>
+            <option value="fr" disabled="disabled">fr, Français</option>
+            <option value="it" disabled="disabled">it, Italiano</option>
+            <option value="ja">ja, 日本語</option>
+            <option value="ru" disabled="disabled">ru, Русский</option>
+            <option value="zh_CN">zh-CN, 中文 (简体)</option>
+            <option value="zh_TW">zh-TW, 中文 (台灣)</option>
+        </select><br />
+        <hr />
+        <input type="button" id="inpResetSettings" data-i18n="resetSettings" value="Default" />
+        <input type="button" id="inpSaveSettings" data-i18n="saveSettings" value="Save settings" />        
     </form>
     <label id="lblSaved" data-i18n="saveOk">Data saved.</label>
     <script src="common.js"></script>
     <script src="options.js"></script>
 </body>
-
 </html>

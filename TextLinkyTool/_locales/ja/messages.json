@@ -48,7 +48,7 @@
         "description": "feature - Copy name & URL as custom format text of this Tab."
     },
     "copyAllTabsInfo": {
-        "message": "すべてのタブ情報をカスタムテキストにコピーする",
+        "message": "すべてのタブ情報をカスタムテキストにコピーする ({0})",
         "description": "feature - Copy all Tabs info."
     },
     "copySelectedUrls": {
@@ -60,7 +60,7 @@
         "description": "feature - Analyze selected context to find URLs, open all to new Tabs."
     },
     "copyPageUrls": {
-        "message": "閲覧ページに含まれる全てのリンクをコピーする",
+        "message": "閲覧ページに含まれる全てのリンクをコピーする ({0})",
         "description": "feature - Analyze full page to find URLs, copy all as custom format text."
     },
     "openPageUrls": {
@@ -76,7 +76,7 @@
         "description": "feature - Analyze selected context to find image URLs, open all to new Tabs."
     },
     "copyPageImageUrls": {
-        "message": "閲覧ページに含まれる全ての画像リンクをコピーする",
+        "message": "閲覧ページに含まれる全ての画像リンクをコピーする ({0})",
         "description": "feature -  Analyze full page to find image URLs, copy all as custom format text."
     },
     "showPageImages": {

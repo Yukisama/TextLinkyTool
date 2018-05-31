@@ -1,3 +1,11 @@
+Version 1.2.6　2018-05-31
+------
+Support multiple custom formats. ( default suppport BBCode Format / Wiki Syntax / Custom Format )
+Support more custom formats text. ( URL part text support potocol/host/port/path/search/hash )
+Custom options - locale language.
+Performance tuning.
+
+
 Version 1.2.5　2018-05-18
 ------
 Support blob/data style URL.

@@ -1,0 +1,194 @@
+{
+    "copySelectedPuretext": {
+        "message": "Копировать выделенное как чистый текст",
+        "description": "feature - Copy text without HTML format of selected context."
+    },
+    "copySelectedHtmltext": {
+        "message": "Копировать выделенное как HTML-текст",
+        "description": "feature - Copy HTML source text of selected context."
+    },
+    "copyPagePuretext": {
+        "message": "Копировать страницу как чистый текст",
+        "description": "feature - Copy text without HTML format of full page."
+    },
+    "copyPageHtmltext": {
+        "message": "Копировать страницу как HTML-текст",
+        "description": "feature - Copy HTML source text of full page."
+    },
+    "copyLinkName": {
+        "message": "Копировать название ссылки",
+        "description": "feature - Copy name of this Link."
+    },
+    "copyLinkUrl": {
+        "message": "Копировать URL-адрес ссылки",
+        "description": "feature - Copy URL of this Link."
+    },
+    "copyLinkFormatText": {
+        "message": "Скопировать ссылку как {0}",
+        "description": "feature - Copy name & URL as custom format text of this Link."
+    },
+    "copyImageUrl": {
+        "message": "Копировать URL-адрес изображения",
+        "description": "feature - Copy URL of this Image."
+    },
+    "showImage": {
+        "message": "Показать изображение",
+        "description": "feature - Open Image on new Tab."
+    },
+    "copyTabName": {
+        "message": "Копировать название вкладки",
+        "description": "feature - Copy name of this Tab."
+    },
+    "copyTabUrl": {
+        "message": "Копировать URL-адрес вкладки",
+        "description": "feature - Copy URL of this Tab."
+    },
+    "copyTabFormatText": {
+        "message": "Копировать вкладку как {0}",
+        "description": "feature - Copy name & URL as custom format text of this Tab."
+    },
+    "copyAllTabsInfo": {
+        "message": "Копировать информацию о всех вкладках ({0})",
+        "description": "feature - Copy all Tabs info."
+    },
+    "copySelectedUrls": {
+        "message": "Копировать выбранные URL-адреса",
+        "description": "feature - Analyze selected context to find URLs, copy all as custom format text."
+    },
+    "openSelectedUrls": {
+        "message": "Открыть выбранные URL-адреса",
+        "description": "feature - Analyze selected context to find URLs, open all to new Tabs."
+    },
+    "copyPageUrls": {
+        "message": "Копировать URL-адреса страницы ({0})",
+        "description": "feature - Analyze full page to find URLs, copy all as custom format text."
+    },
+    "openPageUrls": {
+        "message": "Открыть URL-адреса страницы",
+        "description": "feature - Analyze full page to find URLs, open all to new Tabs."
+    },
+    "copySelectedImageUrls": {
+        "message": "Копировать URL-адреса выбранных изображений",
+        "description": "feature - Analyze selected context to find image URLs, copy all as custom format text."
+    },
+    "showSelectedImages": {
+        "message": "Показать выбранные изображения",
+        "description": "feature - Analyze selected context to find image URLs, open all to new Tabs."
+    },
+    "copyPageImageUrls": {
+        "message": "Копировать URL-адреса изображений страницы ({0})",
+        "description": "feature -  Analyze full page to find image URLs, copy all as custom format text."
+    },
+    "showPageImages": {
+        "message": "Показать изображения страницы",
+        "description": "feature - Analyze full page to find image URLs, open all to new Tabs."
+    },
+    "tabsLimitAlert": {
+        "message": "Слишком много URL-адресов, открыты только первые {0} вкладок.",
+        "description": "message - Max tabs limit at once open."
+    },
+    "saveOk": {
+        "message": "Данные сохранены.",
+        "description": "messsage - Data saved."
+    },
+    "resetSettings": {
+        "message": "По умолчанию",
+        "description": "UI button - reset to default settings."
+    },
+    "saveSettings": {
+        "message": "Сохранить настройки",
+        "description": "UI button - Save settings."
+    },
+    "puretextFormatDelAroundSpace": {
+        "message": "Очищать вокруг пробелов (обрезка)",
+        "description": "UI setting - [Copy as pure text - format] - Delete context around space.(trim)"
+    },
+    "puretextFormatDelInvisibleSpace": {
+        "message": "Удалять невидимые области",
+        "description": "UI setting - [Copy as pure text - format] - Delete invisible space."
+    },
+    "puretextFormatConvertQuotation": {
+        "message": "Преобразовывать все типы кавычек в обычные",
+        "description": "UI setting - [Copy as pure text - format] - Convert all type quotation to normal quotation."
+    },
+    "puretextFormatConvertApostrophe": {
+        "message": "Преобразовывать все типы апострофов в обычный",
+        "description": "UI setting - [Copy as pure text - format] - Convert all type apostrophe to normal apostrophe."
+    },
+    "puretextFormatConvertDash": {
+        "message": "Преобразовывать все типы тире в обычное",
+        "description": "UI setting - [Copy as pure text - format] - Convert all type dash to normal dash."
+    },
+    "puretextFormatConvertSpace": {
+        "message": "Преобразовывать широкий пробел в нормальный",
+        "description": "UI setting - [Copy as pure text - format - Convert fullwidth space to normal space."
+    },
+    "puretextFormatMergeNewline": {
+        "message": "Объединять переводы строки",
+        "description": "UI setting - [Copy as pure text - format] - Merge newline."
+    },
+    "puretextFormatMergeSpace": {
+        "message": "Объединять пробелы",
+        "description": "UI setting - [Copy as pure text - format] - Merge space."
+    },
+    "puretextFormatMergeFullwidthSpace": {
+        "message": "Объединять широкие пробелы",
+        "description": "UI setting - [Copy as pure text - format] - Merge fullwidth space."
+    },
+    "puretextFormatMergeTabulation": {
+        "message": "Объединять табуляцию",
+        "description": "UI setting - [Copy as pure text - format] - Merge tabulation."
+    },
+    "puretextFormatMergeAllTypeSpace": {
+        "message": "Объединять все типы пробелов в один пробел",
+        "description": "UI setting - [Copy as pure text - format] - Merge all type space to one space."
+    },
+    "htmltextFormatWithoutTag": {
+        "message": "Копировать без HTML-тега",
+        "description": "UI setting - [Copy as pure text - format] - Copy without HTML Tag."
+    },
+    "linkCustomFormat": {
+        "message": "Пользовательский формат ссылки: ",
+        "description": "UI setting - [Copy Link info - Format] - Link custom format for copy feature."
+    },
+    "tabCustomFormat": {
+        "message": "Пользовательский формат вкладки: ",
+        "description": "UI setting - [Copy Tab info - Format] - Tab custom format for copy feature."
+    },
+    "tabsinfoCustomFormat": {
+        "message": "Пользовательский формат информации о всех вкладках: ",
+        "description": "UI setting - [Copy Tab info - Format] - Copy all Tabs info custom format."
+    },
+    "fixUrlQuotEnd": {
+        "message": "Исправлять URL-адреса, заканчивающиеся кавычками",
+        "description": "UI setting - [Analyze URLs] - fix URLs end with quotation."
+    },
+    "urlsCustomFormat": {
+        "message": "Пользовательский формат копируемых URL-адресов: ",
+        "description": "UI setting - [Analyze URLs] - Copy URLs custom format."
+    },
+    "imageUrlsCustomFormat": {
+        "message": "Пользовательский формат копируемых URL-адресов изображений: ",
+        "description": "UI setting - [Analyze URLs] - Copy Image URLs custom format."
+    },
+    "maxTabsLimit": {
+        "message": "Максимальное число одновременно открываемых вкладок: ",
+        "description": "UI setting - [Analyze URLs] - Max tabs limit at once open."
+    },
+    "openOneImageDirectly": {
+        "message": "Открывать ссылку на единственное изображение напрямую",
+        "description": "UI setting - [Analyze URLs] - Open a single Image link directly."
+    },
+    "blobUrlToLocal": {
+        "message": "Преобразовывать Blob URL в локальные URL-адреса (очень медленно)",
+        "description": "UI setting - [Analyze URLs] - Blob URL transfer to local URL."
+    },
+    "toolbarButtonAction": {
+        "message": "Действие кнопки панели инструментов: ",
+        "description": "UI setting - [Toolbar button] - Toolbar button action."
+    },
+    "keyboardShortcutAction": {
+        "message": "Действие сочетания клавиш: ",
+        "description": "UI setting - [keybord shortcut] - keyboard shortcut action."
+    }
+}

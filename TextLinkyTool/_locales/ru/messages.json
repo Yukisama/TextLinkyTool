@@ -100,7 +100,7 @@
         "description": "UI button - Save settings."
     },
     "puretextFormatDelAroundSpace": {
-        "message": "Удалять контекст вокруг пробелов (обрезка)",
+        "message": "Очищать вокруг пробелов (обрезка)",
         "description": "UI setting - [Copy as pure text - format] - Delete context around space.(trim)"
     },
     "puretextFormatDelInvisibleSpace": {
@@ -160,7 +160,7 @@
         "description": "UI setting - [Copy Tab info - Format] - Copy all Tabs info custom format."
     },
     "fixUrlQuotEnd": {
-        "message": "исправлять URL-адреса, заканчивающиеся кавычками.",
+        "message": "Исправлять URL-адреса, заканчивающиеся кавычками",
         "description": "UI setting - [Analyze URLs] - fix URLs end with quotation."
     },
     "urlsCustomFormat": {
@@ -176,7 +176,7 @@
         "description": "UI setting - [Analyze URLs] - Max tabs limit at once open."
     },
     "openOneImageDirectly": {
-        "message": "Открывать ссылку на одно изображение напрямую",
+        "message": "Открывать ссылку на единственное изображение напрямую",
         "description": "UI setting - [Analyze URLs] - Open a single Image link directly."
     },
     "blobUrlToLocal": {
@@ -188,7 +188,7 @@
         "description": "UI setting - [Toolbar button] - Toolbar button action."
     },
     "keyboardShortcutAction": {
-        "message": "действие сочетания клавиш: ",
+        "message": "Действие сочетания клавиш: ",
         "description": "UI setting - [keybord shortcut] - keyboard shortcut action."
     }
 }

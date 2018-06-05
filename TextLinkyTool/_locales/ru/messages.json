@@ -1,10 +1,10 @@
 {
     "copySelectedPuretext": {
-        "message": "Копировать как чистый текст",
+        "message": "Копировать выделенное как чистый текст",
         "description": "feature - Copy text without HTML format of selected context."
     },
     "copySelectedHtmltext": {
-        "message": "Копировать как HTML-текст",
+        "message": "Копировать выделенное как HTML-текст",
         "description": "feature - Copy HTML source text of selected context."
     },
     "copyPagePuretext": {

@@ -237,6 +237,8 @@ function getSelectedImageUrls(fixquot,blobtolocal) {
         urls = urls.map((u)=>{ 
             if (blobregex.test(u)) { u = getImageToLocal(u); }
             return u;
+        }).filter((value, index, self) => {
+            return self.indexOf(value) === index;
         });
     }
     return urls;
@@ -288,9 +290,11 @@ function copySelectedImageUrls(idx) {
 function showSelectedImages() {
     commonLookup.getUserTltSetting().then((tlt) => {
         let urls = getSelectedImageUrls(tlt.userTltSetting.fixUrlQuotEnd,tlt.userTltSetting.blobUrlToLocal);
+        let title = document.title;
+        let location = document.location.toString();
         browser.runtime.sendMessage({
             cmd: commonLookup.actlist.serverShowImages,
-            data: urls
+            data: {"urls":urls,"title":title,"location":location}
         });
     });
 }

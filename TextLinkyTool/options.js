@@ -2,13 +2,27 @@
 function pageReady() {
     commonLookup.getUserTltSetting().then((tlt)=>{
         //i18n message support for page elements
-        let eles = Array.from(document.querySelectorAll("[data-i18n]"));
-        eles.forEach(tag => {
-            tag.textContent = commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,tag.getAttribute("data-i18n"));
+        document.querySelectorAll("[data-i18n]").forEach(ele => {
+            let ctxt = commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,ele.getAttribute("data-i18n"));
+            switch (ele.tagName){
+                case "INPUT":
+                    ele.value = ctxt;
+                //case "LABEL": case "OPTION": 
+                default:
+                    ele.textContent = ctxt;
+            }            
         });
 
         //get option settings
         showOptionSettings(tlt.userTltSetting);
+    });
+
+    //Tooltips active
+    document.querySelectorAll(".tiptxt").forEach((ele)=>{
+        let tptxt = ele.cloneNode(true);
+        let boxcss = ele.getAttribute("data-boxcss");
+        tptxt.attributes.removeNamedItem("data-boxcss");
+        document.querySelectorAll(`.tipbox.${boxcss}`).forEach((box)=>{ box.appendChild(tptxt.cloneNode(true)); });
     });
 }
 
@@ -88,7 +102,7 @@ async function getlocaleData(lang)
 {
     if (lang=="") { return {}; }
     let url = browser.extension.getURL(`_locales/${lang}/messages.json`);
-    //let data = await fetch(url).then((res)=>res.json());  //TypeError for this type.
+    //let data = await fetch(url).then((res)=>res.json());  //TypeError for online type. TODO:find out why.
     let res = await fetch(url);
     let data = await res.json();    
     return data;

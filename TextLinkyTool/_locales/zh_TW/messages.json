@@ -180,8 +180,8 @@
         "description": "UI setting - [Analyze URLs] - Open a single Image link directly."
     },
     "blobUrlToLocal": {
-        "message": "Blob URL transfer to local URL (very slow)",
-        "description": "UI setting - [Analyze URLs] - Blob URL transfer to local URL."
+        "message": "Blob連結轉換為本機圖片 (速度很慢)",
+        "description": "UI setting - [Analyze URLs] - Blob URLs convert to local images."
     },
     "toolbarButtonAction": {
         "message": "工具列按鈕動作：",

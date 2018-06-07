@@ -100,47 +100,47 @@
         "description": "UI button - Save settings."
     },
     "puretextFormatDelAroundSpace": {
-        "message": "Delete context around space.(trim)",
+        "message": "前後のスペースを削除する（トリム）",
         "description": "UI setting - [Copy as pure text - format] - Delete context around space.(trim)"
     },
     "puretextFormatDelInvisibleSpace": {
-        "message": "Delete invisible space.",
+        "message": "見えないスペースを削除する",
         "description": "UI setting - [Copy as pure text - format] - Delete invisible space."
     },
     "puretextFormatConvertQuotation": {
-        "message": "Convert all type quotation to normal quotation.",
+        "message": "全角ダブルクォートを半角ダブルクォートに変換する",
         "description": "UI setting - [Copy as pure text - format] - Convert all type quotation to normal quotation."
     },
     "puretextFormatConvertApostrophe": {
-        "message": "Convert all type apostrophe to normal apostrophe.",
+        "message": "全角シングルクォートを半角シングルクォートに変換する",
         "description": "UI setting - [Copy as pure text - format] - Convert all type apostrophe to normal apostrophe."
     },
     "puretextFormatConvertDash": {
-        "message": "Convert all type dash to normal dash.",
+        "message": "全角ダッシュを半角ダッシュに変換する",
         "description": "UI setting - [Copy as pure text - format] - Convert all type dash to normal dash."
     },
     "puretextFormatConvertSpace": {
-        "message": "Convert fullwidth space to normal space.",
+        "message": "全角スペースを半角スペースに変換する",
         "description": "UI setting - [Copy as pure text - format - Convert fullwidth space to normal space."
     },
     "puretextFormatMergeNewline": {
-        "message": "Merge newline.",
+        "message": "連続した改行を１つにまとめる",
         "description": "UI setting - [Copy as pure text - format] - Merge newline."
     },
     "puretextFormatMergeSpace": {
-        "message": "Merge space.",
+        "message": "連続した半角スペースを１つにまとめる",
         "description": "UI setting - [Copy as pure text - format] - Merge space."
     },
     "puretextFormatMergeFullwidthSpace": {
-        "message": "Merge fullwidth space.",
+        "message": "連続した全角スペースを１つにまとめる",
         "description": "UI setting - [Copy as pure text - format] - Merge fullwidth space."
     },
     "puretextFormatMergeTabulation": {
-        "message": "Merge tabulation.",
+        "message": "連続したタブ（tab）を１つにまとめる",
         "description": "UI setting - [Copy as pure text - format] - Merge tabulation."
     },
     "puretextFormatMergeAllTypeSpace": {
-        "message": "Merge all type space to one space.",
+        "message": "連続したすべての種類のスペースを１つの半角スペースをにまとめる",
         "description": "UI setting - [Copy as pure text - format] - Merge all type space to one space."
     },
     "htmltextFormatWithoutTag": {
@@ -180,15 +180,15 @@
         "description": "UI setting - [Analyze URLs] - Open a single Image link directly."
     },
     "blobUrlToLocal": {
-        "message": "Blob URL transfer to local URL (very slow)",
-        "description": "UI setting - [Analyze URLs] - Blob URL transfer to local URL."
+        "message": "Blob URLs convert to local images (very slow)",
+        "description": "UI setting - [Analyze URLs] - Blob URLs convert to local images."
     },
     "toolbarButtonAction": {
-        "message": "Toolbar button action: ",
+        "message": "ツールバーのボタンを操作: ",
         "description": "UI setting - [Toolbar button] - Toolbar button action."
     },
     "keyboardShortcutAction": {
-        "message": "keyboard shortcut action: ",
+        "message": "ショートカットを操作: ",
         "description": "UI setting - [keybord shortcut] - keyboard shortcut action."
     }
 }

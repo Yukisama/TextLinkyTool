@@ -180,8 +180,8 @@
         "description": "UI setting - [Analyze URLs] - Open a single Image link directly."
     },
     "blobUrlToLocal": {
-        "message": "Преобразовывать Blob URL в локальные URL-адреса (очень медленно)",
-        "description": "UI setting - [Analyze URLs] - Blob URL transfer to local URL."
+        "message": "Преобразовывать Blob URLs в локальные URL-адреса (очень медленно)",
+        "description": "UI setting - [Analyze URLs] - Blob URLs convert to local images."
     },
     "toolbarButtonAction": {
         "message": "Действие кнопки панели инструментов: ",

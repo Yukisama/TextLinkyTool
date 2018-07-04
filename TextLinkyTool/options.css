@@ -5,7 +5,14 @@ hr { border-color: #CCCCCC; margin: 1em 0; }
 #lblSaved { color: red; visibility: hidden; }
 
 .formatdiv { display: inline-table; border: 1px solid black; padding: 0.5em; }
-.listName {width: 20%; font-size: small;}
-.listData {width: 60%; font-size: small; }
+.listName { width: 20%; font-size: small; }
+.listData { width: 60%; font-size: small; }
 .btnAdd { background-color: #009933;color:#000000; }
 .btnDel { background-color: #990033;color:#FFFFFF; }
+
+.urlpart span {color:blue; text-decoration: underline;}
+.iplang span {color:blue; text-decoration: underline;}
+.tipbox { position: relative; display: inline-block; text-decoration: underline; }
+.tiptxt { position: absolute; bottom: 100%; padding: 0.5em; display: none; 
+          border: 1px solid #000000; border-radius: 1em; background-color: #FFFFFF; white-space: nowrap; }
+.tipbox:hover .tiptxt { display: block; }

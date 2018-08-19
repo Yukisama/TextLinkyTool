@@ -338,7 +338,8 @@ function copyAllTabsInfo(tabsInfo, idx) {
 function toolbarButtonAction() {
     commonLookup.getUserTltSetting().then((tlt) => {
         executeCommand({
-            cmd: tlt.userTltSetting.toolbarButtonAction
+            cmd: tlt.userTltSetting.toolbarButtonAction,
+            idx: tlt.userTltSetting.toolbarButtonActionIdx 
         });
     });
 }
@@ -348,7 +349,8 @@ function toolbarButtonAction() {
 function keyboardShortcutAction() {
     commonLookup.getUserTltSetting().then((tlt) => {
         executeCommand({
-            cmd: tlt.userTltSetting.keyboardShortcutAction
+            cmd: tlt.userTltSetting.keyboardShortcutAction,
+            idx: tlt.userTltSetting.keyboardShortcutActionIdx 
         });
     });
 }

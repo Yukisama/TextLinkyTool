@@ -65,12 +65,16 @@ function listAdd(list,name,value,idx)
         let list = e.target.parentNode;
         let idx = e.target.getAttribute("data-idx");
         listDel(list,idx);
+        changeToolbarAction();    
+        changeKeyboardAction();
     });
     frag.appendChild(inpDel);
     let br = document.createElement("br");
     br.setAttribute("data-idx",idx.toString());
     frag.appendChild(br);
     list.appendChild(frag);
+    changeToolbarAction();
+    changeKeyboardAction();
 }
 
 //button add list click event
@@ -102,9 +106,7 @@ async function getlocaleData(lang)
 {
     if (lang=="") { return {}; }
     let url = browser.extension.getURL(`_locales/${lang}/messages.json`);
-    //let data = await fetch(url).then((res)=>res.json());  //TypeError for online type. TODO:find out why.
-    let res = await fetch(url);
-    let data = await res.json();    
+    let data = await fetch(url).then((res)=>res.json());
     return data;
 }
 
@@ -150,6 +152,10 @@ function showOptionSettings(setting) {
     frag=null;
     document.querySelector("#inpBlobUrlToLocal").checked = setting.blobUrlToLocal;
     document.querySelector("#selInterfaceLanguage").value = setting.locale;
+    changeToolbarAction();
+    document.querySelector("#selToolbarButtonActionIdx").value = setting.toolbarButtonActionIdx.toString();
+    changeKeyboardAction();
+    document.querySelector("#selKeyboardShortcutActionIdx").value = setting.keyboardShortcutActionIdx.toString();
 }
 
 //set option settings
@@ -160,7 +166,9 @@ async function setOptionSettings(e) {
         linkCustomFormatList: getListData(document.querySelector("#divLinkCustomFormat")),
         tabCustomFormatList: getListData(document.querySelector("#divTabCustomFormat")),
         toolbarButtonAction: document.querySelector("#selToolbarButtonAction").value,
+        toolbarButtonActionIdx: document.querySelector("#selToolbarButtonActionIdx").selectedIndex,
         keyboardShortcutAction: document.querySelector("#selKeyboardShortcutAction").value,
+        keyboardShortcutActionIdx: document.querySelector("#selKeyboardShortcutActionIdx").selectedIndex,
         fixUrlQuotEnd: document.querySelector("#inpFixUrlQuotEnd").checked,
         puretextFormat: {
             delAroundSpace: document.querySelector("#inpPuretextFormatDelAroundSpace").checked,
@@ -184,6 +192,26 @@ async function setOptionSettings(e) {
         locale: document.querySelector("#selInterfaceLanguage").value,
         localeData: ldata
     }
+    
+    //checking settings
+    if ((tlt.toolbarButtonAction==commonLookup.actlist.copySelectedUrls && tlt.toolbarButtonActionIdx==-1) ||
+        (tlt.keyboardShortcutAction==commonLookup.actlist.copySelectedUrls && tlt.keyboardShortcutActionIdx==-1))
+    {
+        commonLookup.getUserTltSetting().then((tlt)=>{
+            alert(commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"actUrlFormatEmpty"));
+        });
+        return;    
+    }
+    if ((tlt.toolbarButtonAction==commonLookup.actlist.copySelectedImageUrls && tlt.toolbarButtonActionIdx==-1) ||
+        (tlt.keyboardShortcutAction==commonLookup.actlist.copySelectedImageUrls && tlt.keyboardShortcutActionIdx==-1))
+    {
+        commonLookup.getUserTltSetting().then((tlt)=>{
+            alert(commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"actImgUrlFormatEmpty"));
+        });
+        return;
+    }
+
+    //save settings
     browser.storage.local.set({
         "userTltSetting": tlt
     });
@@ -201,10 +229,48 @@ function resetOptionSettings() {
     showOptionSettings(commonLookup.defaultTltSetting);
 }
 
+//fill ActionIdx list
+function fillActionIdx(actqs,selqs){
+    let sel=document.querySelector(selqs);
+    let list=[];    
+    if (document.querySelector(actqs).value==commonLookup.actlist.copySelectedUrls)
+    {
+        list=getListData(document.querySelector("#divUrlsCustomFormat"));        
+    }
+    if (document.querySelector(actqs).value==commonLookup.actlist.copySelectedImageUrls)
+    {
+        list=getListData(document.querySelector("#divImageUrlsCustomFormat"));
+    }
+    let frag=document.createDocumentFragment();
+    list.forEach((item,idx)=>{
+        let op = document.createElement("option");
+        op.setAttribute("value",idx.toString());
+        op.text = (idx+1).toString() + " - " + item.name;
+        frag.appendChild(op);
+    });    
+    sel.querySelectorAll("option").forEach(ele => ele.remove());
+    sel.appendChild(frag);
+}
+
+//change ToolbarButtonAction
+function changeToolbarAction(){
+    fillActionIdx("#selToolbarButtonAction","#selToolbarButtonActionIdx");
+}
+
+//change KeyboardShortcutAction
+function changeKeyboardAction(){
+    fillActionIdx("#selKeyboardShortcutAction","#selKeyboardShortcutActionIdx");
+}
+
+
 //page listener
 document.addEventListener("DOMContentLoaded", pageReady);
 document.querySelector("#inpSaveSettings").addEventListener("click", setOptionSettings);
 document.querySelector("#inpResetSettings").addEventListener("click", resetOptionSettings);
+document.querySelector("#selToolbarButtonAction").addEventListener("change", changeToolbarAction);
+document.querySelector("#divUrlsCustomFormat").addEventListener("focusout",e=> {changeToolbarAction();e.stopPropagation();});
+document.querySelector("#selKeyboardShortcutAction").addEventListener("change", changeKeyboardAction);
+document.querySelector("#divImageUrlsCustomFormat").addEventListener("focusout",e=> {changeToolbarAction();e.stopPropagation();});
 document.querySelectorAll("form input").forEach((e) => e.addEventListener("change", clearSavedMessage));
 document.querySelectorAll("form input").forEach((e) => e.addEventListener("keypress", clearSavedMessage));
 document.querySelectorAll("select").forEach((e) => e.addEventListener("change", clearSavedMessage));

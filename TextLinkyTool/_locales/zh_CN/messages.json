@@ -91,6 +91,14 @@
         "message": "数据已保存",
         "description": "messsage - Data saved."
     },
+    "actUrlFormatEmpty":{        
+        "message": "Custom Urls format not be empty.",
+        "description": "messsage - Custom Urls format not be empty."
+    },
+    "actImgUrlFormatEmpty":{        
+        "message": "Custom image Urls format not be empty.",
+        "description": "messsage - Custom image Urls format not be empty."
+    },
     "resetSettings": {
         "message": "默认",
         "description": "UI button - reset to default settings."
@@ -104,7 +112,7 @@
         "description": "UI setting - [Copy as pure text - format] - Delete context around space.(trim)"
     },
     "puretextFormatDelInvisibleSpace": {
-        "message": "Delete invisible space.",
+        "message": "清除隐藏空白",
         "description": "UI setting - [Copy as pure text - format] - Delete invisible space."
     },
     "puretextFormatConvertQuotation": {
@@ -124,11 +132,11 @@
         "description": "UI setting - [Copy as pure text - format - Convert fullwidth space to normal space."
     },
     "puretextFormatMergeNewline": {
-        "message": "Merge newline.",
+        "message": "合并换行字元",
         "description": "UI setting - [Copy as pure text - format] - Merge newline."
     },
     "puretextFormatMergeSpace": {
-        "message": "Merge space.",
+        "message": "合并空白字元",
         "description": "UI setting - [Copy as pure text - format] - Merge space."
     },
     "puretextFormatMergeFullwidthSpace": {
@@ -190,5 +198,13 @@
     "keyboardShortcutAction": {
         "message": "快捷键动作: ",
         "description": "UI setting - [keybord shortcut] - keyboard shortcut action."
+    },
+    "language":{        
+        "message": "多国语言: ",
+        "description": "UI setting - [Interface] - Language "
+    },
+    "improveTrans":{        
+        "message": "译文改进",
+        "description": "UI setting - [Interface] - Improve translation "
     }
 }

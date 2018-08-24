@@ -91,6 +91,14 @@
         "message": "存檔完成",
         "description": "messsage - Data saved."
     },
+    "actUrlFormatEmpty":{        
+        "message": "連結格式不能為空",
+        "description": "messsage - Custom Urls format not be empty."
+    },
+    "actImgUrlFormatEmpty":{        
+        "message": "圖片連結格式不能為空",
+        "description": "messsage - Custom image Urls format not be empty."
+    },
     "resetSettings": {
         "message": "預設值",
         "description": "UI button - reset to default settings."
@@ -190,5 +198,13 @@
     "keyboardShortcutAction": {
         "message": "鍵盤快速鍵動作: ",
         "description": "UI setting - [keybord shortcut] - keyboard shortcut action."
+    },
+    "language":{        
+        "message": "語言: ",
+        "description": "UI setting - [Interface] - Language "
+    },
+    "improveTrans":{        
+        "message": "改善翻譯",
+        "description": "UI setting - [Interface] - Improve translation "
     }
 }

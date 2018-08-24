@@ -91,6 +91,14 @@
         "message": "データが保存されました。",
         "description": "messsage - Data saved."
     },
+    "actUrlFormatEmpty":{        
+        "message": "Custom Urls format not be empty.",
+        "description": "messsage - Custom Urls format not be empty."
+    },
+    "actImgUrlFormatEmpty":{        
+        "message": "Custom image Urls format not be empty.",
+        "description": "messsage - Custom image Urls format not be empty."
+    },
     "resetSettings": {
         "message": "デフォルト",
         "description": "UI button - reset to default settings."
@@ -190,5 +198,13 @@
     "keyboardShortcutAction": {
         "message": "ショートカットを操作: ",
         "description": "UI setting - [keybord shortcut] - keyboard shortcut action."
+    },
+    "language":{        
+        "message": "言語: ",
+        "description": "UI setting - [Interface] - Language "
+    },
+    "improveTrans":{        
+        "message": "翻訳を改善する",
+        "description": "UI setting - [Interface] - Improve translation "
     }
 }

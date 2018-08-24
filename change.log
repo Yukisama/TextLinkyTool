@@ -1,3 +1,15 @@
+Version 1.2.8　2018-08-19
+------
+Toolbar button action support copy Urls with custom format.
+Keyboard shortcut action support copy Urls with custom format.
+Options - copy URLs format list.
+Options - copy ImageURLs format list.
+Options - Hide not support locate.
+Update lacate.
+Fix context menu separator line.
+Fix a few bugs.
+
+
 Version 1.2.7　2018-06-07
 ------
 Add ru locale. [ Thanks to solokot ]
@@ -5,8 +17,8 @@ Modify ja locale.
 Options - URL part text tooltips.
 Options - Improve translation tooltips.
 Images Viewer - display loading status.
-Images Viewer - display origin page title && URL.
-fix a few bugs.
+Images Viewer - display origin page title & URL.
+Fix a few bugs.
 
 
 Version 1.2.6　2018-05-31
@@ -43,18 +55,18 @@ Add ja locale.
 
 Version 1.2.2　2017-12-04
 ------
-fix analyze full page URLs in frame/iframe.
+Fix analyze full page URLs in frame/iframe.
 enhance analyze URLs of background images.
 
 
 Version 1.2.1　2017-10-28
 ------
-Bug fix.
+Bugs fix.
 
 
 Version 1.2.0　2017-10-27
 ------
-change version name. (1.1.7 to 1.2.0)
+Change version name. (1.1.7 to 1.2.0)
 
 
 Version 1.1.7　2017-10-27
@@ -112,7 +124,7 @@ Features complated:
 
 Version 1.1.0　2017-10-12
 ------
-change version name. (1.0.6 to 1.1.0)
+Change version name. (1.0.6 to 1.1.0)
 
 
 Version 1.0.6　2017-10-12
@@ -123,7 +135,7 @@ Add "Browser toolbar button".
 
 Version 1.0.5　2017-10-10
 ------
-fix a few bugs.
+Fix a few bugs.
 Add "Images Viewer" Page.
 "Show selected/page images" show in new tab.
 Custom options - Link custom format
@@ -168,8 +180,8 @@ Modify en locale.
 
 Version 1.0.0　2017-10-02
 ------
-fix a few bugs.
-disable "Open page URLs" feature.
+Fix a few bugs.
+Disable "Open page URLs" feature.
 Release to AMO. [ https://addons.mozilla.org/addon/text-linky-tool/ ]
 
 

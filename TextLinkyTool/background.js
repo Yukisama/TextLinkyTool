@@ -12,151 +12,146 @@ function menuCombine(tab)
 
     //Context menus combine
     commonLookup.getUserTltSetting().then((tlt)=>{
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.copySelectedPuretext + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copySelectedPuretext"),
             contexts: ["selection"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.copySelectedHtmltext + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copySelectedHtmltext"),
             contexts: ["selection"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: "separator-0",
             type: "separator",
             contexts: ["selection"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.copyLinkName + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyLinkName"),
             contexts: ["link"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.copyLinkUrl + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyLinkUrl"),
             contexts: ["link"]
         });
         tlt.userTltSetting.linkCustomFormatList.forEach((item,idx)=>{
-            browser.contextMenus.create({
+            browser.menus.create({
                 id: commonLookup.actlist.copyLinkFormatText + "-" + idx.toString(),
                 title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyLinkFormatText").format(item.name),
                 contexts: ["link"]
             });
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.copyImageUrl + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyImageUrl"),
             contexts: ["image"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.showImage + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"showImage"),
             contexts: ["image"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: "separator-1",
             type: "separator",
             contexts: ["link", "image"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.copySelectedUrls + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copySelectedUrls"),
             contexts: ["selection"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.openSelectedUrls + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"openSelectedUrls"),
             contexts: ["selection"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: "separator-2",
             type: "separator",
             contexts: ["selection"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.copySelectedImageUrls + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copySelectedImageUrls"),
             contexts: ["selection"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.showSelectedImages + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"showSelectedImages"),
             contexts: ["selection"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.copyPagePuretext + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyPagePuretext"),
             contexts: ["page"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.copyPageHtmltext + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyPageHtmltext"),
             contexts: ["page"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: "separator-3",
             type: "separator",
             contexts: ["page"]
         });
         tlt.userTltSetting.urlsCustomFormatList.forEach((item,idx)=>{
-            browser.contextMenus.create({
+            browser.menus.create({
                 id: commonLookup.actlist.copyPageUrls + "-" + idx.toString(),
                 title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyPageUrls").format(item.name),
                 contexts: ["page"]
             });
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.openPageUrls + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"openPageUrls"),
             contexts: ["page"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: "separator-4",
             type: "separator",
             contexts: ["page"]
         });
         tlt.userTltSetting.imageUrlsCustomFormatList.forEach((item,idx)=>{
-            browser.contextMenus.create({
+            browser.menus.create({
                 id: commonLookup.actlist.copyPageImageUrls + "-" + idx.toString(),
                 title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyPageImageUrls").format(item.name),
                 contexts: ["page"]
             });
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.showPageImages + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"showPageImages"),
             contexts: ["page"]
         });
-        browser.contextMenus.create({
-            id: "separator-5",
-            type: "separator",
-            contexts: ["page"]
-        });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.copyTabName + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyTabName"),
             contexts: ["tab"]
         });
-        browser.contextMenus.create({
+        browser.menus.create({
             id: commonLookup.actlist.copyTabUrl + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyTabUrl"),
             contexts: ["tab"]
         });
         tlt.userTltSetting.tabCustomFormatList.forEach((item,idx)=>{
-            browser.contextMenus.create({
+            browser.menus.create({
                 id: commonLookup.actlist.copyTabFormatText + "-" + idx.toString(),
                 title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyTabFormatText").format(item.name),
                 contexts: ["tab"]
             });
         });
-        browser.contextMenus.create({
-            id: "separator-6",
+        browser.menus.create({
+            id: "separator-5",
             type: "separator",
             contexts: ["tab"]
         });
         tlt.userTltSetting.tabsinfoCustomFormatList.forEach((item,idx)=>{
-            browser.contextMenus.create({
+            browser.menus.create({
                 id: commonLookup.actlist.copyAllTabsInfo + "-" + idx.toString(),
                 title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyAllTabsInfo").format(item.name),
                 contexts: ["tab"]
@@ -183,7 +178,7 @@ function tabUpdated(tabid, info, tab)
 }
 
 //Main Methods
-browser.contextMenus.onClicked.addListener((info, tab) => {
+browser.menus.onClicked.addListener((info, tab) => {
     browser.tabs.query({
         currentWindow: true,
         active: true

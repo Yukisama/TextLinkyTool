@@ -69,7 +69,9 @@ const commonLookup = {
         linkCustomFormatList: [{name:"BBCode Format",data:"[url=[[url]]][[name]][/url]"},{name:"Wiki Syntax",data:"[[[url]] [[name]]]"}],
         tabCustomFormatList: [{name:"BBCode Format",data:"[url=[[url]]][[name]][/url]"},{name:"Wiki Syntax",data:"[[[url]] [name]]]"}],
         toolbarButtonAction: "12",
+        toolbarButtonActionIdx: 0,
         keyboardShortcutAction: "3",
+        keyboardShortcutActionIdx: 0,
         fixUrlQuotEnd: true,
         puretextFormat: {
             delAroundSpace: true,

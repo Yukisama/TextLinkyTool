@@ -85,7 +85,8 @@
             <option value="6" data-i18n="openSelectedUrls">Open selected URLs</option>
             <option value="11" data-i18n="copySelectedImageUrls">Copy selected image urls</option>
             <option value="12" data-i18n="showSelectedImages">Show selected images</option>
-        </select><br />
+        </select>
+        <select id="selToolbarButtonActionIdx"></select><br />
         <hr />
         <p>Keybord shortcut: F8</p>
         <label data-i18n="keyboardShortcutAction">keyboard shortcut action: </label>
@@ -96,24 +97,25 @@
             <option value="6" data-i18n="openSelectedUrls">Open selected URLs</option>
             <option value="11" data-i18n="copySelectedImageUrls">Copy selected image urls</option>
             <option value="12" data-i18n="showSelectedImages">Show selected images</option>
-        </select><br />
+        </select>
+        <select id="selKeyboardShortcutActionIdx"></select><br />
         <hr />
         <p>Interface: </p>
-        <label>Language: </label>
+        <label data-i18n="language">Language: </label>
         <select id="selInterfaceLanguage">
             <option value="">---</option>
-            <option value="de" disabled="disabled">de, Deutsch</option>
+            <!--<option value="de" disabled="disabled">de, Deutsch</option>-->
             <option value="en">en-US, English (USA)</option>
             <option value="en_GB">en-GB, English (Great Britain)</option>
-            <option value="es" disabled="disabled">es, Español</option>
-            <option value="fr" disabled="disabled">fr, Français</option>
-            <option value="it" disabled="disabled">it, Italiano</option>
+            <!--<option value="es" disabled="disabled">es, Español</option>-->
+            <!--<option value="fr" disabled="disabled">fr, Français</option>-->
+            <!--<option value="it" disabled="disabled">it, Italiano</option>-->
             <option value="ja">ja, 日本語</option>
             <option value="ru">ru, Русский</option>
             <option value="zh_CN">zh-CN, 中文 (简体)</option>
             <option value="zh_TW">zh-TW, 中文 (台灣)</option>
         </select>
-        <div class="tipbox iplang"><span>Improve translation</span></div>
+        <div class="tipbox iplang"><span data-i18n="improveTrans">Improve translation</span></div>
         <br />
         <hr />
         <input type="button" id="inpResetSettings" data-i18n="resetSettings" value="Default" />

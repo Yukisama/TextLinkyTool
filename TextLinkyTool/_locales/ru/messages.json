@@ -92,11 +92,11 @@
         "description": "messsage - Data saved."
     },
     "actUrlFormatEmpty":{        
-        "message": "Custom Urls format not be empty.",
+        "message": "Пользовательский формат URL-адресов не может быть пустым.",
         "description": "messsage - Custom Urls format not be empty."
     },
     "actImgUrlFormatEmpty":{        
-        "message": "Custom image Urls format not be empty.",
+        "message": "Пользовательский формат URL-адресов изображений не может быть пустым.",
         "description": "messsage - Custom image Urls format not be empty."
     },
     "resetSettings": {
@@ -188,7 +188,7 @@
         "description": "UI setting - [Analyze URLs] - Open a single Image link directly."
     },
     "blobUrlToLocal": {
-        "message": "Преобразовывать Blob URLs в локальные URL-адреса (очень медленно)",
+        "message": "Преобразовывать Blob URL в локальные URL-адреса (очень медленно)",
         "description": "UI setting - [Analyze URLs] - Blob URLs convert to local images."
     },
     "toolbarButtonAction": {
@@ -200,11 +200,11 @@
         "description": "UI setting - [keybord shortcut] - keyboard shortcut action."
     },
     "language":{        
-        "message": "Language: ",
+        "message": "Язык: ",
         "description": "UI setting - [Interface] - Language "
     },
     "improveTrans":{        
-        "message": "Improve translation",
+        "message": "Улучшить перевод",
         "description": "UI setting - [Interface] - Improve translation "
     }
 }

@@ -1,6 +1,12 @@
+Version 1.2.9　2018-10-01
+------
+Update ru locale. [ Thanks to solokot ]
+Fix options read setting bug.
+
+
 Version 1.2.8　2018-08-19
 ------
-Toolbar button action support copy Urls with custom format.
+Toolbar button action support copy URLs with custom format.
 Keyboard shortcut action support copy Urls with custom format.
 Options - copy URLs format list.
 Options - copy ImageURLs format list.

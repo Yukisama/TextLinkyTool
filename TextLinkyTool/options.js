@@ -119,7 +119,7 @@ function showOptionSettings(setting) {
     document.querySelector("#divLinkCustomFormat").clearElement().appendChild(frag);
     frag=null;
     frag=document.createDocumentFragment();
-    setting.linkCustomFormatList.forEach( function(item,itemidx) { listAdd(frag,item.name,item.data,itemidx); });
+    setting.tabCustomFormatList.forEach( function(item,itemidx) { listAdd(frag,item.name,item.data,itemidx); });
     document.querySelector("#divTabCustomFormat").clearElement().appendChild(frag);
     frag=null;
     document.querySelector("#selToolbarButtonAction").value = setting.toolbarButtonAction;

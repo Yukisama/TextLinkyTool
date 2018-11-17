@@ -49,37 +49,37 @@ function copySelectedPureText() {
     commonLookup.getUserTltSetting().then((tlt) => {
         let txt = getSelectedText();
         if (tlt.userTltSetting.puretextFormat.delAroundSpace === true) {
-            txt = txt.replace(new RegExp(/^\s*|\s*$/g), "");
+            txt = txt.replace(new RegExp(/^\s*|\s*$/,"gu"), "");
         }
         if (tlt.userTltSetting.puretextFormat.delInvisibleSpace === true) {
-            txt = txt.replace(new RegExp(/[\r\f\v]/g), "");
+            txt = txt.replace(new RegExp(/[\r\f\v]/,"gu"), "");
         }
         if (tlt.userTltSetting.puretextFormat.convertQuotation === true) {
-            txt = txt.replace(new RegExp(/[“”〝〞„〃]/g), '"');
+            txt = txt.replace(new RegExp(/[“”〝〞„〃]/,"gu"), '"');
         }
         if (tlt.userTltSetting.puretextFormat.convertApostrophe === true) {
-            txt = txt.replace(new RegExp(/[‵′‘’]/g), "'");
+            txt = txt.replace(new RegExp(/[‵′‘’]/,"gu"), "'");
         }
         if (tlt.userTltSetting.puretextFormat.convertDash === true) {
-            txt = txt.replace(new RegExp(/[╴－─‒–—―]/g), "-");
+            txt = txt.replace(new RegExp(/[╴－─‒–—―]/,"gu"), "-");
         }
         if (tlt.userTltSetting.puretextFormat.convertSpace === true) {
-            txt = txt.replace(new RegExp(/[　]/g), " ");
+            txt = txt.replace(new RegExp(/[　]/,"gu"), " ");
         }
         if (tlt.userTltSetting.puretextFormat.mergeNewline === true) {
-            txt = txt.replace(new RegExp(/[\r]+/g), "").replace(new RegExp(/\s*\n\s*\n\s*/g), "\n");
+            txt = txt.replace(new RegExp(/[\r]+/,"gu"), "").replace(new RegExp(/\s*\n\s*\n\s*/,"g"), "\n");
         }
         if (tlt.userTltSetting.puretextFormat.mergeSpace === true) {
-            txt = txt.replace(new RegExp(/[ ]+/g), " ");
+            txt = txt.replace(new RegExp(/[ ]+/,"gu"), " ");
         }
         if (tlt.userTltSetting.puretextFormat.mergeFullwidthSpace === true) {
-            txt = txt.replace(new RegExp(/[　]+/g), "　");
+            txt = txt.replace(new RegExp(/[　]+/,"gu"), "　");
         }
         if (tlt.userTltSetting.puretextFormat.mergeTabulation === true) {
-            txt = txt.replace(new RegExp(/[\t]+/g), "\t");
+            txt = txt.replace(new RegExp(/[\t]+/,"gu"), "\t");
         }
         if (tlt.userTltSetting.puretextFormat.mergeAllTypeSpace === true) {
-            txt = txt.replace(new RegExp(/[\r\f\v]/g), "").replace(new RegExp(/[ 　\t]+/g), " ");
+            txt = txt.replace(new RegExp(/[\r\f\v]/,"gu"), "").replace(new RegExp(/[ 　\t]+/,"gu"), " ");
         }
         copyToClipboard(txt);
     });
@@ -102,54 +102,54 @@ function copySelectedHtmlText() {
 //analyze selected context link URLs
 function getSelectedUrls(fixquot,blobtolocal) {
     let body = getSelectedObject().innerHTML + "\n" + getSelectedText();
-    let regex1 = new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])(.*?)\1/gi);
+    let regex1 = new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])(.*?)\1/,"gi");
     let imglist = body.match(regex1);
     if (imglist === null) {
         imglist = [];
     } else {
         imglist = imglist.map((s) => {
-            return s.replace(/<img\s+(?:[^>]*?\s+)?src=(["'])/i, "").replace(new RegExp(/["']$/i), "");
+            return s.replace(new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])/,"i"), "").replace(new RegExp(/["']$/,"i"), "");
         });
         body = body.replace(regex1, "");
     }
-    let regex4 = new RegExp(/background\-image\:\s*url\(((\&quot\;)|\"|\')(.*?)((\&quot\;)|\"|\')\)/gi);
+    let regex4 = new RegExp(/background\-image\:\s*url\(((\&quot\;)|\"|\')(.*?)((\&quot\;)|\"|\')\)/,"gi");
     let cssbglist = body.match(regex4);
     if (cssbglist === null) {
         cssbglist = [];
     } else {
         cssbglist = cssbglist.map((s) => {
-            return s.replace(new RegExp(/background\-image\:\ url\(((\&quot\;)|\"|\')/i), "").replace(new RegExp(/((\&quot\;)|\"|\')\)$/i), "");
+            return s.replace(new RegExp(/background\-image\:\ url\(((\&quot\;)|\"|\')/,"i"), "").replace(new RegExp(/((\&quot\;)|\"|\')\)$/,"i"), "");
         });
         body = body.replace(regex4, "");
     }
-    let regex5 = new RegExp(/\s+background=[\"\'](.*?)[\"\']/gi);
+    let regex5 = new RegExp(/\s+background=[\"\'](.*?)[\"\']/,"gi");
     let attbglist = body.match(regex5);
     if (attbglist === null) {
         attbglist = [];
     } else {
         attbglist = attbglist.map((s) => {
-            return s.replace(new RegExp(/\s+background=[\"\']/i), "").replace(new RegExp(/["']$/i), "");
+            return s.replace(new RegExp(/\s+background=[\"\']/,"i"), "").replace(new RegExp(/["']$/,"i"), "");
         });
         body = body.replace(regex5, "");
     }
-    let regex2 = new RegExp(/<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/gi);
+    let regex2 = new RegExp(/<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/,"gi");
     let alist = body.match(regex2);
     if (alist === null) {
         alist = [];
     } else {
         alist = alist.map((s) => {
-            return s.replace(/<a\s+(?:[^>]*?\s+)?href=(["'])/i, "").replace(new RegExp(/["']$/i), "");
+            return s.replace(new RegExp(/<a\s+(?:[^>]*?\s+)?href=(["'])/,"i"), "").replace(new RegExp(/["']$/,"i"), "");
         });
         body = body.replace(regex2, "");
     }
-    let regex3 = new RegExp(/((ftp|https?):\/\/(www\.)?)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/=]*)/gi);
+    let regex3 = new RegExp(/((ftp|https?):\/\/(www\.)?)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/=]*)/,"gi");
     let matches = body.match(regex3);
     if (matches === null) {
         matches = [];
     }
     let urls = imglist.concat(cssbglist).concat(attbglist).concat(alist).concat(matches).map((h) => {
         let u = getAbsolutePath(h);
-        if (fixquot === true) { u = u.replace(new RegExp(/\"*$/i), ""); }
+        if (fixquot === true) { u = u.replace(new RegExp(/\"*$/,"i"), ""); }
         return u;
     }).filter((value, index, self) => {
         return self.indexOf(value) === index;
@@ -191,48 +191,48 @@ function openSelectedUrls() {
 //filter images URLs
 function getSelectedImageUrls(fixquot,blobtolocal) {
     let body = getSelectedObject().innerHTML;
-    let regex1 = new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])(.*?)\1/gi);
+    let regex1 = new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])(.*?)\1/,"gi");
     let imglist1 = body.match(regex1);
     if (imglist1 === null) {
         imglist1 = [];
     } else {
         imglist1 = imglist1.map((s) => {
-            return s.replace(new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])/i), "").replace(new RegExp(/["']$/i), "");
+            return s.replace(new RegExp(/<img\s+(?:[^>]*?\s+)?src=(["'])/,"i"), "").replace(new RegExp(/["']$/,"i"), "");
         });
         body = body.replace(regex1, "");
     }
-    let regex4 = new RegExp(/background\-image\:\s*url\(((\&quot\;)|\"|\')(.*?)((\&quot\;)|\"|\')\)/gi);
+    let regex4 = new RegExp(/background\-image\:\s*url\(((\&quot\;)|\"|\')(.*?)((\&quot\;)|\"|\')\)/,"gi");
     let cssbglist = body.match(regex4);
     if (cssbglist === null) {
         cssbglist = [];
     } else {
         cssbglist = cssbglist.map((s) => {
-            return s.replace(new RegExp(/background\-image\:\ url\(((\&quot\;)|\"|\')/i), "").replace(new RegExp(/((\&quot\;)|\"|\')\)$/i), "");
+            return s.replace(new RegExp(/background\-image\:\ url\(((\&quot\;)|\"|\')/,"i"), "").replace(new RegExp(/((\&quot\;)|\"|\')\)$/,"i"), "");
         });
         body = body.replace(regex4, "");
     }
-    let regex5 = new RegExp(/\s+background=[\"\'](.*?)[\"\']/gi);
+    let regex5 = new RegExp(/\s+background=[\"\'](.*?)[\"\']/,"gi");
     let attbglist = body.match(regex5);
     if (attbglist === null) {
         attbglist = [];
     } else {
         attbglist = attbglist.map((s) => {
-            return s.replace(new RegExp(/\s+background=[\"\']/i), "").replace(new RegExp(/["']$/i), "");
+            return s.replace(new RegExp(/\s+background=[\"\']/,"i"), "").replace(new RegExp(/["']$/,"i"), "");
         });
         body = body.replace(regex5, "");
     }
-    let regex = new RegExp(/\.(bmp|gif|jpe?g|png|tif?f|svg|webp)(\?.*)?$/gi);
+    let regex = new RegExp(/\.(bmp|gif|jpe?g|png|tif?f|svg|webp)(\?.*)?$/,"gi");
     let imglist2 = getSelectedUrls(fixquot,blobtolocal).filter((value, index, self) => {
         return regex.test(value);
     });
     let urls = imglist1.concat(cssbglist).concat(attbglist).concat(imglist2).map((h) => {
         let u = getAbsolutePath(h);
-        if (fixquot === true) { u = u.replace(new RegExp(/\"*$/i), ""); }
+        if (fixquot === true) { u = u.replace(new RegExp(/\"*$/,"i"), ""); }
         return u;
     }).filter((value, index, self) => {
         return self.indexOf(value) === index;
     });   
-    let blobregex = new RegExp(/^blob:/i);
+    let blobregex = new RegExp(/^blob:/,"i");
     if (blobtolocal === true) {
         urls = urls.map((u)=>{ 
             if (blobregex.test(u)) { u = getImageToLocal(u); }

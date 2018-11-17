@@ -52,7 +52,7 @@
         "description": "feature - Copy all Tabs info."
     },
     "copySelectedUrls": {
-        "message": "Копировать выбранные URL-адреса",
+        "message": "Копировать выбранные URL-адреса ({0})",
         "description": "feature - Analyze selected context to find URLs, copy all as custom format text."
     },
     "openSelectedUrls": {
@@ -68,7 +68,7 @@
         "description": "feature - Analyze full page to find URLs, open all to new Tabs."
     },
     "copySelectedImageUrls": {
-        "message": "Копировать URL-адреса выбранных изображений",
+        "message": "Копировать URL-адреса выбранных изображений ({0})",
         "description": "feature - Analyze selected context to find image URLs, copy all as custom format text."
     },
     "showSelectedImages": {

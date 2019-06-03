@@ -4,7 +4,7 @@ A useful tool for web links.
   
 Home Page：https://github.com/Yukisama/TextLinkyTool  
 Firefox Extension：https://addons.mozilla.org/addon/text-linky-tool  
-Chrome Extension：not yet. but soon.  
+Chrome Extension：not yet. cf [Chrome bug 328932](https://bugs.chromium.org/p/chromium/issues/detail?id=328932) and [Chrome bug 798169] (https://bugs.chromium.org/p/chromium/issues/detail?id=798169)  
   
 Features:  
   
@@ -33,10 +33,14 @@ Over 20 actions:
 15. Analyze selected context URLs, open to new Tabs  
 16. Analyze selected context image URLs, copy as format text  
 17. Analyze selected context image URLs, show on new Tab  
-18. Analyze full page context URLs, copy as format text  
-19. Analyze full page context URLs, open to new Tabs  
-20. Analyze full page context image URLs, copy as format text  
-21. Analyze full page context image URLs, show on new Tab  
+18. Analyze selected context a objects, copy as format text   
+19. Analyze selected context img objects, copy as format text
+20. Analyze full page context URLs, copy as format text  
+21. Analyze full page context URLs, open to new Tabs  
+22. Analyze full page context image URLs, copy as format text  
+23. Analyze full page context image URLs, show on new Tab  
+24. Analyze full page context a objects, copy as format text    
+25. Analyze full page context img objects, copy as format text  
 ... and more  
   
   

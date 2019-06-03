@@ -299,6 +299,36 @@ function showSelectedImages() {
     });
 }
 
+//copy <a> Objects Info
+function copySelectedAObjectsInfo(idx) {
+    commonLookup.getUserTltSetting().then((tlt) => {
+        let i = 0;
+        let formatRule = tlt.userTltSetting.aObjectsCustomFormatList[idx].data.getFormatRule();
+        let formatText = '';
+        getSelectedObject().querySelectorAll("a").forEach((obj) => {
+            i++;
+            let u=new URL(obj.href);
+            formatText += formatRule.format(obj.innerHTML.toString(), obj.href, "\n", "\t", i.toString(),u.protocol,u.host,u.hostname,u.port,u.pathname,u.search,u.hash,u.origin,u.pathname+u.search+u.hash);
+        });
+        copyToClipboard(formatText);
+    });
+}
+
+//copy <img> Objects Info
+function copySelectedImgObjectsInfo(idx) {
+    commonLookup.getUserTltSetting().then((tlt) => {
+        let i = 0;
+        let formatRule = tlt.userTltSetting.imgObjectsCustomFormatList[idx].data.getFormatRule();
+        let formatText = '';
+        getSelectedObject().querySelectorAll("img").forEach((obj) => {
+            i++;
+            let u=new URL(obj.src);
+            formatText += formatRule.format(obj.alt, obj.src, "\n", "\t", i.toString(),u.protocol,u.host,u.hostname,u.port,u.pathname,u.search,u.hash,u.origin,u.pathname+u.search+u.hash);
+        });
+        copyToClipboard(formatText);
+    });
+}
+
 //copy link format text
 function copyLinkFormatText(name, url, idx) {
     commonLookup.getUserTltSetting().then((tlt) => {
@@ -405,6 +435,16 @@ function executeCommand(msg) {
             break;
         case commonLookup.actlist.copyTabFormatText:
             copyTabFormatText(msg.data.name, msg.data.url, msg.idx);
+            break;            
+        case commonLookup.actlist.copyPageAObjectsInfo:
+            getTopWindow();
+        case commonLookup.actlist.copySelectedAObjectsInfo:
+            copySelectedAObjectsInfo(msg.idx);
+            break;
+        case commonLookup.actlist.copyPageImgObjectsInfo:
+            getTopWindow();
+        case commonLookup.actlist.copySelectedImgObjectsInfo:
+            copySelectedImgObjectsInfo(msg.idx);
             break;
         case commonLookup.actlist.copyAllTabsInfo:
             copyAllTabsInfo(msg.data, msg.idx);

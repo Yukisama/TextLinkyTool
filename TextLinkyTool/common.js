@@ -59,6 +59,10 @@ const commonLookup = {
         openPageUrls: "10",
         copyPageImageUrls: "13",
         showPageImages: "14", 
+        copySelectedAObjectsInfo: "22",
+        copyPageAObjectsInfo: "23",
+        copySelectedImgObjectsInfo: "24",
+        copyPageImgObjectsInfo: "25",
         toolbarButtonAction: "A",
         keyboardShortcutAction: "B",
         serverOpenTabs: "S1",
@@ -67,7 +71,7 @@ const commonLookup = {
     defaultTltSetting: {
         openPagesLimit: 5,
         linkCustomFormatList: [{name:"BBCode Format",data:"[url=[[url]]][[name]][/url]"},{name:"Wiki Syntax",data:"[[[url]] [[name]]]"}],
-        tabCustomFormatList: [{name:"BBCode Format",data:"[url=[[url]]][[name]][/url]"},{name:"Wiki Syntax",data:"[[[url]] [name]]]"}],
+        tabCustomFormatList: [{name:"BBCode Format",data:"[url=[[url]]][[name]][/url]"},{name:"Wiki Syntax",data:"[[[url]] [[name]]]"}],
         toolbarButtonAction: "12",
         toolbarButtonActionIdx: 0,
         keyboardShortcutAction: "3",
@@ -91,6 +95,8 @@ const commonLookup = {
         tabsinfoCustomFormatList: [{name:"Custom",data:"[[index]].[[t]][[url]][[t]]([[name]])[[n]]"}],
         urlsCustomFormatList: [{name:"Custom",data:"[[url]][[n]]"}],
         imageUrlsCustomFormatList: [{name:"Custom",data:"[[url]][[n]]"}],
+        aObjectsCustomFormatList: [{name:"Custom",data:"[[url]]([[name]])[[n]]"}],
+        imgObjectsCustomFormatList: [{name:"Custom",data:"[[url]]([[name]])[[n]]"}],
         blobUrlToLocal: true,
         locale: "",
         localeData: {}

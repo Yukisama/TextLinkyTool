@@ -1,3 +1,14 @@
+Version 1.2.11  2019-06-04
+------
+Fix wiki syntax format.
+
+Features complated:
+22. copy selected <a> objects info.
+23. copy page <a> objects info.
+24. copy selected <a> objects info.
+25. copy page <img> objects info.
+
+
 Version 1.2.10　2018-11-17
 ------
 Fix analyze custom formats not enable bug.

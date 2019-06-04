@@ -4,7 +4,7 @@ A useful tool for web links.
   
 Home Page：https://github.com/Yukisama/TextLinkyTool  
 Firefox Extension：https://addons.mozilla.org/addon/text-linky-tool  
-Chrome Extension：not yet. cf [Chrome bug 328932](https://bugs.chromium.org/p/chromium/issues/detail?id=328932) and [Chrome bug 798169] (https://bugs.chromium.org/p/chromium/issues/detail?id=798169)  
+Chrome Extension：not yet. cf [Chrome bug 328932](https://bugs.chromium.org/p/chromium/issues/detail?id=328932) and [Chrome bug 798169](https://bugs.chromium.org/p/chromium/issues/detail?id=798169)  
   
 Features:  
   

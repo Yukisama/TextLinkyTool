@@ -24,7 +24,7 @@
         "description": "feature - Copy URL of this Link."
     },
     "copyLinkFormatText": {
-        "message": "Скопировать ссылку как {0}",
+        "message": "Копировать ссылку как {0}",
         "description": "feature - Copy name & URL as custom format text of this Link."
     },
     "copyImageUrl": {
@@ -84,19 +84,19 @@
         "description": "feature - Analyze full page to find image URLs, open all to new Tabs."
     },
     "copySelectedAObjectsInfo": {
-        "message": "Copy selected <a> objects info ({0})",
+        "message": "Копировать данные выбранных объектов <a> ({0})",
         "description": "feature -   Analyze selected context to find <a> objects, copy all info as custom format text."
     },
     "copyPageAObjectsInfo": {
-        "message": "Copy page <a> objects info ({0})",
+        "message": "Копировать данные объектов <a> всей страницы ({0})",
         "description": "feature -  Analyze full page to find <a> objects, copy all info as custom format text."
     },
     "copySelectedImgObjectsInfo": {
-        "message": "Copy selected <img> objects info ({0})",
+        "message": "Копировать данные выбранных объектов <img> ({0})",
         "description": "feature -   Analyze selected context to find <img> objects, copy all info as custom format text."
     },    
     "copyPageImgObjectsInfo": {
-        "message": "Copy page <img> objects info ({0})",
+        "message": "Копировать данные объектов <img> всей страницы ({0})",
         "description": "feature -  Analyze full page to find <img> objects, copy all as custom format text."
     },
     "tabsLimitAlert": {
@@ -192,11 +192,11 @@
         "description": "UI setting - [Analyze URLs] - Copy URLs custom format."
     },
     "aObjectsCustomFormat": {
-        "message": "Copy <a> objects custom format: ",
+        "message": "Пользовательский формат копируемых объектов <a>: ",
         "description": "UI setting - [Analyze URLs] - Copy <a> objects custom format."
     },
     "imgObjectsCustomFormat": {
-        "message": "Copy <img> objects custom format: ",
+        "message": "Пользовательский формат копируемых объектов <img>: ",
         "description": "UI setting - [Analyze URLs] - Copy <img> objects custom format."
     },
     "imageUrlsCustomFormat": {

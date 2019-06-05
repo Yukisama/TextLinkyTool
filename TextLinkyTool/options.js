@@ -119,7 +119,7 @@ function showOptionSettings(setting) {
     document.querySelector("#divLinkCustomFormat").clearElement().appendChild(frag);
     frag=null;
     frag=document.createDocumentFragment();
-    setting.linkCustomFormatList.forEach( function(item,itemidx) { listAdd(frag,item.name,item.data,itemidx); });
+    setting.tabCustomFormatList.forEach( function(item,itemidx) { listAdd(frag,item.name,item.data,itemidx); });
     document.querySelector("#divTabCustomFormat").clearElement().appendChild(frag);
     frag=null;
     document.querySelector("#selToolbarButtonAction").value = setting.toolbarButtonAction;
@@ -149,6 +149,14 @@ function showOptionSettings(setting) {
     frag=document.createDocumentFragment();
     setting.imageUrlsCustomFormatList.forEach( function(item,itemidx) { listAdd(frag,item.name,item.data,itemidx); });
     document.querySelector("#divImageUrlsCustomFormat").clearElement().appendChild(frag);
+    frag=null; 
+    frag=document.createDocumentFragment();
+    setting.aObjectsCustomFormatList.forEach( function(item,itemidx) { listAdd(frag,item.name,item.data,itemidx); });
+    document.querySelector("#divAObjectsCustomFormat").clearElement().appendChild(frag);
+    frag=null; 
+    frag=document.createDocumentFragment();
+    setting.imgObjectsCustomFormatList.forEach( function(item,itemidx) { listAdd(frag,item.name,item.data,itemidx); });
+    document.querySelector("#divImgObjectsCustomFormat").clearElement().appendChild(frag);
     frag=null;
     document.querySelector("#inpBlobUrlToLocal").checked = setting.blobUrlToLocal;
     document.querySelector("#selInterfaceLanguage").value = setting.locale;
@@ -188,6 +196,8 @@ async function setOptionSettings(e) {
         tabsinfoCustomFormatList: getListData(document.querySelector("#divTabsinfoCustomFormat")),
         urlsCustomFormatList: getListData(document.querySelector("#divUrlsCustomFormat")),
         imageUrlsCustomFormatList: getListData(document.querySelector("#divImageUrlsCustomFormat")),
+        aObjectsCustomFormatList: getListData(document.querySelector("#divAObjectsCustomFormat")),
+        imgObjectsCustomFormatList: getListData(document.querySelector("#divImgObjectsCustomFormat")),
         blobUrlToLocal: document.querySelector("#inpBlobUrlToLocal").checked,
         locale: document.querySelector("#selInterfaceLanguage").value,
         localeData: ldata

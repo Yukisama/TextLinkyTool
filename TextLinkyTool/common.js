@@ -2,7 +2,7 @@
 String.prototype.format = function () {
     let formatted = this;
     for (let i = 0; i < arguments.length; i++) {
-        let regexp = new RegExp("\\{" + i + "\\}", "gi");
+        let regexp = new RegExp("\\{" + i + "\\}", "giu");
         formatted = formatted.replace(regexp, arguments[i]);
     }
     return formatted;
@@ -11,20 +11,20 @@ String.prototype.format = function () {
 //string.getFormatRule 
 String.prototype.getFormatRule = function () {
     let ruletxt = this
-        .replace(new RegExp(/\[\[name\]\]/ig), "{0}")
-        .replace(new RegExp(/\[\[url\]\]/ig), "{1}")
-        .replace(new RegExp(/\[\[n\]\]/ig), "{2}")
-        .replace(new RegExp(/\[\[t\]\]/ig), "{3}")
-        .replace(new RegExp(/\[\[index\]\]/ig), "{4}")
-        .replace(new RegExp(/\[\[potocol\]\]/ig), "{5}")
-        .replace(new RegExp(/\[\[host\]\]/ig), "{6}")
-        .replace(new RegExp(/\[\[hostname\]\]/ig), "{7}")
-        .replace(new RegExp(/\[\[port\]\]/ig), "{8}")
-        .replace(new RegExp(/\[\[pathname\]\]/ig), "{9}")
-        .replace(new RegExp(/\[\[search\]\]/ig), "{10}")
-        .replace(new RegExp(/\[\[hash\]\]/ig), "{11}")
-        .replace(new RegExp(/\[\[fullhost\]\]/ig), "{12}")
-        .replace(new RegExp(/\[\[fullpath\]\]/ig), "{13}")
+        .replace(new RegExp(/\[\[name\]\]/, "giu"), "{0}")
+        .replace(new RegExp(/\[\[url\]\]/, "giu"), "{1}")
+        .replace(new RegExp(/\[\[n\]\]/, "giu"), "{2}")
+        .replace(new RegExp(/\[\[t\]\]/, "giu"), "{3}")
+        .replace(new RegExp(/\[\[index\]\]/, "giu"), "{4}")
+        .replace(new RegExp(/\[\[potocol\]\]/, "giu"), "{5}")
+        .replace(new RegExp(/\[\[host\]\]/, "giu"), "{6}")
+        .replace(new RegExp(/\[\[hostname\]\]/, "giu"), "{7}")
+        .replace(new RegExp(/\[\[port\]\]/, "giu"), "{8}")
+        .replace(new RegExp(/\[\[pathname\]\]/, "giu"), "{9}")
+        .replace(new RegExp(/\[\[search\]\]/, "giu"), "{10}")
+        .replace(new RegExp(/\[\[hash\]\]/, "giu"), "{11}")
+        .replace(new RegExp(/\[\[fullhost\]\]/, "giu"), "{12}")
+        .replace(new RegExp(/\[\[fullpath\]\]/, "giu"), "{13}")
     return ruletxt;
 };
 
@@ -59,6 +59,10 @@ const commonLookup = {
         openPageUrls: "10",
         copyPageImageUrls: "13",
         showPageImages: "14", 
+        copySelectedAObjectsInfo: "22",
+        copyPageAObjectsInfo: "23",
+        copySelectedImgObjectsInfo: "24",
+        copyPageImgObjectsInfo: "25",
         toolbarButtonAction: "A",
         keyboardShortcutAction: "B",
         serverOpenTabs: "S1",
@@ -67,7 +71,7 @@ const commonLookup = {
     defaultTltSetting: {
         openPagesLimit: 5,
         linkCustomFormatList: [{name:"BBCode Format",data:"[url=[[url]]][[name]][/url]"},{name:"Wiki Syntax",data:"[[[url]] [[name]]]"}],
-        tabCustomFormatList: [{name:"BBCode Format",data:"[url=[[url]]][[name]][/url]"},{name:"Wiki Syntax",data:"[[[url]] [name]]]"}],
+        tabCustomFormatList: [{name:"BBCode Format",data:"[url=[[url]]][[name]][/url]"},{name:"Wiki Syntax",data:"[[[url]] [[name]]]"}],
         toolbarButtonAction: "12",
         toolbarButtonActionIdx: 0,
         keyboardShortcutAction: "3",
@@ -91,6 +95,8 @@ const commonLookup = {
         tabsinfoCustomFormatList: [{name:"Custom",data:"[[index]].[[t]][[url]][[t]]([[name]])[[n]]"}],
         urlsCustomFormatList: [{name:"Custom",data:"[[url]][[n]]"}],
         imageUrlsCustomFormatList: [{name:"Custom",data:"[[url]][[n]]"}],
+        aObjectsCustomFormatList: [{name:"Custom",data:"[[url]]([[name]])[[n]]"}],
+        imgObjectsCustomFormatList: [{name:"Custom",data:"[[url]]([[name]])[[n]]"}],
         blobUrlToLocal: true,
         locale: "",
         localeData: {}

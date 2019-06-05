@@ -52,7 +52,7 @@
         "description": "feature - Copy all Tabs info."
     },
     "copySelectedUrls": {
-        "message": "選択範囲に含まれる全てのリンクをコピーする",
+        "message": "選択範囲に含まれる全てのリンクをコピーする ({0})",
         "description": "feature - Analyze selected context to find URLs, copy all as custom format text."
     },
     "openSelectedUrls": {
@@ -68,7 +68,7 @@
         "description": "feature - Analyze full page to find URLs, open all to new Tabs."
     },
     "copySelectedImageUrls": {
-        "message": "選択範囲に含まれる全ての画像リンクをコピーする",
+        "message": "選択範囲に含まれる全ての画像リンクをコピーする ({0})",
         "description": "feature - Analyze selected context to find image URLs, copy all as custom format text."
     },
     "showSelectedImages": {
@@ -82,6 +82,22 @@
     "showPageImages": {
         "message": "閲覧ページに含まれる全ての画像リンクを開く",
         "description": "feature - Analyze full page to find image URLs, open all to new Tabs."
+    },
+    "copySelectedAObjectsInfo": {
+        "message": "Copy selected <a> objects info ({0})",
+        "description": "feature -   Analyze selected context to find <a> objects, copy all info as custom format text."
+    },
+    "copyPageAObjectsInfo": {
+        "message": "Copy page <a> objects info ({0})",
+        "description": "feature -  Analyze full page to find <a> objects, copy all info as custom format text."
+    },
+    "copySelectedImgObjectsInfo": {
+        "message": "Copy selected <img> objects info ({0})",
+        "description": "feature -   Analyze selected context to find <img> objects, copy all info as custom format text."
+    },    
+    "copyPageImgObjectsInfo": {
+        "message": "Copy page <img> objects info ({0})",
+        "description": "feature -  Analyze full page to find <img> objects, copy all as custom format text."
     },
     "tabsLimitAlert": {
         "message": "同時起動の最大制限数 {0} タブを超えました。",
@@ -174,6 +190,14 @@
     "urlsCustomFormat": {
         "message": "Copy URLs custom format: ",
         "description": "UI setting - [Analyze URLs] - Copy URLs custom format."
+    },
+    "aObjectsCustomFormat": {
+        "message": "Copy <a> objects custom format: ",
+        "description": "UI setting - [Analyze URLs] - Copy <a> objects custom format."
+    },
+    "imgObjectsCustomFormat": {
+        "message": "Copy <img> objects custom format: ",
+        "description": "UI setting - [Analyze URLs] - Copy <img> objects custom format."
     },
     "imageUrlsCustomFormat": {
         "message": "Copy Image URLs custom format: ",

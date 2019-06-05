@@ -59,10 +59,12 @@ function menuCombine(tab)
             type: "separator",
             contexts: ["link", "image"]
         });
-        browser.menus.create({
-            id: commonLookup.actlist.copySelectedUrls + "-0",
-            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copySelectedUrls"),
-            contexts: ["selection"]
+        tlt.userTltSetting.urlsCustomFormatList.forEach((item,idx)=>{
+            browser.menus.create({
+                id: commonLookup.actlist.copySelectedUrls + "-" + idx.toString(),
+                title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copySelectedUrls").format(item.name),
+                contexts: ["selection"]
+            });
         });
         browser.menus.create({
             id: commonLookup.actlist.openSelectedUrls + "-0",
@@ -74,10 +76,12 @@ function menuCombine(tab)
             type: "separator",
             contexts: ["selection"]
         });
-        browser.menus.create({
-            id: commonLookup.actlist.copySelectedImageUrls + "-0",
-            title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copySelectedImageUrls"),
-            contexts: ["selection"]
+        tlt.userTltSetting.imageUrlsCustomFormatList.forEach((item,idx)=>{
+            browser.menus.create({
+                id: commonLookup.actlist.copySelectedImageUrls + "-" + idx.toString(),
+                title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copySelectedImageUrls").format(item.name),
+                contexts: ["selection"]
+            });
         });
         browser.menus.create({
             id: commonLookup.actlist.showSelectedImages + "-0",
@@ -129,6 +133,44 @@ function menuCombine(tab)
             contexts: ["page"]
         });
         browser.menus.create({
+            id: "separator-5",
+            type: "separator",
+            contexts: ["selection"]
+        });
+        tlt.userTltSetting.aObjectsCustomFormatList.forEach((item,idx)=>{
+            browser.menus.create({
+                id: commonLookup.actlist.copySelectedAObjectsInfo + "-" + idx.toString(),
+                title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copySelectedAObjectsInfo").format(item.name),
+                contexts: ["selection"]
+            });
+        });
+        tlt.userTltSetting.imageUrlsCustomFormatList.forEach((item,idx)=>{
+            browser.menus.create({
+                id: commonLookup.actlist.copySelectedImgObjectsInfo + "-" + idx.toString(),
+                title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copySelectedImgObjectsInfo").format(item.name),
+                contexts: ["selection"]
+            });
+        });
+        browser.menus.create({
+            id: "separator-6",
+            type: "separator",
+            contexts: ["page"]
+        });
+        tlt.userTltSetting.aObjectsCustomFormatList.forEach((item,idx)=>{
+            browser.menus.create({
+                id: commonLookup.actlist.copyPageAObjectsInfo + "-" + idx.toString(),
+                title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyPageAObjectsInfo").format(item.name),
+                contexts: ["page"]
+            });
+        });
+        tlt.userTltSetting.imageUrlsCustomFormatList.forEach((item,idx)=>{
+            browser.menus.create({
+                id: commonLookup.actlist.copyPageImgObjectsInfo + "-" + idx.toString(),
+                title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyPageImgObjectsInfo").format(item.name),
+                contexts: ["page"]
+            });
+        });
+        browser.menus.create({
             id: commonLookup.actlist.copyTabName + "-0",
             title: commonLookup.getMessage(tlt.userTltSetting.locale,tlt.userTltSetting.localeData,"copyTabName"),
             contexts: ["tab"]
@@ -146,7 +188,7 @@ function menuCombine(tab)
             });
         });
         browser.menus.create({
-            id: "separator-5",
+            id: "separator-7",
             type: "separator",
             contexts: ["tab"]
         });
@@ -198,6 +240,10 @@ browser.menus.onClicked.addListener((info, tab) => {
             case commonLookup.actlist.openPageUrls:
             case commonLookup.actlist.copySelectedImageUrls:
             case commonLookup.actlist.copyPageImageUrls:
+            case commonLookup.actlist.copySelectedAObjectsInfo:
+            case commonLookup.actlist.copyPageAObjectsInfo:
+            case commonLookup.actlist.copySelectedImgObjectsInfo:
+            case commonLookup.actlist.copyPageImgObjectsInfo:
             case commonLookup.actlist.showSelectedImages:
             case commonLookup.actlist.showPageImages:
                 executeCommand(acttab, {

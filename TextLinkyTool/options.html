@@ -76,6 +76,22 @@
         <input type="checkbox" id="inpOpenOneImageDirectly" /><label for="inpOpenOneImageDirectly" data-i18n="openOneImageDirectly">Open a single Image link directly</label><br /><br />
         <input type="checkbox" id="inpBlobUrlToLocal" /><label for="inpBlobUrlToLocal" data-i18n="blobUrlToLocal">Blob URL transfer to local URL</label><br />
         <hr />
+        <p>Analyze Objects: </p>
+        <label> [[index]] - Index, [[name]] - innerHTML text, [[url]] - URL text
+            <div class="tipbox urlpart"><span>(?)</span></div>
+            , [[n]] - New line, [[t]] - Tabulation</label><br />
+        <label> Not for break line automate, you should add [[n]] at format end.</label><br />
+        <label data-i18n="aObjectsCustomFormat">Copy &lt;a&gt; objects custom format: </label>
+        <div id="divAObjectsCustomFormat"></div>
+        <input type="button" id="inpAObjectsCustomFormat" class="btnAdd" value="+" data-listid="divAObjectsCustomFormat" data-name="Custom" data-value="[[url]][[n]]" /><br /><br />
+        <label> [[index]] - Index, [[name]] - Alt attribute, [[url]] - URL text
+            <div class="tipbox urlpart"><span>(?)</span></div>
+            , [[n]] - New line, [[t]] - Tabulation</label><br />
+        <label> Not for break line automate, you should add [[n]] at format end.</label><br />
+        <label data-i18n="imgObjectsCustomFormat">Copy &lt;img&gt; objects custom format: </label>
+        <div id="divImgObjectsCustomFormat"></div>        
+        <input type="button" id="inpImgObjectsCustomFormat" class="btnAdd" value="+" data-listid="divImgObjectsCustomFormat" data-name="Custom" data-value="[[url]][[n]]" /><br /><br />
+        <hr />
         <p>Toolbar button:</p>
         <label data-i18n="toolbarButtonAction">Toolbar button action: </label>
         <select id="selToolbarButtonAction">

@@ -16,15 +16,15 @@
         "description": "feature - Copy HTML source text of full page."
     },
     "copyLinkName": {
-        "message": "复制链接名称",
+        "message": "复制链接的名称",
         "description": "feature - Copy name of this Link."
     },
     "copyLinkUrl": {
-        "message": "复制链接网址",
+        "message": "复制链接的网址",
         "description": "feature - Copy URL of this Link."
     },
     "copyLinkFormatText": {
-        "message": "复制链接{0}",
+        "message": "复制链接为 {0}",
         "description": "feature - Copy name & URL as custom format text of this Link."
     },
     "copyImageUrl": {
@@ -32,7 +32,7 @@
         "description": "feature - Copy URL of this Image."
     },
     "showImage": {
-        "message": "打开图片网址",
+        "message": "显示图片",
         "description": "feature - Open Image on new Tab."
     },
     "copyTabName": {
@@ -44,11 +44,11 @@
         "description": "feature - Copy URL of this Tab."
     },
     "copyTabFormatText": {
-        "message": "复制标签页{0}",
+        "message": "复制标签页为 {0}",
         "description": "feature - Copy name & URL as custom format text of this Tab."
     },
     "copyAllTabsInfo": {
-        "message": "复制所有页签资讯 ({0})",
+        "message": "复制所有标签页信息 ({0})",
         "description": "feature - Copy all Tabs info."
     },
     "copySelectedUrls": {
@@ -72,7 +72,7 @@
         "description": "feature - Analyze selected context to find image URLs, copy all as custom format text."
     },
     "showSelectedImages": {
-        "message": "打开选定图片网址",
+        "message": "显示选定图片",
         "description": "feature - Analyze selected context to find image URLs, open all to new Tabs."
     },
     "copyPageImageUrls": {
@@ -80,27 +80,27 @@
         "description": "feature -  Analyze full page to find image URLs, copy all as custom format text."
     },
     "showPageImages": {
-        "message": "打开页面图片网址",
+        "message": "显示页面图片",
         "description": "feature - Analyze full page to find image URLs, open all to new Tabs."
     },
     "copySelectedAObjectsInfo": {
-        "message": "Copy selected <a> objects info ({0})",
+        "message": "复制选定的 <a> 对象信息 ({0})",
         "description": "feature -   Analyze selected context to find <a> objects, copy all info as custom format text."
     },
     "copyPageAObjectsInfo": {
-        "message": "Copy page <a> objects info ({0})",
+        "message": "复制页面 <a> 对象信息 ({0})",
         "description": "feature -  Analyze full page to find <a> objects, copy all info as custom format text."
     },
     "copySelectedImgObjectsInfo": {
-        "message": "Copy selected <img> objects info ({0})",
+        "message": "复制选定的 <img> 对象信息 ({0})",
         "description": "feature -   Analyze selected context to find <img> objects, copy all info as custom format text."
     },    
     "copyPageImgObjectsInfo": {
-        "message": "Copy page <img> objects info ({0})",
+        "message": "复制页面 <img> 对象信息 ({0})",
         "description": "feature -  Analyze full page to find <img> objects, copy all as custom format text."
     },
     "tabsLimitAlert": {
-        "message": "网址太多，最多打开{0}个标签页。",
+        "message": "太多网址，仅打开前 {0} 个标签页。",
         "description": "message - Max tabs limit at once open."
     },
     "saveOk": {
@@ -108,11 +108,11 @@
         "description": "messsage - Data saved."
     },
     "actUrlFormatEmpty":{        
-        "message": "Custom Urls format not be empty.",
+        "message": "自定义网址格式不能为空。",
         "description": "messsage - Custom Urls format not be empty."
     },
     "actImgUrlFormatEmpty":{        
-        "message": "Custom image Urls format not be empty.",
+        "message": "自定义图片网址格式不能为空。",
         "description": "messsage - Custom image Urls format not be empty."
     },
     "resetSettings": {
@@ -120,103 +120,103 @@
         "description": "UI button - reset to default settings."
     },
     "saveSettings": {
-        "message": "存档",
+        "message": "保存设置",
         "description": "UI button - Save settings."
     },
     "puretextFormatDelAroundSpace": {
-        "message": "Delete context around space.(trim)",
+        "message": "删除选定内容周围的空格。(修剪)",
         "description": "UI setting - [Copy as pure text - format] - Delete context around space.(trim)"
     },
     "puretextFormatDelInvisibleSpace": {
-        "message": "清除隐藏空白",
+        "message": "删除不可见空格",
         "description": "UI setting - [Copy as pure text - format] - Delete invisible space."
     },
     "puretextFormatConvertQuotation": {
-        "message": "Convert all type quotation to normal quotation.",
+        "message": "转换所有类型的引文为普通引文。",
         "description": "UI setting - [Copy as pure text - format] - Convert all type quotation to normal quotation."
     },
     "puretextFormatConvertApostrophe": {
-        "message": "Convert all type apostrophe to normal apostrophe.",
+        "message": "转换所有类型的撇号为普通撇号。",
         "description": "UI setting - [Copy as pure text - format] - Convert all type apostrophe to normal apostrophe."
     },
     "puretextFormatConvertDash": {
-        "message": "Convert all type dash to normal dash.",
+        "message": "转换所有类型的短线为普通短线。",
         "description": "UI setting - [Copy as pure text - format] - Convert all type dash to normal dash."
     },
     "puretextFormatConvertSpace": {
-        "message": "Convert fullwidth space to normal space.",
+        "message": "转换全角空格为普通空格。",
         "description": "UI setting - [Copy as pure text - format - Convert fullwidth space to normal space."
     },
     "puretextFormatMergeNewline": {
-        "message": "合并换行字元",
+        "message": "合并换行字符。",
         "description": "UI setting - [Copy as pure text - format] - Merge newline."
     },
     "puretextFormatMergeSpace": {
-        "message": "合并空白字元",
+        "message": "合并空格字符。",
         "description": "UI setting - [Copy as pure text - format] - Merge space."
     },
     "puretextFormatMergeFullwidthSpace": {
-        "message": "Merge fullwidth space.",
+        "message": "合并全角空格。",
         "description": "UI setting - [Copy as pure text - format] - Merge fullwidth space."
     },
     "puretextFormatMergeTabulation": {
-        "message": "Merge tabulation.",
+        "message": "合并制表符。",
         "description": "UI setting - [Copy as pure text - format] - Merge tabulation."
     },
     "puretextFormatMergeAllTypeSpace": {
-        "message": "Merge all type space to one space.",
+        "message": "合并所有类型的空格为一个空格。",
         "description": "UI setting - [Copy as pure text - format] - Merge all type space to one space."
     },
     "htmltextFormatWithoutTag": {
-        "message": "Copy without HTML Tag.",
+        "message": "不带 HTML 标记复制。",
         "description": "UI setting - [Copy as pure text - format] - Copy without HTML Tag."
     },
     "linkCustomFormat": {
-        "message": "链接格式化: ",
+        "message": "链接自定义格式: ",
         "description": "UI setting - [Copy Link info - Format] - Link custom format for copy feature."
     },
     "tabCustomFormat": {
-        "message": "标签页格式化: ",
+        "message": "标签页自定义格式: ",
         "description": "UI setting - [Copy Tab info - Format] - Tab custom format for copy feature."
     },
     "tabsinfoCustomFormat": {
-        "message": "Copy all Tabs info custom format: ",
+        "message": "复制全部标签页信息自定义格式: ",
         "description": "UI setting - [Copy Tab info - Format] - Copy all Tabs info custom format."
     },
     "fixUrlQuotEnd": {
-        "message": "fix URLs end with quotation.",
+        "message": "修复以引号结尾的网址。",
         "description": "UI setting - [Analyze URLs] - fix URLs end with quotation."
     },
     "urlsCustomFormat": {
-        "message": "Copy URLs custom format: ",
+        "message": "复制网址自定义格式: ",
         "description": "UI setting - [Analyze URLs] - Copy URLs custom format."
     },
     "aObjectsCustomFormat": {
-        "message": "Copy <a> objects custom format: ",
+        "message": "复制 <a> 对象自定义格式: ",
         "description": "UI setting - [Analyze URLs] - Copy <a> objects custom format."
     },
     "imgObjectsCustomFormat": {
-        "message": "Copy <img> objects custom format: ",
+        "message": "复制 <img> 对象自定义格式: ",
         "description": "UI setting - [Analyze URLs] - Copy <img> objects custom format."
     },
     "imageUrlsCustomFormat": {
-        "message": "Copy Image URLs custom format: ",
+        "message": "复制图像网址自定义格式: ",
         "description": "UI setting - [Analyze URLs] - Copy Image URLs custom format."
     },
     "maxTabsLimit": {
-        "message": "最多打开标签页: ",
+        "message": "一次最多打开标签页: ",
         "description": "UI setting - [Analyze URLs] - Max tabs limit at once open."
     },
     "openOneImageDirectly": {
-        "message": "直接打开单图",
+        "message": "直接打开单图链接",
         "description": "UI setting - [Analyze URLs] - Open a single Image link directly."
     },
     "blobUrlToLocal": {
-        "message": "Blob URLs convert to local images (very slow)",
+        "message": "Blob 网址转换为本地图片(非常慢)",
         "description": "UI setting - [Analyze URLs] - Blob URLs convert to local images."
     },
     "toolbarButtonAction": {
-        "message": "按钮动作: ",
+        "message": "工具栏按钮动作: ",
         "description": "UI setting - [Toolbar button] - Toolbar button action."
     },
     "keyboardShortcutAction": {
@@ -224,11 +224,11 @@
         "description": "UI setting - [keybord shortcut] - keyboard shortcut action."
     },
     "language":{        
-        "message": "多国语言: ",
+        "message": "语言: ",
         "description": "UI setting - [Interface] - Language "
     },
     "improveTrans":{        
-        "message": "译文改进",
+        "message": "改进译文",
         "description": "UI setting - [Interface] - Improve translation "
     }
 }
